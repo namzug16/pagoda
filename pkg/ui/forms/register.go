@@ -7,8 +7,7 @@ import (
 	"github.com/mikestefanello/pagoda/pkg/routenames"
 	"github.com/mikestefanello/pagoda/pkg/ui"
 	. "github.com/mikestefanello/pagoda/pkg/ui/components"
-	. "maragu.dev/gomponents"
-	. "maragu.dev/gomponents/html"
+	. "github.com/namzug16/gotags"
 )
 
 type Register struct {
@@ -19,12 +18,12 @@ type Register struct {
 	form.Submission
 }
 
-func (f *Register) Render(r *ui.Request) Node {
+func (f *Register) Render(r *ui.Request) HTML {
 	return Form(
-		ID("register"),
-		Method(http.MethodPost),
+		X.Id("register"),
+		X.Method(http.MethodPost),
 		HxBoost(),
-		Action(r.Path(routenames.RegisterSubmit)),
+		X.Action(r.Path(routenames.RegisterSubmit)),
 		InputField(InputFieldParams{
 			Form:      f,
 			FormField: "Name",
@@ -63,11 +62,11 @@ func (f *Register) Render(r *ui.Request) Node {
 		),
 		CSRF(r),
 		Div(
-			Class("text-center text-base-content/50 mt-4"),
-			Text("Already have an account? "),
+			X.Class("text-center text-base-content/50 mt-4"),
+			"Already have an account? ",
 			A(
-				Href(r.Path(routenames.Login)),
-				Text("Login"),
+				X.Href(r.Path(routenames.Login)),
+				"Login",
 			),
 		),
 	)

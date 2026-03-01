@@ -4,12 +4,11 @@ import (
 	"github.com/mikestefanello/pagoda/pkg/msg"
 	"github.com/mikestefanello/pagoda/pkg/ui"
 	"github.com/mikestefanello/pagoda/pkg/ui/icons"
-	. "maragu.dev/gomponents"
-	. "maragu.dev/gomponents/html"
+	. "github.com/namzug16/gotags"
 )
 
-func FlashMessages(r *ui.Request) Node {
-	var g Group
+func FlashMessages(r *ui.Request) HTML {
+	var g []HTML
 	var color Color
 
 	for _, typ := range []msg.Type{
@@ -34,10 +33,10 @@ func FlashMessages(r *ui.Request) Node {
 		}
 	}
 
-	return g
+	return Fragment(g...)
 }
 
-func Alert(color Color, text string) Node {
+func Alert(color Color, text string) HTML {
 	var class string
 
 	switch color {
@@ -52,15 +51,15 @@ func Alert(color Color, text string) Node {
 	}
 
 	return Div(
-		Role("alert"),
-		Class("alert mb-2 "+class),
-		Attr("x-data", "{show: true}"),
-		Attr("x-show", "show"),
+		X.Role("alert"),
+		X.Class("alert mb-2 "+class),
+		X.Attr("x-data", "{show: true}"),
+		X.Attr("x-show", "show"),
 		Span(
-			Attr("@click", "show = false"),
-			Class("cursor-pointer"),
+			X.Attr("@click", "show = false"),
+			X.Class("cursor-pointer"),
 			icons.XCircle(),
 		),
-		Span(Text(text)),
+		Span(text),
 	)
 }

@@ -1,6 +1,7 @@
 package forms
 
 import (
+	"fmt"
 	"net/http"
 	"net/url"
 
@@ -9,14 +10,13 @@ import (
 	"github.com/mikestefanello/pagoda/pkg/routenames"
 	"github.com/mikestefanello/pagoda/pkg/ui"
 	. "github.com/mikestefanello/pagoda/pkg/ui/components"
-	. "maragu.dev/gomponents"
-	. "maragu.dev/gomponents/html"
+	. "github.com/namzug16/gotags"
 )
 
-func AdminEntity(r *ui.Request, entityType admin.EntityType, values url.Values) Node {
+func AdminEntity(r *ui.Request, entityType admin.EntityType, values url.Values) HTML {
 	// TODO inline validation?
 	isNew := values == nil
-	nodes := make(Group, 0)
+	nodes := make([]HTML, 0)
 
 	getValue := func(name string) string {
 		// Values in the submitted form take precedence.
@@ -104,12 +104,12 @@ func AdminEntity(r *ui.Request, entityType admin.EntityType, values url.Values) 
 			}))
 
 		default:
-			nodes = append(nodes, P(Textf("%s not supported", f.Name)))
+			nodes = append(nodes, P(fmt.Sprintf("%s not supported", f.Name)))
 		}
 	}
 
 	return Form(
-		Method(http.MethodPost),
+		X.Method(http.MethodPost),
 		nodes,
 		ControlGroup(
 			FormButton(ColorPrimary, "Submit"),

@@ -7,8 +7,7 @@ import (
 	"github.com/mikestefanello/pagoda/pkg/routenames"
 	"github.com/mikestefanello/pagoda/pkg/ui"
 	. "github.com/mikestefanello/pagoda/pkg/ui/components"
-	. "maragu.dev/gomponents"
-	. "maragu.dev/gomponents/html"
+	. "github.com/namzug16/gotags"
 )
 
 type Login struct {
@@ -17,12 +16,12 @@ type Login struct {
 	form.Submission
 }
 
-func (f *Login) Render(r *ui.Request) Node {
+func (f *Login) Render(r *ui.Request) HTML {
 	return Form(
-		ID("login"),
-		Method(http.MethodPost),
+		X.Id("login"),
+		X.Method(http.MethodPost),
 		HxBoost(),
-		Action(r.Path(routenames.LoginSubmit)),
+		X.Action(r.Path(routenames.LoginSubmit)),
 		FlashMessages(r),
 		InputField(InputFieldParams{
 			Form:      f,
@@ -41,10 +40,10 @@ func (f *Login) Render(r *ui.Request) Node {
 			Placeholder: "******",
 		}),
 		Div(
-			Class("text-right text-primary mt-2"),
+			X.Class("text-right text-primary mt-2"),
 			A(
-				Href(r.Path(routenames.ForgotPassword)),
-				Text("Forgot password?"),
+				X.Href(r.Path(routenames.ForgotPassword)),
+				"Forgot password?",
 			),
 		),
 		ControlGroup(
@@ -53,11 +52,11 @@ func (f *Login) Render(r *ui.Request) Node {
 		),
 		CSRF(r),
 		Div(
-			Class("text-center text-base-content/50 mt-4"),
-			Text("Don't have an account? "),
+			X.Class("text-center text-base-content/50 mt-4"),
+			"Don't have an account? ",
 			A(
-				Href(r.Path(routenames.Register)),
-				Text("Register"),
+				X.Href(r.Path(routenames.Register)),
+				"Register",
 			),
 		),
 	)

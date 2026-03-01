@@ -1,8 +1,7 @@
 package models
 
 import (
-	. "maragu.dev/gomponents"
-	. "maragu.dev/gomponents/html"
+	. "github.com/namzug16/gotags"
 )
 
 type SearchResult struct {
@@ -10,12 +9,12 @@ type SearchResult struct {
 	URL   string
 }
 
-func (s *SearchResult) Render() Node {
+func (s *SearchResult) Render() HTML {
 	return Li(
-		Class("list-row"),
+		X.Class("list-row"),
 		A(
-			Href(s.URL),
-			Text(s.Title),
+			X.Href(s.URL),
+			s.Title,
 		),
 	)
 }

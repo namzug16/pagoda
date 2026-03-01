@@ -6,18 +6,17 @@ import (
 	"github.com/mikestefanello/pagoda/pkg/routenames"
 	"github.com/mikestefanello/pagoda/pkg/ui"
 	. "github.com/mikestefanello/pagoda/pkg/ui/components"
-	. "maragu.dev/gomponents"
-	. "maragu.dev/gomponents/html"
+	. "github.com/namzug16/gotags"
 )
 
 type File struct{}
 
-func (f File) Render(r *ui.Request) Node {
+func (f File) Render(r *ui.Request) HTML {
 	return Form(
-		ID("files"),
-		Method(http.MethodPost),
-		Action(r.Path(routenames.FilesSubmit)),
-		EncType("multipart/form-data"),
+		X.Id("files"),
+		X.Method(http.MethodPost),
+		X.Action(r.Path(routenames.FilesSubmit)),
+		X.Attr("enctype", "multipart/form-data"),
 		FileField(FileFieldParams{
 			Name:  "file",
 			Label: "Test file",

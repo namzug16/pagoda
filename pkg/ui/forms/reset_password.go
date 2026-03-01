@@ -6,8 +6,7 @@ import (
 	"github.com/mikestefanello/pagoda/pkg/form"
 	"github.com/mikestefanello/pagoda/pkg/ui"
 	. "github.com/mikestefanello/pagoda/pkg/ui/components"
-	. "maragu.dev/gomponents"
-	. "maragu.dev/gomponents/html"
+	. "github.com/namzug16/gotags"
 )
 
 type ResetPassword struct {
@@ -16,12 +15,12 @@ type ResetPassword struct {
 	form.Submission
 }
 
-func (f *ResetPassword) Render(r *ui.Request) Node {
+func (f *ResetPassword) Render(r *ui.Request) HTML {
 	return Form(
-		ID("reset-password"),
-		Method(http.MethodPost),
+		X.Id("reset-password"),
+		X.Method(http.MethodPost),
 		HxBoost(),
-		Action(r.CurrentPath),
+		X.Action(r.CurrentPath),
 		InputField(InputFieldParams{
 			Form:        f,
 			FormField:   "Password",

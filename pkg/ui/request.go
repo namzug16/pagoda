@@ -6,7 +6,7 @@ import (
 	"github.com/mikestefanello/pagoda/ent"
 	"github.com/mikestefanello/pagoda/pkg/context"
 	"github.com/mikestefanello/pagoda/pkg/htmx"
-	"maragu.dev/gomponents"
+	. "github.com/namzug16/gotags"
 )
 
 type (
@@ -60,7 +60,7 @@ type (
 	// This is handled as a callback to automatically support HTMX requests so that you can respond
 	// with only the page content and not the entire layout.
 	// See Request.Render().
-	LayoutFunc func(*Request, gomponents.Node) gomponents.Node
+	LayoutFunc func(*Request, HTML) HTML
 )
 
 // NewRequest generates a new Request using the Echo context of a given HTTP request.
@@ -105,10 +105,12 @@ func (r *Request) Url(routeName string, routeParams ...any) string {
 // Render renders a given node, optionally within a given layout based on the HTMX request headers.
 // If the request is being made by HTMX and is not boosted, this will automatically only render the node without
 // the layout, to support partial rendering.
-func (r *Request) Render(layout LayoutFunc, node gomponents.Node) error {
+func (r *Request) Render(layout LayoutFunc, node HTML) error {
 	if r.Htmx.Enabled && !r.Htmx.Boosted {
-		return node.Render(r.Context.Response().Writer)
+		_, err := r.Context.Response().Writer.Write([]byte(node.String()))
+		return err
 	}
 
-	return layout(r, node).Render(r.Context.Response().Writer)
+	_, err := r.Context.Response().Writer.Write([]byte(layout(r, node).String()))
+	return err
 }

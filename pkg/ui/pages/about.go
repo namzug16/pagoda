@@ -6,8 +6,7 @@ import (
 	"github.com/mikestefanello/pagoda/pkg/ui/cache"
 	. "github.com/mikestefanello/pagoda/pkg/ui/components"
 	"github.com/mikestefanello/pagoda/pkg/ui/layouts"
-	. "maragu.dev/gomponents"
-	. "maragu.dev/gomponents/html"
+	. "github.com/namzug16/gotags"
 )
 
 func About(ctx echo.Context) error {
@@ -16,10 +15,10 @@ func About(ctx echo.Context) error {
 	r.Metatags.Description = "Learn a little about what's included in Pagoda."
 
 	// The tabs are static, so we can render and cache them.
-	tabs := cache.SetIfNotExists("pages.about.Tabs", func() Node {
-		return Group{
-			H2(Text("Frontend")),
-			P(Text("The following incredible projects make developing advanced, modern frontends possible and simple without having to write a single line of JS or CSS. You can go extremely far without leaving the comfort of Go with server-side rendered HTML.")),
+	tabs := cache.SetIfNotExists("pages.about.Tabs", func() HTML {
+		return Fragment(
+			H2("Frontend"),
+			Text("The following incredible projects make developing advanced, modern frontends possible and simple without having to write a single line of JS or CSS. You can go extremely far without leaving the comfort of Go with server-side rendered HTML."),
 			Tabs(
 				[]Tab{
 					{
@@ -36,8 +35,8 @@ func About(ctx echo.Context) error {
 					},
 				},
 			),
-			H2(Text("Backend")),
-			P(Text("The following incredible projects provide the foundation of the Go backend. See the repository for a complete list of included projects.")),
+			H2("Backend"),
+			Text("The following incredible projects provide the foundation of the Go backend. See the repository for a complete list of included projects."),
 			Tabs(
 				[]Tab{
 					{
@@ -49,12 +48,12 @@ func About(ctx echo.Context) error {
 						Body:  "Simple, yet powerful ORM for modeling and querying data. Visit <a href=\"https://entgo.io/\">entgo.io</a> to learn more.",
 					},
 					{
-						Title: "Gomponents",
-						Body:  "HTML components written in pure Go. They render to HTML 5, and make it easy for you to build reusable components. Visit <a href=\"https://gomponents.com/\">gomponents.com</a> to learn more.",
+						Title: "Gotags",
+						Body:  "Type-safe, composable HTML components in pure Go. Visit <a href=\"https://github.com/namzug16/gotags\">github.com/namzug16/gotags</a> to learn more.",
 					},
 				},
 			),
-		}
+		)
 	})
 
 	return r.Render(layouts.Primary, tabs)

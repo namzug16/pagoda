@@ -9,10 +9,9 @@ import (
 	"github.com/mikestefanello/pagoda/pkg/context"
 	"github.com/mikestefanello/pagoda/pkg/htmx"
 	"github.com/mikestefanello/pagoda/pkg/tests"
+	. "github.com/namzug16/gotags"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"maragu.dev/gomponents"
-	"maragu.dev/gomponents/html"
 )
 
 func TestNewRequest(t *testing.T) {
@@ -65,10 +64,10 @@ func TestRequest_UrlPath(t *testing.T) {
 
 func TestRequest_Render(t *testing.T) {
 	e := echo.New()
-	layout := func(r *Request, n gomponents.Node) gomponents.Node {
-		return html.Div(html.Class("test"), n)
+	layout := func(r *Request, n HTML) HTML {
+		return Div(X.Class("test"), n)
 	}
-	node := html.P(gomponents.Text("hello"))
+	node := P("hello")
 
 	t.Run("no htmx", func(t *testing.T) {
 		ctx, rec := tests.NewContext(e, "/")

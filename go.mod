@@ -13,11 +13,11 @@ require (
 	github.com/mattn/go-sqlite3 v1.14.32
 	github.com/maypok86/otter v1.2.4
 	github.com/mikestefanello/backlite v0.6.0
+	github.com/namzug16/gotags v0.1.2
 	github.com/spf13/afero v1.15.0
 	github.com/spf13/viper v1.21.0
 	github.com/stretchr/testify v1.11.1
 	golang.org/x/crypto v0.46.0
-	maragu.dev/gomponents v1.2.0
 )
 
 require (

@@ -1,14 +1,14 @@
 package forms
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/mikestefanello/pagoda/pkg/form"
 	"github.com/mikestefanello/pagoda/pkg/routenames"
 	"github.com/mikestefanello/pagoda/pkg/ui"
 	. "github.com/mikestefanello/pagoda/pkg/ui/components"
-	. "maragu.dev/gomponents"
-	. "maragu.dev/gomponents/html"
+	. "github.com/namzug16/gotags"
 )
 
 type Contact struct {
@@ -18,11 +18,13 @@ type Contact struct {
 	form.Submission
 }
 
-func (f *Contact) Render(r *ui.Request) Node {
+func (f *Contact) Render(r *ui.Request) HTML {
+	fmt.Println("ALKSJDLKJASLKDJKLASJD")
+	fmt.Println(f.Email)
 	return Form(
-		ID("contact"),
-		Method(http.MethodPost),
-		Attr("hx-post", r.Path(routenames.ContactSubmit)),
+		X.Id("contact"),
+		X.Method(http.MethodPost),
+		X.Attr("hx-post", r.Path(routenames.ContactSubmit)),
 		InputField(InputFieldParams{
 			Form:      f,
 			FormField: "Email",

@@ -3,8 +3,7 @@ package components
 import (
 	"github.com/mikestefanello/pagoda/pkg/form"
 	"github.com/mikestefanello/pagoda/pkg/ui"
-	. "maragu.dev/gomponents"
-	. "maragu.dev/gomponents/html"
+	. "github.com/namzug16/gotags"
 )
 
 type (
@@ -58,137 +57,137 @@ type (
 	}
 )
 
-func ControlGroup(controls ...Node) Node {
+func ControlGroup(controls ...HTML) HTML {
 	return Div(
-		Class("mt-2 flex gap-2"),
-		Group(controls),
+		X.Class("mt-2 flex gap-2"),
+		Fragment(controls...),
 	)
 }
 
-func TextareaField(el TextareaFieldParams) Node {
-	return Fieldset(
+func TextareaField(el TextareaFieldParams) HTML {
+	return FieldSetComponent(
 		el.Label,
 		Textarea(
-			Class("textarea h-24 w-2/3 "+formFieldStatusClass(el.Form, el.FormField)),
-			ID(el.Name),
-			Name(el.Name),
-			Text(el.Value),
+			X.Class("textarea h-24 w-2/3 "+formFieldStatusClass(el.Form, el.FormField)),
+			X.Id(el.Name),
+			X.Name(el.Name),
+			el.Value,
 		),
-		Help(el.Help),
+		HelpText(el.Help),
 		formFieldErrors(el.Form, el.FormField),
 	)
 }
 
-func Radios(el OptionsParams) Node {
-	buttons := make(Group, len(el.Options))
+func Radios(el OptionsParams) HTML {
+	buttons := make([]HTML, len(el.Options))
 	for i, opt := range el.Options {
 		id := "radio-" + el.Name + "-" + opt.Value
 		buttons[i] = Div(
-			Class("mb-2"),
+			X.Class("mb-2"),
 			Input(
-				ID(id),
-				Type("radio"),
-				Name(el.Name),
-				Value(opt.Value),
-				Class("radio mr-1 "+formFieldStatusClass(el.Form, el.FormField)),
-				If(el.Value == opt.Value, Checked()),
+				X.Id(id),
+				X.Type("radio"),
+				X.Name(el.Name),
+				X.Value(opt.Value),
+				X.Class("radio mr-1 "+formFieldStatusClass(el.Form, el.FormField)),
+				If(el.Value == opt.Value, X.Checked()),
 			),
 			Label(
-				Text(opt.Label),
-				For(id),
+				opt.Label,
+				X.For(id),
 			),
 		)
 	}
 
-	return Fieldset(
+	return FieldSetComponent(
 		el.Label,
-		buttons,
+		Fragment(buttons...),
 		formFieldErrors(el.Form, el.FormField),
 	)
 }
 
-func SelectList(el OptionsParams) Node {
-	buttons := make(Group, len(el.Options))
+func SelectList(el OptionsParams) HTML {
+	buttons := make([]HTML, len(el.Options))
 	for i, opt := range el.Options {
 		buttons[i] = Option(
-			Text(opt.Label),
-			Value(opt.Value),
-			If(opt.Value == el.Value, Attr("selected")),
+			opt.Label,
+			X.Value(opt.Value),
+			If(opt.Value == el.Value, X.Attr("selected")),
 		)
 	}
 
-	return Fieldset(
+	return FieldSetComponent(
 		el.Label,
 		Select(
-			Class("select "+formFieldStatusClass(el.Form, el.FormField)),
-			Name(el.Name),
+			X.Class("select "+formFieldStatusClass(el.Form, el.FormField)),
+			X.Name(el.Name),
 			buttons,
 		),
-		Help(el.Help),
+		HelpText(el.Help),
 		formFieldErrors(el.Form, el.FormField),
 	)
 }
 
-func Checkbox(el CheckboxParams) Node {
+func Checkbox(el CheckboxParams) HTML {
 	return Div(
 		Label(
-			Class("label"),
+			X.Class("label"),
 			Input(
-				Class("checkbox"),
-				Type("checkbox"),
-				Name(el.Name),
-				If(el.Checked, Checked()),
-				Value("true"),
+				X.Class("checkbox"),
+				X.Type("checkbox"),
+				X.Name(el.Name),
+				If(el.Checked, X.Checked()),
+				X.Value("true"),
 			),
-			Text(" "+el.Label),
+			" "+el.Label,
 		),
 		formFieldErrors(el.Form, el.FormField),
 	)
 }
 
-func InputField(el InputFieldParams) Node {
-	return Fieldset(
+func InputField(el InputFieldParams) HTML {
+	return FieldSetComponent(
 		el.Label,
 		Input(
-			ID(el.Name),
-			Name(el.Name),
-			Type(el.InputType),
-			Class("input "+formFieldStatusClass(el.Form, el.FormField)),
-			Value(el.Value),
-			If(el.Placeholder != "", Placeholder(el.Placeholder)),
+			X.Id(el.Name),
+			X.Name(el.Name),
+			X.Type(el.InputType),
+			X.Class("input "+formFieldStatusClass(el.Form, el.FormField)),
+			X.Value(el.Value),
+			If(el.Placeholder != "", X.Placeholder(el.Placeholder)),
 		),
-		Help(el.Help),
+		HelpText(el.Help),
 		formFieldErrors(el.Form, el.FormField),
 	)
 }
 
-func Help(text string) Node {
+func HelpText(text string) HTML {
 	return If(len(text) > 0, Div(
-		Class("label"),
-		Text(text),
+		X.Class("label"),
+		text,
 	))
 }
 
-func Fieldset(label string, els ...Node) Node {
-	return FieldSet(
-		Class("fieldset"),
+func FieldSetComponent(label string, els ...HTML) HTML {
+	return Fieldset(
+		X.Class("fieldset"),
 		If(len(label) > 0, Legend(
-			Class("fieldset-legend"),
-			Text(label),
+			X.Class("fieldset-legend"),
+			label,
 		)),
-		Group(els),
+		Fragment(els...),
 	)
 }
 
-func FileField(el FileFieldParams) Node {
-	return Fieldset(
+func FileField(el FileFieldParams) HTML {
+	return FieldSetComponent(
 		el.Label,
 		Input(
-			Type("file"),
-			Class("file-input"),
-			Name(el.Name),
+			X.Type("file"),
+			X.Class("file-input"),
+			X.Name(el.Name),
 		),
-		Help(el.Help),
+		HelpText(el.Help),
 	)
 }
 
@@ -205,47 +204,47 @@ func formFieldStatusClass(fm form.Form, formField string) string {
 	}
 }
 
-func formFieldErrors(fm form.Form, field string) Node {
+func formFieldErrors(fm form.Form, field string) HTML {
 	if fm == nil {
-		return nil
+		return Fragment()
 	}
 
 	errs := fm.GetFieldErrors(field)
 	if len(errs) == 0 {
-		return nil
+		return Fragment()
 	}
 
-	g := make(Group, len(errs))
+	g := make([]HTML, len(errs))
 	for i, err := range errs {
 		g[i] = Div(
-			Class("text-error"),
-			Text(err),
+			X.Class("text-error"),
+			err,
 		)
 	}
 
-	return g
+	return Fragment(g...)
 }
 
-func CSRF(r *ui.Request) Node {
+func CSRF(r *ui.Request) HTML {
 	return Input(
-		Type("hidden"),
-		Name("csrf"),
-		Value(r.CSRF),
+		X.Type("hidden"),
+		X.Name("csrf"),
+		X.Value(r.CSRF),
 	)
 }
 
-func FormButton(color Color, label string) Node {
+func FormButton(color Color, label string) HTML {
 	return Button(
-		Class("btn "+buttonColor(color)),
-		Text(label),
+		X.Class("btn "+buttonColor(color)),
+		label,
 	)
 }
 
-func ButtonLink(color Color, href, label string) Node {
+func ButtonLink(color Color, href, label string) HTML {
 	return A(
-		Href(href),
-		Class("btn "+buttonColor(color)),
-		Text(label),
+		X.Href(href),
+		X.Class("btn "+buttonColor(color)),
+		label,
 	)
 }
 

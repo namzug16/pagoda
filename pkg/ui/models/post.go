@@ -6,8 +6,7 @@ import (
 	"github.com/mikestefanello/pagoda/pkg/pager"
 	"github.com/mikestefanello/pagoda/pkg/ui"
 	. "github.com/mikestefanello/pagoda/pkg/ui/components"
-	. "maragu.dev/gomponents"
-	. "maragu.dev/gomponents/html"
+	. "github.com/namzug16/gotags"
 )
 
 type (
@@ -22,45 +21,45 @@ type (
 	}
 )
 
-func (p *Posts) Render(path string) Node {
-	g := make(Group, len(p.Posts))
+func (p *Posts) Render(path string) HTML {
+	g := make([]HTML, len(p.Posts))
 	for i, post := range p.Posts {
 		g[i] = post.Render()
 	}
 
 	return Div(
-		ID("posts"),
+		X.Id("posts"),
 		Ul(
-			Class("list bg-base-100 rounded-box shadow-md not-prose"),
+			X.Class("list bg-base-100 rounded-box shadow-md not-prose"),
 			g,
 		),
-		Div(Class("mb-4")),
+		Div(X.Class("mb-4")),
 		Pager(p.Pager.Page, path, !p.Pager.IsEnd(), "#posts"),
 	)
 }
 
-func (p *Post) Render() Node {
+func (p *Post) Render() HTML {
 	return Li(
-		Class("list-row"),
+		X.Class("list-row"),
 		Div(
-			Class("text-4xl font-thin opacity-30 tabular-nums"),
-			Text(fmt.Sprintf("%02d", p.ID)),
+			X.Class("text-4xl font-thin opacity-30 tabular-nums"),
+			fmt.Sprintf("%02d", p.ID),
 		),
 		Div(
 			Img(
-				Class("size-10 rounded-box"),
-				Src(ui.StaticFile("gopher.png")),
-				Alt("Gopher"),
+				X.Class("size-10 rounded-box"),
+				X.Src(ui.StaticFile("gopher.png")),
+				X.Alt("Gopher"),
 			),
 		),
 		Div(
-			Class("list-col-grow"),
+			X.Class("list-col-grow"),
 			Div(
-				Text(p.Title),
+				p.Title,
 			),
 			Div(
-				Class("text-xs font-semibold opacity-60"),
-				Text(p.Body),
+				X.Class("text-xs font-semibold opacity-60"),
+				p.Body,
 			),
 		),
 	)

@@ -1,15 +1,14 @@
 package components
 
 import (
-	. "maragu.dev/gomponents"
-	. "maragu.dev/gomponents/html"
+	. "github.com/namzug16/gotags"
 )
 
 type (
 	CardParams struct {
 		Title  string
-		Body   Group
-		Footer Group
+		Body   []HTML
+		Footer []HTML
 		Color  Color
 		Size   Size
 	}
@@ -18,11 +17,11 @@ type (
 		Title       string
 		Value       string
 		Description string
-		Icon        Node
+		Icon        HTML
 	}
 )
 
-func Badge(color Color, text string) Node {
+func Badge(color Color, text string) HTML {
 	var class string
 
 	switch color {
@@ -33,19 +32,19 @@ func Badge(color Color, text string) Node {
 	}
 
 	return Div(
-		Class("badge "+class),
-		Text(text),
+		X.Class("badge "+class),
+		text,
 	)
 }
 
-func Divider(text string) Node {
+func Divider(text string) HTML {
 	return Div(
-		Class("divider"),
-		Text(text),
+		X.Class("divider"),
+		text,
 	)
 }
 
-func Card(params CardParams) Node {
+func Card(params CardParams) HTML {
 	var colorClass, sizeClass string
 
 	switch params.Color {
@@ -73,49 +72,49 @@ func Card(params CardParams) Node {
 	}
 
 	return Div(
-		Class("cards mb-2 "+colorClass+" "+sizeClass),
+		X.Class("cards mb-2 "+colorClass+" "+sizeClass),
 		Div(
-			Class("card-body"),
+			X.Class("card-body"),
 			If(len(params.Title) > 0, Span(
-				Class("card-title"),
-				Text(params.Title),
+				X.Class("card-title"),
+				params.Title,
 			)),
 			params.Body,
-			If(params.Footer != nil, Div(
-				Class("card-actions justify-end"),
-				params.Footer,
+			If(len(params.Footer) > 0, Div(
+				X.Class("card-actions justify-end"),
+				Fragment(params.Footer...),
 			)),
 		),
 	)
 }
 
-func Stats(stats ...Stat) Node {
-	g := make(Group, 0, len(stats))
+func Stats(stats ...Stat) HTML {
+	g := make([]HTML, 0, len(stats))
 	for _, stat := range stats {
 		g = append(g, Div(
-			Class("stat"),
-			Iff(stat.Icon != nil, func() Node {
-				return Div(
-					Class("stat-figure text-secondary"),
+			X.Class("stat"),
+			If(stat.Icon != nil,
+				Div(
+					X.Class("stat-figure text-secondary"),
 					stat.Icon,
-				)
-			}),
-			Div(
-				Class("stat-title"),
-				Text(stat.Title),
+				),
 			),
 			Div(
-				Class("stat-value"),
-				Text(stat.Value),
+				X.Class("stat-title"),
+				stat.Title,
 			),
 			Div(
-				Class("stat-desc"),
-				Text(stat.Description),
+				X.Class("stat-value"),
+				stat.Value,
+			),
+			Div(
+				X.Class("stat-desc"),
+				stat.Description,
 			),
 		))
 	}
 	return Div(
-		Class("stats shadow"),
+		X.Class("stats shadow"),
 		g,
 	)
 }

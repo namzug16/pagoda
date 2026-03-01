@@ -1,16 +1,14 @@
 package cache
 
 import (
-	"bytes"
 	"sync"
 
-	"github.com/mikestefanello/pagoda/pkg/log"
-	"maragu.dev/gomponents"
+	. "github.com/namzug16/gotags"
 )
 
 var (
 	// cache stores a cache of assembled components by key.
-	cache = make(map[string]gomponents.Node)
+	cache = make(map[string]HTML)
 
 	// mu handles concurrent access to the cache.
 	mu sync.RWMutex
@@ -34,23 +32,14 @@ var (
 // with the entire node cached, you still have to render the entire nested structure each time it's used, so that is why
 // this will render them upfront, then cache. If my few examples have a handful of static nodes, I assume most full
 // applications will have many, so maybe this is useful.
-func Set(key string, node gomponents.Node) {
-	buf := bytes.NewBuffer(nil)
-	if err := node.Render(buf); err != nil {
-		log.Default().Error("failed to cache ui node",
-			"error", err,
-			"key", key,
-		)
-		return
-	}
-
+func Set(key string, node HTML) {
 	mu.Lock()
 	defer mu.Unlock()
-	cache[key] = gomponents.Raw(buf.String())
+	cache[key] = Raw(node.String())
 }
 
 // Get returns the node cached under the provided key, if one exists.
-func Get(key string) gomponents.Node {
+func Get(key string) HTML {
 	mu.RLock()
 	defer mu.RUnlock()
 	return cache[key]
@@ -58,7 +47,7 @@ func Get(key string) gomponents.Node {
 
 // SetIfNotExists will return the cached Node for the key, if it exists, otherwise it will use the provided callback
 // function to generate the node and cache it.
-func SetIfNotExists(key string, gen func() gomponents.Node) gomponents.Node {
+func SetIfNotExists(key string, gen func() HTML) HTML {
 	if n := Get(key); n != nil {
 		return n
 	}

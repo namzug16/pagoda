@@ -7,14 +7,13 @@ import (
 	"github.com/mikestefanello/pagoda/pkg/routenames"
 	"github.com/mikestefanello/pagoda/pkg/ui"
 	"github.com/mikestefanello/pagoda/pkg/ui/layouts"
-	. "maragu.dev/gomponents"
-	. "maragu.dev/gomponents/html"
+	. "github.com/namzug16/gotags"
 )
 
 func Error(ctx echo.Context, code int) error {
 	r := ui.NewRequest(ctx)
 	r.Title = http.StatusText(code)
-	var body Node
+	var body HTML
 
 	switch code {
 	case http.StatusInternalServerError:
@@ -22,14 +21,14 @@ func Error(ctx echo.Context, code int) error {
 	case http.StatusForbidden, http.StatusUnauthorized:
 		body = Text("You are not authorized to view the requested page.")
 	case http.StatusNotFound:
-		body = Group{
+		body = Fragment(
 			Text("Click "),
 			A(
-				Href(r.Path(routenames.Home)),
-				Text("here"),
+				X.Href(r.Path(routenames.Home)),
+				"here",
 			),
 			Text(" to go return home."),
-		}
+		)
 	default:
 		body = Text("Something went wrong.")
 	}

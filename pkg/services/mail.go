@@ -1,12 +1,11 @@
 package services
 
 import (
-	"bytes"
 	"errors"
 
 	"github.com/mikestefanello/pagoda/config"
 	"github.com/mikestefanello/pagoda/pkg/log"
-	"maragu.dev/gomponents"
+	. "github.com/namzug16/gotags"
 
 	"github.com/labstack/echo/v4"
 )
@@ -28,7 +27,7 @@ type (
 		to        string
 		subject   string
 		body      string
-		component gomponents.Node
+		component HTML
 	}
 )
 
@@ -64,13 +63,7 @@ func (m *MailClient) send(email *mail, ctx echo.Context) error {
 	// Check if a component was supplied.
 	if email.component != nil {
 		// Render the component and use as the body.
-		// TODO pool the buffers?
-		buf := bytes.NewBuffer(nil)
-		if err := email.component.Render(buf); err != nil {
-			return err
-		}
-
-		email.body = buf.String()
+		email.body = email.component.String()
 	}
 
 	// Check if mail sending should be skipped.
@@ -116,7 +109,7 @@ func (m *mail) Body(body string) *mail {
 }
 
 // Component sets a renderable component to use as the body of the email.
-func (m *mail) Component(component gomponents.Node) *mail {
+func (m *mail) Component(component HTML) *mail {
 	m.component = component
 	return m
 }

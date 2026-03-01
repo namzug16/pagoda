@@ -7,156 +7,148 @@ import (
 	"github.com/mikestefanello/pagoda/pkg/ui/cache"
 	. "github.com/mikestefanello/pagoda/pkg/ui/components"
 	"github.com/mikestefanello/pagoda/pkg/ui/icons"
-	. "maragu.dev/gomponents"
-	. "maragu.dev/gomponents/html"
+	. "github.com/namzug16/gotags"
 )
 
-func Primary(r *ui.Request, content Node) Node {
-	return Doctype(
-		HTML(
-			Lang("en"),
-			Data("theme", "dark"),
-			Head(
-				Metatags(r),
-				CSS(),
-				JS(),
-			),
-			Body(
-				Div(
-					Class("drawer lg:drawer-open"),
-					Input(
-						ID("sidebar"),
-						Type("checkbox"),
-						Class("drawer-toggle"),
-					),
-					Div(
-						Class("drawer-content flex flex-col p-7 prose-base"),
-						If(len(r.Title) > 0, H1(Text(r.Title))),
-						FlashMessages(r),
-						content,
-						Label(
-							For("sidebar"),
-							Class("btn btn-primary drawer-button lg:hidden"),
-							Text("Open drawer"),
-						),
-					),
-					sidebarMenu(r),
+func Primary(r *ui.Request, content HTML) HTML {
+	return Doc(
+		Head(
+			Metatags(r),
+			CSS(),
+			JS(),
+		),
+		Body(
+			X.Attr("data-theme", "dark"),
+			Div(
+				X.Class("drawer lg:drawer-open"),
+				Input(
+					X.Id("sidebar"),
+					X.Type("checkbox"),
+					X.Class("drawer-toggle"),
 				),
-				searchModal(r),
-				HtmxListeners(r),
+				Div(
+					X.Class("drawer-content flex flex-col p-7 prose-base"),
+					If(len(r.Title) > 0, H1(r.Title)),
+					FlashMessages(r),
+					content,
+					Label(
+						X.For("sidebar"),
+						X.Class("btn btn-primary drawer-button lg:hidden"),
+						"Open drawer",
+					),
+				),
+				sidebarMenu(r),
 			),
+			searchModal(r),
+			HtmxListeners(r),
 		),
 	)
 }
 
-func search() Node {
-	return cache.SetIfNotExists("layout.search", func() Node {
+func search() HTML {
+	return cache.SetIfNotExists("layout.search", func() HTML {
 		return Div(
-			Class("ml-2"),
-			Attr("x-data", ""),
+			X.Class("ml-2"),
+			X.Attr("x-data", ""),
 			Label(
-				Class("input"),
+				X.Class("input"),
 				icons.MagnifyingGlass(),
 				Input(
-					Type("search"),
-					Class("grow"),
-					Placeholder("Search"),
-					Attr("@click", "search_modal.showModal();"),
+					X.Type("search"),
+					X.Class("grow"),
+					X.Placeholder("Search"),
+					X.Attr("@click", "search_modal.showModal();"),
 				),
 			),
-
 		)
 	})
 }
 
-func searchModal(r *ui.Request) Node {
-	return cache.SetIfNotExists("layout.searchModal", func() Node {
+func searchModal(r *ui.Request) HTML {
+	return cache.SetIfNotExists("layout.searchModal", func() HTML {
 		return Dialog(
-			ID("search_modal"),
-			Class("modal"),
+			X.Id("search_modal"),
+			X.Class("modal"),
 			Div(
-				Class("modal-box"),
+				X.Class("modal-box"),
 				Form(
-					Method("dialog"),
+					X.Method("dialog"),
 					Button(
-						Class("btn btn-sm btn-circle btn-ghost absolute right-2 top-2"),
-						Text("✕"),
+						X.Class("btn btn-sm btn-circle btn-ghost absolute right-2 top-2"),
+						"✕",
 					),
 				),
 				H3(
-					Class("text-lg font-bold mb-2"),
-					Text("Search"),
+					X.Class("text-lg font-bold mb-2"),
+					"Search",
 				),
 				Input(
-					Attr("hx-get", r.Path(routenames.Search)),
-					Attr("hx-trigger", "keyup changed delay:500ms"),
-					Attr("hx-target", "#results"),
-					Name("query"),
-					Class("input w-full"),
-					Type("search"),
-					Placeholder("Search..."),
+					X.Attr("hx-get", r.Path(routenames.Search)),
+					X.Attr("hx-trigger", "keyup changed delay:500ms"),
+					X.Attr("hx-target", "#results"),
+					X.Name("query"),
+					X.Class("input w-full"),
+					X.Type("search"),
+					X.Placeholder("Search..."),
 				),
 				Ul(
-					ID("results"),
-					Class("list"),
+					X.Id("results"),
+					X.Class("list"),
 				),
 			),
 			Form(
-				Method("dialog"),
-				Class("modal-backdrop"),
+				X.Method("dialog"),
+				X.Class("modal-backdrop"),
 				Button(
-					Text("close"),
+					"close",
 				),
 			),
 		)
 	})
 }
 
-func sidebarMenu(r *ui.Request) Node {
-	header := func(text string) Node {
+func sidebarMenu(r *ui.Request) HTML {
+	header := func(text string) HTML {
 		return Li(
-			Class("menu-title mt-3 uppercase"),
-			Span(Text(text)),
+			X.Class("menu-title mt-3 uppercase"),
+			Span(text),
 		)
 	}
 
-	adminSubMenu := func() Node {
-		entityTypeLinks := make(Group, len(admin.GetEntityTypes()))
-		for _, n := range admin.GetEntityTypes() {
-			entityTypeLinks = append(
-				entityTypeLinks,
-				MenuLink(r, icons.PencilSquare(), n.GetName(), routenames.AdminEntityList(n.GetName())),
-			)
+	adminSubMenu := func() HTML {
+		entityTypeLinks := make([]HTML, len(admin.GetEntityTypes()))
+		for i, n := range admin.GetEntityTypes() {
+			entityTypeLinks[i] = MenuLink(r, icons.PencilSquare(), n.GetName(), routenames.AdminEntityList(n.GetName()))
 		}
 
-		return Group{
+		return Fragment(
 			header("Entities"),
-			entityTypeLinks,
+			Fragment(entityTypeLinks...),
 			header("Monitoring"),
 			Li(
 				A(
 					icons.CircleStack(),
-					Href(r.Path(routenames.AdminTasks)),
-					Text("Tasks"),
-					Target("_blank"),
+					X.Href(r.Path(routenames.AdminTasks)),
+					"Tasks",
+					X.Target("_blank"),
 				),
 			),
-		}
+		)
 	}
 
 	return Div(
-		Class("drawer-side"),
+		X.Class("drawer-side"),
 		Label(
-			For("sidebar"),
-			Aria("label", "close sidebar"),
-			Class("drawer-overlay"),
+			X.For("sidebar"),
+			X.Attr("aria-label", "close sidebar"),
+			X.Class("drawer-overlay"),
 		),
 		Div(
-			Class("menu bg-base-200 text-base-content min-h-full w-80 p-4"),
+			X.Class("menu bg-base-200 text-base-content min-h-full w-80 p-4"),
 			Div(
-				Class("w-2/3 mx-auto mt-3 mb-10"),
+				X.Class("w-2/3 mx-auto mt-3 mb-10"),
 				Img(
-					Src(ui.StaticFile("logo.png")),
+					X.Src(ui.StaticFile("logo.png")),
 				),
 			),
 			search(),
@@ -174,7 +166,7 @@ func sidebarMenu(r *ui.Request) Node {
 				If(!r.IsAuth, MenuLink(r, icons.Enter(), "Login", routenames.Login)),
 				If(!r.IsAuth, MenuLink(r, icons.UserPlus(), "Register", routenames.Register)),
 				If(!r.IsAuth, MenuLink(r, icons.QuestionCircle(), "Forgot password", routenames.ForgotPasswordSubmit)),
-				Iff(r.IsAdmin, adminSubMenu),
+				If(r.IsAdmin, adminSubMenu()),
 			),
 		),
 	)

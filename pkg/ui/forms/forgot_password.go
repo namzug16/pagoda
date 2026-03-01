@@ -7,8 +7,7 @@ import (
 	"github.com/mikestefanello/pagoda/pkg/routenames"
 	"github.com/mikestefanello/pagoda/pkg/ui"
 	. "github.com/mikestefanello/pagoda/pkg/ui/components"
-	. "maragu.dev/gomponents"
-	. "maragu.dev/gomponents/html"
+	. "github.com/namzug16/gotags"
 )
 
 type ForgotPassword struct {
@@ -16,12 +15,12 @@ type ForgotPassword struct {
 	form.Submission
 }
 
-func (f *ForgotPassword) Render(r *ui.Request) Node {
+func (f *ForgotPassword) Render(r *ui.Request) HTML {
 	return Form(
-		ID("forgot-password"),
-		Method(http.MethodPost),
+		X.Id("forgot-password"),
+		X.Method(http.MethodPost),
 		HxBoost(),
-		Action(r.Path(routenames.ForgotPasswordSubmit)),
+		X.Action(r.Path(routenames.ForgotPasswordSubmit)),
 		InputField(InputFieldParams{
 			Form:      f,
 			FormField: "Email",

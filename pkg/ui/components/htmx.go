@@ -4,11 +4,10 @@ import (
 	"fmt"
 
 	"github.com/mikestefanello/pagoda/pkg/ui"
-	. "maragu.dev/gomponents"
-	. "maragu.dev/gomponents/html"
+	. "github.com/namzug16/gotags"
 )
 
-func HtmxListeners(r *ui.Request) Node {
+func HtmxListeners(r *ui.Request) HTML {
 	const htmxErr = `
 		document.body.addEventListener('htmx:beforeSwap', function(evt) {
 			if (evt.detail.xhr.status >= 400){
@@ -26,14 +25,12 @@ func HtmxListeners(r *ui.Request) Node {
 		})
 	`
 
-	return Group{
+	return Fragment(
 		Script(Raw(htmxErr)),
-		Iff(len(r.CSRF) > 0, func() Node {
-			return Script(Raw(fmt.Sprintf(htmxCSRF, r.CSRF)))
-		}),
-	}
+		If(len(r.CSRF) > 0, Script(Raw(fmt.Sprintf(htmxCSRF, r.CSRF)))),
+	)
 }
 
-func HxBoost() Node {
-	return Attr("hx-boost", "true")
+func HxBoost() HTML {
+	return X.Attr("hx-boost", "true")
 }

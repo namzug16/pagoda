@@ -8,8 +8,7 @@ import (
 	"github.com/mikestefanello/pagoda/pkg/routenames"
 	"github.com/mikestefanello/pagoda/pkg/ui"
 	. "github.com/mikestefanello/pagoda/pkg/ui/components"
-	. "maragu.dev/gomponents"
-	. "maragu.dev/gomponents/html"
+	. "github.com/namzug16/gotags"
 )
 
 type Task struct {
@@ -18,11 +17,11 @@ type Task struct {
 	form.Submission
 }
 
-func (f *Task) Render(r *ui.Request) Node {
+func (f *Task) Render(r *ui.Request) HTML {
 	return Form(
-		ID("task"),
-		Method(http.MethodPost),
-		Attr("hx-post", r.Path(routenames.TaskSubmit)),
+		X.Id("task"),
+		X.Method(http.MethodPost),
+		X.Attr("hx-post", r.Path(routenames.TaskSubmit)),
 		FlashMessages(r),
 		InputField(InputFieldParams{
 			Form:      f,

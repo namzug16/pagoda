@@ -11,8 +11,7 @@ import (
 	. "github.com/mikestefanello/pagoda/pkg/ui/components"
 	"github.com/mikestefanello/pagoda/pkg/ui/forms"
 	"github.com/mikestefanello/pagoda/pkg/ui/layouts"
-	. "maragu.dev/gomponents"
-	. "maragu.dev/gomponents/html"
+	. "github.com/namzug16/gotags"
 )
 
 func AdminEntityDelete(ctx echo.Context, entityType admin.EntityType) error {
@@ -47,21 +46,21 @@ func AdminEntityList(
 	r := ui.NewRequest(ctx)
 	r.Title = entityType.GetName()
 
-	genHeader := func() Node {
-		g := make(Group, 0, len(entityList.Columns)+2)
-		g = append(g, Th(Text("ID")))
+	genHeader := func() HTML {
+		g := make([]HTML, 0, len(entityList.Columns)+2)
+		g = append(g, Th("ID"))
 		for _, h := range entityList.Columns {
-			g = append(g, Th(Text(h)))
+			g = append(g, Th(h))
 		}
 		g = append(g, Th())
-		return g
+		return Fragment(g...)
 	}
 
-	genRow := func(row admin.EntityValues) Node {
-		g := make(Group, 0, len(row.Values)+3)
-		g = append(g, Th(Text(fmt.Sprint(row.ID))))
+	genRow := func(row admin.EntityValues) HTML {
+		g := make([]HTML, 0, len(row.Values)+3)
+		g = append(g, Th(fmt.Sprint(row.ID)))
 		for _, h := range row.Values {
-			g = append(g, Td(Text(h)))
+			g = append(g, Td(h))
 		}
 		g = append(g,
 			Td(
@@ -70,7 +69,7 @@ func AdminEntityList(
 					r.Path(routenames.AdminEntityEdit(entityType.GetName()), row.ID),
 					"Edit",
 				),
-				Span(Class("mr-2")),
+				Span(X.Class("mr-2")),
 				ButtonLink(
 					ColorError,
 					r.Path(routenames.AdminEntityDelete(entityType.GetName()), row.ID),
@@ -78,20 +77,20 @@ func AdminEntityList(
 				),
 			),
 		)
-		return g
+		return Fragment(g...)
 	}
 
-	genRows := func() Node {
-		g := make(Group, 0, len(entityList.Entities))
+	genRows := func() HTML {
+		g := make([]HTML, 0, len(entityList.Entities))
 		for _, row := range entityList.Entities {
 			g = append(g, Tr(genRow(row)))
 		}
-		return g
+		return Fragment(g...)
 	}
 
-	return r.Render(layouts.Primary, Group{
+	return r.Render(layouts.Primary, Fragment(
 		Div(
-			Class("form-control mb-2"),
+			X.Class("form-control mb-2"),
 			ButtonLink(
 				ColorAccent,
 				r.Path(routenames.AdminEntityAdd(entityType.GetName())),
@@ -99,11 +98,11 @@ func AdminEntityList(
 			),
 		),
 		Table(
-			Class("table table-zebra mb-2"),
-			THead(
+			X.Class("table table-zebra mb-2"),
+			Thead(
 				Tr(genHeader()),
 			),
-			TBody(genRows()),
+			Tbody(genRows()),
 		),
 		Pager(
 			entityList.Page,
@@ -111,5 +110,5 @@ func AdminEntityList(
 			entityList.HasNextPage,
 			"",
 		),
-	})
+	))
 }

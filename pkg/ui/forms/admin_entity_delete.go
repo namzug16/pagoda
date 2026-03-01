@@ -1,21 +1,21 @@
 package forms
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/mikestefanello/pagoda/ent/admin"
 	"github.com/mikestefanello/pagoda/pkg/routenames"
 	"github.com/mikestefanello/pagoda/pkg/ui"
 	. "github.com/mikestefanello/pagoda/pkg/ui/components"
-	. "maragu.dev/gomponents"
-	. "maragu.dev/gomponents/html"
+	. "github.com/namzug16/gotags"
 )
 
-func AdminEntityDelete(r *ui.Request, entityType admin.EntityType) Node {
+func AdminEntityDelete(r *ui.Request, entityType admin.EntityType) HTML {
 	return Form(
-		Method(http.MethodPost),
+		X.Method(http.MethodPost),
 		P(
-			Textf("Are you sure you want to delete this %s?", entityType.GetName()),
+			fmt.Sprintf("Are you sure you want to delete this %s?", entityType.GetName()),
 		),
 		ControlGroup(
 			FormButton(ColorError, "Delete"),

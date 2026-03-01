@@ -7,47 +7,44 @@ import (
 	"github.com/mikestefanello/pagoda/pkg/ui/forms"
 	"github.com/mikestefanello/pagoda/pkg/ui/layouts"
 	"github.com/mikestefanello/pagoda/pkg/ui/models"
-	. "maragu.dev/gomponents"
-	. "maragu.dev/gomponents/html"
+	. "github.com/namzug16/gotags"
 )
 
 func UploadFile(ctx echo.Context, files []*models.File) error {
 	r := ui.NewRequest(ctx)
 	r.Title = "Upload a file"
 
-	fileList := make(Group, len(files))
+	fileList := make([]HTML, len(files))
 	for i, file := range files {
 		fileList[i] = file.Render()
 	}
 
-	n := Group{
-		P(Text("This is a very basic example of how to handle file uploads. Files uploaded will be saved to the directory specified in your configuration.")),
+	n := Fragment(
+		Text("This is a very basic example of how to handle file uploads. Files uploaded will be saved to the directory specified in your configuration."),
 		Divider(""),
 		forms.File{}.Render(r),
 		Divider(""),
 		H3(
-			Class("title"),
-			Text("Uploaded files"),
+			X.Class("title"),
+			"Uploaded files",
 		),
 		Card(CardParams{
-			Body:  Group{Text("Below are all files in the configured upload directory.")},
+			Body:  []HTML{Text("Below are all files in the configured upload directory.")},
 			Color: ColorWarning,
 			Size:  SizeMedium,
 		}),
 		Table(
-			Class("table"),
-			THead(
+			X.Class("table"),
+			Thead(
 				Tr(
-					Th(Text("Filename")),
-					Th(Text("Size")),
-					Th(Text("Modified on")),
+					Th("Filename"),
+					Th("Size"),
+					Th("Modified on"),
 				),
 			),
-			TBody(
-				fileList,
-			),
+			Tbody(fileList),
 		),
-	}
+	)
 
 	return r.Render(layouts.Primary, n)
 }

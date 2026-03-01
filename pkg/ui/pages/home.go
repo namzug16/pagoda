@@ -8,8 +8,7 @@ import (
 	"github.com/mikestefanello/pagoda/pkg/ui/icons"
 	"github.com/mikestefanello/pagoda/pkg/ui/layouts"
 	"github.com/mikestefanello/pagoda/pkg/ui/models"
-	. "maragu.dev/gomponents"
-	. "maragu.dev/gomponents/html"
+	. "github.com/namzug16/gotags"
 )
 
 func Home(ctx echo.Context, posts *models.Posts) error {
@@ -34,8 +33,8 @@ func Home(ctx echo.Context, posts *models.Posts) error {
 	//    You could have a separate route that is only for fetching posts while paging, and that would render only
 	//    that partial HTML, which HTMX would then use to inject in to this page.
 
-	headerMsg := func() Node {
-		return Group{
+	headerMsg := func() HTML {
+		return Fragment(
 			Stats(
 				Stat{
 					Title: "User name",
@@ -66,17 +65,17 @@ func Home(ctx echo.Context, posts *models.Posts) error {
 					Icon:        icons.Star(),
 				},
 			),
-			H2(Text("Recent posts")),
-			Span(Text("Below is an example of both paging and AJAX fetching using HTMX")),
-		}
+			H2("Recent posts"),
+			Text("Below is an example of both paging and AJAX fetching using HTMX"),
+		)
 	}
 
-	cards := func() Node {
+	cards := func() HTML {
 		return Div(
-			Class("flex w-full gap-2 mt-5"),
+			X.Class("flex w-full gap-2 mt-5"),
 			Card(CardParams{
 				Title: "Serving files",
-				Body: Group{
+				Body: []HTML{
 					Text("In the example posts above, check how the file URL contains a cache-buster query parameter which changes only when the app is restarted. "),
 					Text("Static files also contain cache-control headers which are configured via middleware."),
 				},
@@ -85,10 +84,10 @@ func Home(ctx echo.Context, posts *models.Posts) error {
 			}),
 			Card(CardParams{
 				Title: "Documentation",
-				Body: Group{
+				Body: []HTML{
 					Text("Have you read through the entire documentation? If not, you may be missing functionality or have questions. "),
 				},
-				Footer: Group{
+				Footer: []HTML{
 					ButtonLink(ColorNeutral, "https://github.com/mikestefanello/pagoda?tab=readme-ov-file#table-of-contents", "Learn more"),
 				},
 				Color: ColorNeutral,
@@ -97,11 +96,11 @@ func Home(ctx echo.Context, posts *models.Posts) error {
 		)
 	}
 
-	g := Group{
-		Iff(r.Htmx.Target != "posts", headerMsg),
+	g := Fragment(
+		If(r.Htmx.Target != "posts", headerMsg()),
 		posts.Render(r.Path(routenames.Home)),
-		Iff(r.Htmx.Target != "posts", cards),
-	}
+		If(r.Htmx.Target != "posts", cards()),
+	)
 
 	return r.Render(layouts.Primary, g)
 }

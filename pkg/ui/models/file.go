@@ -3,8 +3,7 @@ package models
 import (
 	"fmt"
 
-	. "maragu.dev/gomponents"
-	. "maragu.dev/gomponents/html"
+	. "github.com/namzug16/gotags"
 )
 
 type File struct {
@@ -13,10 +12,10 @@ type File struct {
 	Modified string
 }
 
-func (f *File) Render() Node {
+func (f *File) Render() HTML {
 	return Tr(
-		Td(Text(f.Name)),
-		Td(Text(fmt.Sprint(f.Size))),
-		Td(Text(f.Modified)),
+		Td(f.Name),
+		Td(fmt.Sprint(f.Size)),
+		Td(f.Modified),
 	)
 }
