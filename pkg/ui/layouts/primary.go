@@ -19,25 +19,13 @@ func Primary(r *ui.Request, content HTML) HTML {
 		),
 		Body(
 			X.Attr("data-theme", "dark"),
-			Div(
-				X.Class("drawer lg:drawer-open"),
-				Input(
-					X.Id("sidebar"),
-					X.Type("checkbox"),
-					X.Class("drawer-toggle"),
-				),
-				Div(
-					X.Class("drawer-content flex flex-col p-7 prose-base"),
-					If(len(r.Title) > 0, H1(r.Title)),
-					FlashMessages(r),
-					content,
-					Label(
-						X.For("sidebar"),
-						X.Class("btn btn-primary drawer-button lg:hidden"),
-						"Open drawer",
-					),
-				),
-				sidebarMenu(r),
+			sidebarMenu(r),
+			Main(
+				X.Id("content"),
+				X.Class("flex flex-col p-7 prose-base"),
+				If(len(r.Title) > 0, H1(r.Title)),
+				FlashMessages(r),
+				content,
 			),
 			searchModal(r),
 			HtmxListeners(r),
@@ -108,66 +96,172 @@ func searchModal(r *ui.Request) HTML {
 }
 
 func sidebarMenu(r *ui.Request) HTML {
-	header := func(text string) HTML {
-		return Li(
-			X.Class("menu-title mt-3 uppercase"),
-			Span(text),
-		)
-	}
-
 	adminSubMenu := func() HTML {
 		entityTypeLinks := make([]HTML, len(admin.GetEntityTypes()))
 		for i, n := range admin.GetEntityTypes() {
-			entityTypeLinks[i] = MenuLink(r, icons.PencilSquare(), n.GetName(), routenames.AdminEntityList(n.GetName()))
+			entityTypeLinks[i] = Li(
+				A(
+					X.Href(r.Path(routenames.AdminEntityList(n.GetName()))),
+					Span(n.GetName()),
+				),
+			)
 		}
 
 		return Fragment(
-			header("Entities"),
-			Fragment(entityTypeLinks...),
-			header("Monitoring"),
 			Li(
 				A(
-					icons.CircleStack(),
 					X.Href(r.Path(routenames.AdminTasks)),
-					"Tasks",
+					Span("Tasks"),
 					X.Target("_blank"),
 				),
+			),
+			Fragment(entityTypeLinks...),
+		)
+	}
+
+	group := func(id, title string, items []HTML) HTML {
+		return Div(
+			X.Role("group"),
+			X.Attr("aria-labelledby", id),
+			H3(
+				X.Id(id),
+				title,
+			),
+			Ul(
+				HxBoost(),
+				Fragment(items...),
 			),
 		)
 	}
 
-	return Div(
-		X.Class("drawer-side"),
-		Label(
-			X.For("sidebar"),
-			X.Attr("aria-label", "close sidebar"),
-			X.Class("drawer-overlay"),
+	generalItems := []HTML{
+		Li(
+			A(
+				X.Href(r.Path(routenames.Home)),
+				Span("Dashboard"),
+			),
 		),
-		Div(
-			X.Class("menu bg-base-200 text-base-content min-h-full w-80 p-4"),
-			Div(
-				X.Class("w-2/3 mx-auto mt-3 mb-10"),
-				Img(
-					X.Src(ui.StaticFile("logo.png")),
+		Li(
+			A(
+				X.Href(r.Path(routenames.About)),
+				Span("About"),
+			),
+		),
+		Li(
+			A(
+				X.Href(r.Path(routenames.Contact)),
+				Span("Contact"),
+			),
+		),
+		Li(
+			A(
+				X.Href(r.Path(routenames.Cache)),
+				Span("Cache"),
+			),
+		),
+		Li(
+			A(
+				X.Href(r.Path(routenames.Task)),
+				Span("Task"),
+			),
+		),
+		Li(
+			A(
+				X.Href(r.Path(routenames.Files)),
+				Span("Files"),
+			),
+		),
+	}
+
+	accountItems := []HTML{}
+	if r.IsAuth {
+		accountItems = append(accountItems, Li(
+			A(
+				X.Href(r.Path(routenames.Logout)),
+				Span("Logout"),
+			),
+		))
+	} else {
+		accountItems = append(accountItems, Li(
+			A(
+				X.Href(r.Path(routenames.Login)),
+				Span("Login"),
+			),
+		))
+		accountItems = append(accountItems, Li(
+			A(
+				X.Href(r.Path(routenames.Register)),
+				Span("Register"),
+			),
+		))
+		accountItems = append(accountItems, Li(
+			A(
+				X.Href(r.Path(routenames.ForgotPasswordSubmit)),
+				Span("Forgot password"),
+			),
+		))
+	}
+
+	return Aside(
+		X.Class("sidebar"),
+		X.Attr("data-side", "left"),
+		X.Attr("aria-hidden", "false"),
+		Nav(
+			X.Attr("aria-label", "Sidebar navigation"),
+			Header(
+				A(
+					X.Href("/"),
+					X.Class("btn-ghost p-2 h-12 w-full justify-start"),
+					Div(
+						X.Class("bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg"),
+						Img(
+							X.Src(ui.StaticFile("logo.png")),
+							X.Alt("Logo"),
+						),
+					),
+					Div(
+						X.Class("grid flex-1 text-left text-sm leading-tight"),
+						Span(X.Class("truncate font-medium"), Text("Pagoda")),
+						Span(X.Class("truncate text-xs"), Text("v0.3.11")),
+					),
 				),
 			),
-			search(),
-			Ul(
-				HxBoost(),
-				header("General"),
-				MenuLink(r, icons.Home(), "Dashboard", routenames.Home),
-				MenuLink(r, icons.Info(), "About", routenames.About),
-				MenuLink(r, icons.Mail(), "Contact", routenames.Contact),
-				MenuLink(r, icons.Archive(), "Cache", routenames.Cache),
-				MenuLink(r, icons.CircleStack(), "Task", routenames.Task),
-				MenuLink(r, icons.Document(), "Files", routenames.Files),
-				header("Account"),
-				If(r.IsAuth, MenuLink(r, icons.Exit(), "Logout", routenames.Logout)),
-				If(!r.IsAuth, MenuLink(r, icons.Enter(), "Login", routenames.Login)),
-				If(!r.IsAuth, MenuLink(r, icons.UserPlus(), "Register", routenames.Register)),
-				If(!r.IsAuth, MenuLink(r, icons.QuestionCircle(), "Forgot password", routenames.ForgotPasswordSubmit)),
-				If(r.IsAdmin, adminSubMenu()),
+			Section(
+				X.Class("scrollbar"),
+				group("group-label-general", "Getting started", generalItems),
+				If(r.IsAdmin,
+					group("group-label-admin", "Admin",
+						[]HTML{
+							Li(
+								Details(
+									X.Id("submenu-admin"),
+									Summary(
+										X.Attr("aria-controls", "submenu-admin-content"),
+										"Admin",
+									),
+									Ul(
+										X.Id("submenu-admin-content"),
+										adminSubMenu(),
+									),
+								),
+							),
+						},
+					),
+				),
+				group("group-label-account", "Account", accountItems),
 			),
 		),
 	)
 }
+
+// <header>
+// <a href="/" class="btn-ghost p-2 h-12 w-full justify-start">
+//   <div class="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
+//     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" class="h-4 w-4"><rect width="256" height="256" fill="none"></rect><line x1="208" y1="128" x2="128" y2="208" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"></line><line x1="192" y1="40" x2="40" y2="192" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"></line></svg>
+//   </div>
+//   <div class="grid flex-1 text-left text-sm leading-tight">
+//     <span class="truncate font-medium">Basecoat</span>
+//     <span class="truncate text-xs">v0.3.11</span>
+//   </div>
+// </a>
+// </header>

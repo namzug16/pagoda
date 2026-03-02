@@ -7,19 +7,28 @@ import (
 	. "github.com/namzug16/gotags"
 )
 
-func JS() HTML {
-	return Fragment(
+func JS() []HTML {
+	return []HTML{
 		Script(X.Src("https://unpkg.com/htmx.org@2.0.0/dist/htmx.min.js"), X.Defer()),
 		Script(X.Src("https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"), X.Defer()),
-	)
+		//FIX: should vendor them?
+		Script(X.Src("https://cdn.jsdelivr.net/npm/basecoat-css@0.3.11/dist/js/all.min.js"), X.Defer()),
+	}
 }
 
-func CSS() HTML {
-	return Link(
-		X.Href(ui.StaticFile("main.css")),
-		X.Rel("stylesheet"),
-		X.Type("text/css"),
-	)
+func CSS() []HTML {
+	return []HTML{
+		Link(
+			X.Href("https://cdn.jsdelivr.net/npm/basecoat-css@0.3.11/dist/basecoat.cdn.min.css"),
+			X.Rel("stylesheet"),
+			X.Type("text/css"),
+		),
+		Link(
+			X.Href(ui.StaticFile("main.css")),
+			X.Rel("stylesheet"),
+			X.Type("text/css"),
+		),
+	}
 }
 
 func Metatags(r *ui.Request) HTML {

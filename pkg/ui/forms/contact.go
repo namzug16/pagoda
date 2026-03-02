@@ -1,7 +1,6 @@
 package forms
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/mikestefanello/pagoda/pkg/form"
@@ -19,8 +18,6 @@ type Contact struct {
 }
 
 func (f *Contact) Render(r *ui.Request) HTML {
-	fmt.Println("ALKSJDLKJASLKDJKLASJD")
-	fmt.Println(f.Email)
 	return Form(
 		X.Id("contact"),
 		X.Method(http.MethodPost),
