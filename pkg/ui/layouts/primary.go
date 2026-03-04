@@ -7,6 +7,7 @@ import (
 	"github.com/mikestefanello/pagoda/pkg/ui/cache"
 	. "github.com/mikestefanello/pagoda/pkg/ui/components"
 	"github.com/mikestefanello/pagoda/pkg/ui/icons"
+	"github.com/mikestefanello/pagoda/pkg/ui/lucide"
 	. "github.com/namzug16/gotags"
 )
 
@@ -102,6 +103,7 @@ func sidebarMenu(r *ui.Request) HTML {
 			entityTypeLinks[i] = Li(
 				A(
 					X.Href(r.Path(routenames.AdminEntityList(n.GetName()))),
+					lucide.Database(),
 					Span(n.GetName()),
 				),
 			)
@@ -111,6 +113,7 @@ func sidebarMenu(r *ui.Request) HTML {
 			Li(
 				A(
 					X.Href(r.Path(routenames.AdminTasks)),
+					lucide.ListTodo(),
 					Span("Tasks"),
 					X.Target("_blank"),
 				),
@@ -138,42 +141,49 @@ func sidebarMenu(r *ui.Request) HTML {
 		Li(
 			A(
 				X.Href(r.Path(routenames.Home)),
+				icons.Home(),
 				Span("Dashboard"),
 			),
 		),
 		Li(
 			A(
 				X.Href(r.Path(routenames.KitchenSink)),
+				lucide.Blocks(),
 				Span("Kitchen Sink"),
 			),
 		),
 		Li(
 			A(
 				X.Href(r.Path(routenames.About)),
+				icons.Info(),
 				Span("About"),
 			),
 		),
 		Li(
 			A(
 				X.Href(r.Path(routenames.Contact)),
+				icons.Mail(),
 				Span("Contact"),
 			),
 		),
 		Li(
 			A(
 				X.Href(r.Path(routenames.Cache)),
+				icons.CircleStack(),
 				Span("Cache"),
 			),
 		),
 		Li(
 			A(
 				X.Href(r.Path(routenames.Task)),
+				lucide.ListTodo(),
 				Span("Task"),
 			),
 		),
 		Li(
 			A(
 				X.Href(r.Path(routenames.Files)),
+				lucide.Folder(),
 				Span("Files"),
 			),
 		),
@@ -184,6 +194,7 @@ func sidebarMenu(r *ui.Request) HTML {
 		accountItems = append(accountItems, Li(
 			A(
 				X.Href(r.Path(routenames.Logout)),
+				icons.Exit(),
 				Span("Logout"),
 			),
 		))
@@ -191,18 +202,21 @@ func sidebarMenu(r *ui.Request) HTML {
 		accountItems = append(accountItems, Li(
 			A(
 				X.Href(r.Path(routenames.Login)),
+				icons.Enter(),
 				Span("Login"),
 			),
 		))
 		accountItems = append(accountItems, Li(
 			A(
 				X.Href(r.Path(routenames.Register)),
+				icons.UserPlus(),
 				Span("Register"),
 			),
 		))
 		accountItems = append(accountItems, Li(
 			A(
 				X.Href(r.Path(routenames.ForgotPasswordSubmit)),
+				icons.LockClosed(),
 				Span("Forgot password"),
 			),
 		))
@@ -243,6 +257,7 @@ func sidebarMenu(r *ui.Request) HTML {
 									X.Id("submenu-admin"),
 									Summary(
 										X.Attr("aria-controls", "submenu-admin-content"),
+										lucide.Shield(),
 										"Admin",
 									),
 									Ul(
