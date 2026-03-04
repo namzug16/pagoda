@@ -3,7 +3,6 @@ package main
 import (
 	"archive/zip"
 	"bytes"
-	"encoding/json"
 	"fmt"
 	"io"
 	"net/http"
@@ -18,12 +17,6 @@ const (
 	tempDir             = "./tmp"
 	iconsOutputFilePath = "./pkg/ui/lucide/lucide.go"
 )
-
-type iconJSON struct {
-	Aliases []struct {
-		Deprecated bool `json:"deprecated"`
-	} `json:"aliases"`
-}
 
 func main() {
 	if err := downloadAndExtract(); err != nil {
@@ -107,27 +100,11 @@ func generateFunctions() ([]string, error) {
 	}
 
 	for _, entry := range entries {
-		if !strings.HasSuffix(entry.Name(), ".json") {
+		if !strings.HasSuffix(entry.Name(), ".svg") {
 			continue
 		}
 
-		jsonPath := filepath.Join(tempDir, entry.Name())
-		data, err := os.ReadFile(jsonPath)
-		if err != nil {
-			continue
-		}
-
-		var icon iconJSON
-		if err := json.Unmarshal(data, &icon); err != nil {
-			continue
-		}
-
-		//FIX: we will not be checking anymore if the json has deprecated or no
-		// if len(icon.Aliases) > 0 && icon.Aliases[0].Deprecated {
-		// 	continue
-		// }
-
-		svgPath := strings.TrimSuffix(jsonPath, ".json") + ".svg"
+		svgPath := filepath.Join(tempDir, entry.Name())
 		svgData, err := os.ReadFile(svgPath)
 		if err != nil {
 			continue
@@ -139,8 +116,8 @@ func generateFunctions() ([]string, error) {
 			continue
 		}
 
-		name := filepath.Base(jsonPath)
-		name = strings.TrimSuffix(name, ".json")
+		name := filepath.Base(svgPath)
+		name = strings.TrimSuffix(name, ".svg")
 		funcName := toCamelCase(name)
 
 		functions = append(functions, fmt.Sprintf(`func %s(extraContent ...html.HTML) html.HTML {
