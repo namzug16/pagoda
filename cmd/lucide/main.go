@@ -122,9 +122,10 @@ func generateFunctions() ([]string, error) {
 			continue
 		}
 
-		if len(icon.Aliases) > 0 && icon.Aliases[0].Deprecated {
-			continue
-		}
+		//FIX: we will not be checking anymore if the json has deprecated or no
+		// if len(icon.Aliases) > 0 && icon.Aliases[0].Deprecated {
+		// 	continue
+		// }
 
 		svgPath := strings.TrimSuffix(jsonPath, ".json") + ".svg"
 		svgData, err := os.ReadFile(svgPath)

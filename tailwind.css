@@ -1,4 +1,4 @@
 @import "tailwindcss" source(none);
-/* @plugin "@tailwindcss/typography"; */
+@import "./basecoat.css";
 @source "./pkg/ui/**/*.{go}";
 

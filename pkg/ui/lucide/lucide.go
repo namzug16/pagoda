@@ -40,8 +40,17 @@ func AirVent(extraContent ...html.HTML) html.HTML {
 func Airplay(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1\" />\n  <path d=\"m12 15 5 6H7Z\" />\n"))
 }
+func AlarmClockCheck(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"13\" r=\"8\" />\n  <path d=\"M5 3 2 6\" />\n  <path d=\"m22 6-3-3\" />\n  <path d=\"M6.38 18.7 4 21\" />\n  <path d=\"M17.64 18.67 20 21\" />\n  <path d=\"m9 13 2 2 4-4\" />\n"))
+}
+func AlarmClockMinus(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"13\" r=\"8\" />\n  <path d=\"M5 3 2 6\" />\n  <path d=\"m22 6-3-3\" />\n  <path d=\"M6.38 18.7 4 21\" />\n  <path d=\"M17.64 18.67 20 21\" />\n  <path d=\"M9 13h6\" />\n"))
+}
 func AlarmClockOff(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M6.87 6.87a8 8 0 1 0 11.26 11.26\" />\n  <path d=\"M19.9 14.25a8 8 0 0 0-9.15-9.15\" />\n  <path d=\"m22 6-3-3\" />\n  <path d=\"M6.26 18.67 4 21\" />\n  <path d=\"m2 2 20 20\" />\n  <path d=\"M4 4 2 6\" />\n"))
+}
+func AlarmClockPlus(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"13\" r=\"8\" />\n  <path d=\"M5 3 2 6\" />\n  <path d=\"m22 6-3-3\" />\n  <path d=\"M6.38 18.7 4 21\" />\n  <path d=\"M17.64 18.67 20 21\" />\n  <path d=\"M12 10v6\" />\n  <path d=\"M9 13h6\" />\n"))
 }
 func AlarmClock(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"13\" r=\"8\" />\n  <path d=\"M12 9v4l2 2\" />\n  <path d=\"M5 3 2 6\" />\n  <path d=\"m22 6-3-3\" />\n  <path d=\"M6.38 18.7 4 21\" />\n  <path d=\"M17.64 18.67 20 21\" />\n"))
@@ -193,6 +202,15 @@ func ArrowBigUpDash(extraContent ...html.HTML) html.HTML {
 func ArrowBigUp(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M9 13a1 1 0 0 0-1-1H5.061a1 1 0 0 1-.75-1.811l6.836-6.835a1.207 1.207 0 0 1 1.707 0l6.835 6.835a1 1 0 0 1-.75 1.811H16a1 1 0 0 0-1 1v6a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1z\" />\n"))
 }
+func ArrowDown01(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"m3 16 4 4 4-4\" />\n  <path d=\"M7 20V4\" />\n  <rect x=\"15\" y=\"4\" width=\"4\" height=\"6\" ry=\"2\" />\n  <path d=\"M17 20v-6h-2\" />\n  <path d=\"M15 20h4\" />\n"))
+}
+func ArrowDown10(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"m3 16 4 4 4-4\" />\n  <path d=\"M7 20V4\" />\n  <path d=\"M17 10V4h-2\" />\n  <path d=\"M15 10h4\" />\n  <rect x=\"15\" y=\"14\" width=\"4\" height=\"6\" ry=\"2\" />\n"))
+}
+func ArrowDownAZ(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"m3 16 4 4 4-4\" />\n  <path d=\"M7 20V4\" />\n  <path d=\"M20 8h-5\" />\n  <path d=\"M15 10V6.5a2.5 2.5 0 0 1 5 0V10\" />\n  <path d=\"M15 14h5l-5 6h5\" />\n"))
+}
 func ArrowDownFromLine(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M19 3H5\" />\n  <path d=\"M12 21V7\" />\n  <path d=\"m6 15 6 6 6-6\" />\n"))
 }
@@ -213,6 +231,12 @@ func ArrowDownToLine(extraContent ...html.HTML) html.HTML {
 }
 func ArrowDownUp(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"m3 16 4 4 4-4\" />\n  <path d=\"M7 20V4\" />\n  <path d=\"m21 8-4-4-4 4\" />\n  <path d=\"M17 4v16\" />\n"))
+}
+func ArrowDownWideNarrow(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"m3 16 4 4 4-4\" />\n  <path d=\"M7 20V4\" />\n  <path d=\"M11 4h10\" />\n  <path d=\"M11 8h7\" />\n  <path d=\"M11 12h4\" />\n"))
+}
+func ArrowDownZA(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"m3 16 4 4 4-4\" />\n  <path d=\"M7 4v16\" />\n  <path d=\"M15 4h5l-5 6h5\" />\n  <path d=\"M15 20v-3.5a2.5 2.5 0 0 1 5 0V20\" />\n  <path d=\"M20 18h-5\" />\n"))
 }
 func ArrowDown(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M12 5v14\" />\n  <path d=\"m19 12-7 7-7-7\" />\n"))
@@ -241,6 +265,15 @@ func ArrowRightToLine(extraContent ...html.HTML) html.HTML {
 func ArrowRight(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M5 12h14\" />\n  <path d=\"m12 5 7 7-7 7\" />\n"))
 }
+func ArrowUp01(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"m3 8 4-4 4 4\" />\n  <path d=\"M7 4v16\" />\n  <rect x=\"15\" y=\"4\" width=\"4\" height=\"6\" ry=\"2\" />\n  <path d=\"M17 20v-6h-2\" />\n  <path d=\"M15 20h4\" />\n"))
+}
+func ArrowUp10(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"m3 8 4-4 4 4\" />\n  <path d=\"M7 4v16\" />\n  <path d=\"M17 10V4h-2\" />\n  <path d=\"M15 10h4\" />\n  <rect x=\"15\" y=\"14\" width=\"4\" height=\"6\" ry=\"2\" />\n"))
+}
+func ArrowUpAZ(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"m3 8 4-4 4 4\" />\n  <path d=\"M7 4v16\" />\n  <path d=\"M20 8h-5\" />\n  <path d=\"M15 10V6.5a2.5 2.5 0 0 1 5 0V10\" />\n  <path d=\"M15 14h5l-5 6h5\" />\n"))
+}
 func ArrowUpDown(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"m21 16-4 4-4-4\" />\n  <path d=\"M17 20V4\" />\n  <path d=\"m3 8 4-4 4 4\" />\n  <path d=\"M7 4v16\" />\n"))
 }
@@ -253,6 +286,9 @@ func ArrowUpFromLine(extraContent ...html.HTML) html.HTML {
 func ArrowUpLeft(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M7 17V7h10\" />\n  <path d=\"M17 17 7 7\" />\n"))
 }
+func ArrowUpNarrowWide(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"m3 8 4-4 4 4\" />\n  <path d=\"M7 4v16\" />\n  <path d=\"M11 12h4\" />\n  <path d=\"M11 16h7\" />\n  <path d=\"M11 20h10\" />\n"))
+}
 func ArrowUpRight(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M7 7h10v10\" />\n  <path d=\"M7 17 17 7\" />\n"))
 }
@@ -261,6 +297,9 @@ func ArrowUpToLine(extraContent ...html.HTML) html.HTML {
 }
 func ArrowUpWideNarrow(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"m3 8 4-4 4 4\" />\n  <path d=\"M7 4v16\" />\n  <path d=\"M11 12h10\" />\n  <path d=\"M11 16h7\" />\n  <path d=\"M11 20h4\" />\n"))
+}
+func ArrowUpZA(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"m3 8 4-4 4 4\" />\n  <path d=\"M7 4v16\" />\n  <path d=\"M15 4h5l-5 6h5\" />\n  <path d=\"M15 20v-3.5a2.5 2.5 0 0 1 5 0V20\" />\n  <path d=\"M20 18h-5\" />\n"))
 }
 func ArrowUp(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"m5 12 7-7 7 7\" />\n  <path d=\"M12 19V5\" />\n"))
@@ -289,6 +328,9 @@ func Award(extraContent ...html.HTML) html.HTML {
 func Axe(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"m14 12-8.381 8.38a1 1 0 0 1-3.001-3L11 9\" />\n  <path d=\"M15 15.5a.5.5 0 0 0 .5.5A6.5 6.5 0 0 0 22 9.5a.5.5 0 0 0-.5-.5h-1.672a2 2 0 0 1-1.414-.586l-5.062-5.062a1.205 1.205 0 0 0-1.704 0L9.352 5.648a1.205 1.205 0 0 0 0 1.704l5.062 5.062A2 2 0 0 1 15 13.828z\" />\n"))
 }
+func Axis3d(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M13.5 10.5 15 9\" />\n  <path d=\"M4 4v15a1 1 0 0 0 1 1h15\" />\n  <path d=\"M4.293 19.707 6 18\" />\n  <path d=\"m9 15 1.5-1.5\" />\n"))
+}
 func Baby(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5\" />\n  <path d=\"M15 12h.01\" />\n  <path d=\"M19.38 6.813A9 9 0 0 1 20.8 10.2a2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1\" />\n  <path d=\"M9 12h.01\" />\n"))
 }
@@ -300,6 +342,9 @@ func BadgeAlert(extraContent ...html.HTML) html.HTML {
 }
 func BadgeCent(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z\" />\n  <path d=\"M12 7v10\" />\n  <path d=\"M15.4 10a4 4 0 1 0 0 4\" />\n"))
+}
+func BadgeCheck(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z\" />\n  <path d=\"m9 12 2 2 4-4\" />\n"))
 }
 func BadgeDollarSign(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z\" />\n  <path d=\"M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8\" />\n  <path d=\"M12 18V6\" />\n"))
@@ -327,6 +372,9 @@ func BadgePlus(extraContent ...html.HTML) html.HTML {
 }
 func BadgePoundSterling(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z\" />\n  <path d=\"M8 12h4\" />\n  <path d=\"M10 16V9.5a2.5 2.5 0 0 1 5 0\" />\n  <path d=\"M8 16h7\" />\n"))
+}
+func BadgeQuestionMark(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z\" />\n  <path d=\"M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3\" />\n  <line x1=\"12\" x2=\"12.01\" y1=\"17\" y2=\"17\" />\n"))
 }
 func BadgeRussianRuble(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z\" />\n  <path d=\"M9 16h5\" />\n  <path d=\"M9 12h5a2 2 0 1 0 0-4h-3v9\" />\n"))
@@ -451,6 +499,12 @@ func BellRing(extraContent ...html.HTML) html.HTML {
 func Bell(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M10.268 21a2 2 0 0 0 3.464 0\" />\n  <path d=\"M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326\" />\n"))
 }
+func BetweenHorizontalEnd(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"13\" height=\"7\" x=\"3\" y=\"3\" rx=\"1\" />\n  <path d=\"m22 15-3-3 3-3\" />\n  <rect width=\"13\" height=\"7\" x=\"3\" y=\"14\" rx=\"1\" />\n"))
+}
+func BetweenHorizontalStart(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"13\" height=\"7\" x=\"8\" y=\"3\" rx=\"1\" />\n  <path d=\"m2 9 3 3-3 3\" />\n  <rect width=\"13\" height=\"7\" x=\"8\" y=\"14\" rx=\"1\" />\n"))
+}
 func BetweenVerticalEnd(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <rect width=\"7\" height=\"13\" x=\"3\" y=\"3\" rx=\"1\" />\n  <path d=\"m9 22 3-3 3 3\" />\n  <rect width=\"7\" height=\"13\" x=\"14\" y=\"3\" rx=\"1\" />\n"))
 }
@@ -528,6 +582,9 @@ func BookCheck(extraContent ...html.HTML) html.HTML {
 }
 func BookCopy(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M5 7a2 2 0 0 0-2 2v11\" />\n  <path d=\"M5.803 18H5a2 2 0 0 0 0 4h9.5a.5.5 0 0 0 .5-.5V21\" />\n  <path d=\"M9 15V4a2 2 0 0 1 2-2h9.5a.5.5 0 0 1 .5.5v14a.5.5 0 0 1-.5.5H11a2 2 0 0 1 0-4h10\" />\n"))
+}
+func BookDashed(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M12 17h1.5\" />\n  <path d=\"M12 22h1.5\" />\n  <path d=\"M12 2h1.5\" />\n  <path d=\"M17.5 22H19a1 1 0 0 0 1-1\" />\n  <path d=\"M17.5 2H19a1 1 0 0 1 1 1v1.5\" />\n  <path d=\"M20 14v3h-2.5\" />\n  <path d=\"M20 8.5V10\" />\n  <path d=\"M4 10V8.5\" />\n  <path d=\"M4 19.5V14\" />\n  <path d=\"M4 4.5A2.5 2.5 0 0 1 6.5 2H8\" />\n  <path d=\"M8 22H6.5a1 1 0 0 1 0-5H8\" />\n"))
 }
 func BookDown(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M12 13V7\" />\n  <path d=\"M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20\" />\n  <path d=\"m9 10 3 3 3-3\" />\n"))
@@ -627,6 +684,9 @@ func Box(extraContent ...html.HTML) html.HTML {
 }
 func Boxes(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M2.97 12.92A2 2 0 0 0 2 14.63v3.24a2 2 0 0 0 .97 1.71l3 1.8a2 2 0 0 0 2.06 0L12 19v-5.5l-5-3-4.03 2.42Z\" />\n  <path d=\"m7 16.5-4.74-2.85\" />\n  <path d=\"m7 16.5 5-3\" />\n  <path d=\"M7 16.5v5.17\" />\n  <path d=\"M12 13.5V19l3.97 2.38a2 2 0 0 0 2.06 0l3-1.8a2 2 0 0 0 .97-1.71v-3.24a2 2 0 0 0-.97-1.71L17 10.5l-5 3Z\" />\n  <path d=\"m17 16.5-5-3\" />\n  <path d=\"m17 16.5 4.74-2.85\" />\n  <path d=\"M17 16.5v5.17\" />\n  <path d=\"M7.97 4.42A2 2 0 0 0 7 6.13v4.37l5 3 5-3V6.13a2 2 0 0 0-.97-1.71l-3-1.8a2 2 0 0 0-2.06 0l-3 1.8Z\" />\n  <path d=\"M12 8 7.26 5.15\" />\n  <path d=\"m12 8 4.74-2.85\" />\n  <path d=\"M12 13.5V8\" />\n"))
+}
+func Braces(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5c0 1.1.9 2 2 2h1\" />\n  <path d=\"M16 21h1a2 2 0 0 0 2-2v-5c0-1.1.9-2 2-2a2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-1\" />\n"))
 }
 func Brackets(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M16 3h3a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-3\" />\n  <path d=\"M8 21H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h3\" />\n"))
@@ -799,6 +859,9 @@ func Cannabis(extraContent ...html.HTML) html.HTML {
 func CaptionsOff(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M10.5 5H19a2 2 0 0 1 2 2v8.5\" />\n  <path d=\"M17 11h-.5\" />\n  <path d=\"M19 19H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2\" />\n  <path d=\"m2 2 20 20\" />\n  <path d=\"M7 11h4\" />\n  <path d=\"M7 15h2.5\" />\n"))
 }
+func Captions(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"14\" x=\"3\" y=\"5\" rx=\"2\" ry=\"2\" />\n  <path d=\"M7 15h4M15 15h2M7 11h2M13 11h4\" />\n"))
+}
 func CarFront(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"m21 8-2 2-1.5-3.7A2 2 0 0 0 15.646 5H8.4a2 2 0 0 0-1.903 1.257L5 10 3 8\" />\n  <path d=\"M7 14h.01\" />\n  <path d=\"M17 14h.01\" />\n  <rect width=\"18\" height=\"8\" x=\"3\" y=\"10\" rx=\"2\" />\n  <path d=\"M5 18v2\" />\n  <path d=\"M19 18v2\" />\n"))
 }
@@ -841,6 +904,12 @@ func Cat(extraContent ...html.HTML) html.HTML {
 func Cctv(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M16.75 12h3.632a1 1 0 0 1 .894 1.447l-2.034 4.069a1 1 0 0 1-1.708.134l-2.124-2.97\" />\n  <path d=\"M17.106 9.053a1 1 0 0 1 .447 1.341l-3.106 6.211a1 1 0 0 1-1.342.447L3.61 12.3a2.92 2.92 0 0 1-1.3-3.91L3.69 5.6a2.92 2.92 0 0 1 3.92-1.3z\" />\n  <path d=\"M2 19h3.76a2 2 0 0 0 1.8-1.1L9 15\" />\n  <path d=\"M2 21v-4\" />\n  <path d=\"M7 9h.01\" />\n"))
 }
+func ChartArea(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M3 3v16a2 2 0 0 0 2 2h16\" />\n  <path d=\"M7 11.207a.5.5 0 0 1 .146-.353l2-2a.5.5 0 0 1 .708 0l3.292 3.292a.5.5 0 0 0 .708 0l4.292-4.292a.5.5 0 0 1 .854.353V16a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1z\" />\n"))
+}
+func ChartBarBig(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M3 3v16a2 2 0 0 0 2 2h16\" />\n  <rect x=\"7\" y=\"13\" width=\"9\" height=\"4\" rx=\"1\" />\n  <rect x=\"7\" y=\"5\" width=\"12\" height=\"4\" rx=\"1\" />\n"))
+}
 func ChartBarDecreasing(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M3 3v16a2 2 0 0 0 2 2h16\" />\n  <path d=\"M7 11h8\" />\n  <path d=\"M7 16h3\" />\n  <path d=\"M7 6h12\" />\n"))
 }
@@ -850,14 +919,32 @@ func ChartBarIncreasing(extraContent ...html.HTML) html.HTML {
 func ChartBarStacked(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M11 13v4\" />\n  <path d=\"M15 5v4\" />\n  <path d=\"M3 3v16a2 2 0 0 0 2 2h16\" />\n  <rect x=\"7\" y=\"13\" width=\"9\" height=\"4\" rx=\"1\" />\n  <rect x=\"7\" y=\"5\" width=\"12\" height=\"4\" rx=\"1\" />\n"))
 }
+func ChartBar(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M3 3v16a2 2 0 0 0 2 2h16\" />\n  <path d=\"M7 16h8\" />\n  <path d=\"M7 11h12\" />\n  <path d=\"M7 6h3\" />\n"))
+}
+func ChartCandlestick(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M9 5v4\" />\n  <rect width=\"4\" height=\"6\" x=\"7\" y=\"9\" rx=\"1\" />\n  <path d=\"M9 15v2\" />\n  <path d=\"M17 3v2\" />\n  <rect width=\"4\" height=\"8\" x=\"15\" y=\"5\" rx=\"1\" />\n  <path d=\"M17 13v3\" />\n  <path d=\"M3 3v16a2 2 0 0 0 2 2h16\" />\n"))
+}
+func ChartColumnBig(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M3 3v16a2 2 0 0 0 2 2h16\" />\n  <rect x=\"15\" y=\"5\" width=\"4\" height=\"12\" rx=\"1\" />\n  <rect x=\"7\" y=\"8\" width=\"4\" height=\"9\" rx=\"1\" />\n"))
+}
 func ChartColumnDecreasing(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M13 17V9\" />\n  <path d=\"M18 17v-3\" />\n  <path d=\"M3 3v16a2 2 0 0 0 2 2h16\" />\n  <path d=\"M8 17V5\" />\n"))
+}
+func ChartColumnIncreasing(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M13 17V9\" />\n  <path d=\"M18 17V5\" />\n  <path d=\"M3 3v16a2 2 0 0 0 2 2h16\" />\n  <path d=\"M8 17v-3\" />\n"))
 }
 func ChartColumnStacked(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M11 13H7\" />\n  <path d=\"M19 9h-4\" />\n  <path d=\"M3 3v16a2 2 0 0 0 2 2h16\" />\n  <rect x=\"15\" y=\"5\" width=\"4\" height=\"12\" rx=\"1\" />\n  <rect x=\"7\" y=\"8\" width=\"4\" height=\"9\" rx=\"1\" />\n"))
 }
+func ChartColumn(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M3 3v16a2 2 0 0 0 2 2h16\" />\n  <path d=\"M18 17V9\" />\n  <path d=\"M13 17V5\" />\n  <path d=\"M8 17v-3\" />\n"))
+}
 func ChartGantt(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M10 6h8\" />\n  <path d=\"M12 16h6\" />\n  <path d=\"M3 3v16a2 2 0 0 0 2 2h16\" />\n  <path d=\"M8 11h7\" />\n"))
+}
+func ChartLine(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M3 3v16a2 2 0 0 0 2 2h16\" />\n  <path d=\"m19 9-5 5-4-4-3 3\" />\n"))
 }
 func ChartNetwork(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"m13.11 7.664 1.78 2.672\" />\n  <path d=\"m14.162 12.788-3.324 1.424\" />\n  <path d=\"m20 4-6.06 1.515\" />\n  <path d=\"M3 3v16a2 2 0 0 0 2 2h16\" />\n  <circle cx=\"12\" cy=\"6\" r=\"2\" />\n  <circle cx=\"16\" cy=\"12\" r=\"2\" />\n  <circle cx=\"9\" cy=\"15\" r=\"2\" />\n"))
@@ -865,8 +952,23 @@ func ChartNetwork(extraContent ...html.HTML) html.HTML {
 func ChartNoAxesColumnDecreasing(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M5 21V3\" />\n  <path d=\"M12 21V9\" />\n  <path d=\"M19 21v-6\" />\n"))
 }
+func ChartNoAxesColumnIncreasing(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M5 21v-6\" />\n  <path d=\"M12 21V9\" />\n  <path d=\"M19 21V3\" />\n"))
+}
+func ChartNoAxesColumn(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M5 21v-6\" />\n  <path d=\"M12 21V3\" />\n  <path d=\"M19 21V9\" />\n"))
+}
 func ChartNoAxesCombined(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M12 16v5\" />\n  <path d=\"M16 14v7\" />\n  <path d=\"M20 10v11\" />\n  <path d=\"m22 3-8.646 8.646a.5.5 0 0 1-.708 0L9.354 8.354a.5.5 0 0 0-.707 0L2 15\" />\n  <path d=\"M4 18v3\" />\n  <path d=\"M8 14v7\" />\n"))
+}
+func ChartNoAxesGantt(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M6 5h12\" />\n  <path d=\"M4 12h10\" />\n  <path d=\"M12 19h8\" />\n"))
+}
+func ChartPie(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1z\" />\n  <path d=\"M21.21 15.89A10 10 0 1 1 8 2.83\" />\n"))
+}
+func ChartScatter(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <circle cx=\"7.5\" cy=\"7.5\" r=\".5\" fill=\"currentColor\" />\n  <circle cx=\"18.5\" cy=\"5.5\" r=\".5\" fill=\"currentColor\" />\n  <circle cx=\"11.5\" cy=\"11.5\" r=\".5\" fill=\"currentColor\" />\n  <circle cx=\"7.5\" cy=\"16.5\" r=\".5\" fill=\"currentColor\" />\n  <circle cx=\"17.5\" cy=\"14.5\" r=\".5\" fill=\"currentColor\" />\n  <path d=\"M3 3v16a2 2 0 0 0 2 2h16\" />\n"))
 }
 func ChartSpline(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M3 3v16a2 2 0 0 0 2 2h16\" />\n  <path d=\"M7 16c.5-2 1.5-7 4-7 2 0 2 3 4 3 2.5 0 4.5-5 5-7\" />\n"))
@@ -949,6 +1051,9 @@ func ChevronsUpDown(extraContent ...html.HTML) html.HTML {
 func ChevronsUp(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"m17 11-5-5-5 5\" />\n  <path d=\"m17 18-5-5-5 5\" />\n"))
 }
+func Chromium(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M10.88 21.94 15.46 14\" />\n  <path d=\"M21.17 8H12\" />\n  <path d=\"M3.95 6.06 8.54 14\" />\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n  <circle cx=\"12\" cy=\"12\" r=\"4\" />\n"))
+}
 func Church(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M10 9h4\" />\n  <path d=\"M12 7v5\" />\n  <path d=\"M14 21v-3a2 2 0 0 0-4 0v3\" />\n  <path d=\"m18 9 3.52 2.147a1 1 0 0 1 .48.854V19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6.999a1 1 0 0 1 .48-.854L6 9\" />\n  <path d=\"M6 21V7a1 1 0 0 1 .376-.782l5-3.999a1 1 0 0 1 1.249.001l5 4A1 1 0 0 1 18 7v14\" />\n"))
 }
@@ -958,8 +1063,56 @@ func CigaretteOff(extraContent ...html.HTML) html.HTML {
 func Cigarette(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M17 12H3a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h14\" />\n  <path d=\"M18 8c0-2.5-2-2.5-2-5\" />\n  <path d=\"M21 16a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1\" />\n  <path d=\"M22 8c0-2.5-2-2.5-2-5\" />\n  <path d=\"M7 12v4\" />\n"))
 }
+func CircleAlert(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n  <line x1=\"12\" x2=\"12\" y1=\"8\" y2=\"12\" />\n  <line x1=\"12\" x2=\"12.01\" y1=\"16\" y2=\"16\" />\n"))
+}
+func CircleArrowDown(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n  <path d=\"M12 8v8\" />\n  <path d=\"m8 12 4 4 4-4\" />\n"))
+}
+func CircleArrowLeft(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n  <path d=\"m12 8-4 4 4 4\" />\n  <path d=\"M16 12H8\" />\n"))
+}
+func CircleArrowOutDownLeft(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M2 12a10 10 0 1 1 10 10\" />\n  <path d=\"m2 22 10-10\" />\n  <path d=\"M8 22H2v-6\" />\n"))
+}
+func CircleArrowOutDownRight(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M12 22a10 10 0 1 1 10-10\" />\n  <path d=\"M22 22 12 12\" />\n  <path d=\"M22 16v6h-6\" />\n"))
+}
+func CircleArrowOutUpLeft(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M2 8V2h6\" />\n  <path d=\"m2 2 10 10\" />\n  <path d=\"M12 2A10 10 0 1 1 2 12\" />\n"))
+}
+func CircleArrowOutUpRight(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M22 12A10 10 0 1 1 12 2\" />\n  <path d=\"M22 2 12 12\" />\n  <path d=\"M16 2h6v6\" />\n"))
+}
+func CircleArrowRight(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n  <path d=\"m12 16 4-4-4-4\" />\n  <path d=\"M8 12h8\" />\n"))
+}
+func CircleArrowUp(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n  <path d=\"m16 12-4-4-4 4\" />\n  <path d=\"M12 16V8\" />\n"))
+}
+func CircleCheckBig(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M21.801 10A10 10 0 1 1 17 3.335\" />\n  <path d=\"m9 11 3 3L22 4\" />\n"))
+}
+func CircleCheck(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n  <path d=\"m9 12 2 2 4-4\" />\n"))
+}
+func CircleChevronDown(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n  <path d=\"m16 10-4 4-4-4\" />\n"))
+}
+func CircleChevronLeft(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n  <path d=\"m14 16-4-4 4-4\" />\n"))
+}
+func CircleChevronRight(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n  <path d=\"m10 8 4 4-4 4\" />\n"))
+}
+func CircleChevronUp(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n  <path d=\"m8 14 4-4 4 4\" />\n"))
+}
 func CircleDashed(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M10.1 2.182a10 10 0 0 1 3.8 0\" />\n  <path d=\"M13.9 21.818a10 10 0 0 1-3.8 0\" />\n  <path d=\"M17.609 3.721a10 10 0 0 1 2.69 2.7\" />\n  <path d=\"M2.182 13.9a10 10 0 0 1 0-3.8\" />\n  <path d=\"M20.279 17.609a10 10 0 0 1-2.7 2.69\" />\n  <path d=\"M21.818 10.1a10 10 0 0 1 0 3.8\" />\n  <path d=\"M3.721 6.391a10 10 0 0 1 2.7-2.69\" />\n  <path d=\"M6.391 20.279a10 10 0 0 1-2.69-2.7\" />\n"))
+}
+func CircleDivide(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n  <line x1=\"8\" x2=\"16\" y1=\"12\" y2=\"12\" />\n  <line x1=\"12\" x2=\"12\" y1=\"16\" y2=\"16\" />\n  <line x1=\"12\" x2=\"12\" y1=\"8\" y2=\"8\" />\n"))
 }
 func CircleDollarSign(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n  <path d=\"M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8\" />\n  <path d=\"M12 18V6\" />\n"))
@@ -982,14 +1135,47 @@ func CircleFadingArrowUp(extraContent ...html.HTML) html.HTML {
 func CircleFadingPlus(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M12 2a10 10 0 0 1 7.38 16.75\" />\n  <path d=\"M12 8v8\" />\n  <path d=\"M16 12H8\" />\n  <path d=\"M2.5 8.875a10 10 0 0 0-.5 3\" />\n  <path d=\"M2.83 16a10 10 0 0 0 2.43 3.4\" />\n  <path d=\"M4.636 5.235a10 10 0 0 1 .891-.857\" />\n  <path d=\"M8.644 21.42a10 10 0 0 0 7.631-.38\" />\n"))
 }
+func CircleGauge(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M15.6 2.7a10 10 0 1 0 5.7 5.7\" />\n  <circle cx=\"12\" cy=\"12\" r=\"2\" />\n  <path d=\"M13.4 10.6 19 5\" />\n"))
+}
+func CircleMinus(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n  <path d=\"M8 12h8\" />\n"))
+}
 func CircleOff(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"m2 2 20 20\" />\n  <path d=\"M8.35 2.69A10 10 0 0 1 21.3 15.65\" />\n  <path d=\"M19.08 19.08A10 10 0 1 1 4.92 4.92\" />\n"))
+}
+func CircleParkingOff(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M12.656 7H13a3 3 0 0 1 2.984 3.307\" />\n  <path d=\"M13 13H9\" />\n  <path d=\"M19.071 19.071A1 1 0 0 1 4.93 4.93\" />\n  <path d=\"m2 2 20 20\" />\n  <path d=\"M8.357 2.687a10 10 0 0 1 12.956 12.956\" />\n  <path d=\"M9 17V9\" />\n"))
+}
+func CircleParking(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n  <path d=\"M9 17V7h4a3 3 0 0 1 0 6H9\" />\n"))
+}
+func CirclePause(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n  <line x1=\"10\" x2=\"10\" y1=\"15\" y2=\"9\" />\n  <line x1=\"14\" x2=\"14\" y1=\"15\" y2=\"9\" />\n"))
+}
+func CirclePercent(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n  <path d=\"m15 9-6 6\" />\n  <path d=\"M9 9h.01\" />\n  <path d=\"M15 15h.01\" />\n"))
 }
 func CirclePile(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"19\" r=\"2\" />\n  <circle cx=\"12\" cy=\"5\" r=\"2\" />\n  <circle cx=\"16\" cy=\"12\" r=\"2\" />\n  <circle cx=\"20\" cy=\"19\" r=\"2\" />\n  <circle cx=\"4\" cy=\"19\" r=\"2\" />\n  <circle cx=\"8\" cy=\"12\" r=\"2\" />\n"))
 }
+func CirclePlay(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z\" />\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n"))
+}
+func CirclePlus(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n  <path d=\"M8 12h8\" />\n  <path d=\"M12 8v8\" />\n"))
+}
 func CirclePoundSterling(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n  <path d=\"M10 16V9.5a1 1 0 0 1 5 0\" />\n  <path d=\"M8 12h4\" />\n  <path d=\"M8 16h7\" />\n"))
+}
+func CirclePower(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n  <path d=\"M12 7v4\" />\n  <path d=\"M7.998 9.003a5 5 0 1 0 8-.005\" />\n"))
+}
+func CircleQuestionMark(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n  <path d=\"M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3\" />\n  <path d=\"M12 17h.01\" />\n"))
+}
+func CircleSlash2(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n  <path d=\"M22 2 2 22\" />\n"))
 }
 func CircleSlash(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n  <line x1=\"9\" x2=\"15\" y1=\"15\" y2=\"9\" />\n"))
@@ -999,6 +1185,18 @@ func CircleSmall(extraContent ...html.HTML) html.HTML {
 }
 func CircleStar(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n  <path d=\"M11.051 7.616a1 1 0 0 1 1.909.024l.737 1.452a1 1 0 0 0 .737.535l1.634.256a1 1 0 0 1 .588 1.806l-1.172 1.168a1 1 0 0 0-.282.866l.259 1.613a1 1 0 0 1-1.541 1.134l-1.465-.75a1 1 0 0 0-.912 0l-1.465.75a1 1 0 0 1-1.539-1.133l.258-1.613a1 1 0 0 0-.282-.867l-1.156-1.152a1 1 0 0 1 .572-1.822l1.633-.256a1 1 0 0 0 .737-.535z\" />\n"))
+}
+func CircleStop(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n  <rect x=\"9\" y=\"9\" width=\"6\" height=\"6\" rx=\"1\" />\n"))
+}
+func CircleUserRound(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M18 20a6 6 0 0 0-12 0\" />\n  <circle cx=\"12\" cy=\"10\" r=\"4\" />\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n"))
+}
+func CircleUser(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n  <circle cx=\"12\" cy=\"10\" r=\"3\" />\n  <path d=\"M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662\" />\n"))
+}
+func CircleX(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n  <path d=\"m15 9-6 6\" />\n  <path d=\"m9 9 6 6\" />\n"))
 }
 func Circle(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n"))
@@ -1029,6 +1227,12 @@ func ClipboardMinus(extraContent ...html.HTML) html.HTML {
 }
 func ClipboardPaste(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M11 14h10\" />\n  <path d=\"M16 4h2a2 2 0 0 1 2 2v1.344\" />\n  <path d=\"m17 18 4-4-4-4\" />\n  <path d=\"M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 1.793-1.113\" />\n  <rect x=\"8\" y=\"2\" width=\"8\" height=\"4\" rx=\"1\" />\n"))
+}
+func ClipboardPenLine(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"8\" height=\"4\" x=\"8\" y=\"2\" rx=\"1\" />\n  <path d=\"M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-.5\" />\n  <path d=\"M16 4h2a2 2 0 0 1 1.73 1\" />\n  <path d=\"M8 18h1\" />\n  <path d=\"M21.378 12.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z\" />\n"))
+}
+func ClipboardPen(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M16 4h2a2 2 0 0 1 2 2v2\" />\n  <path d=\"M21.34 15.664a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z\" />\n  <path d=\"M8 22H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\" />\n  <rect x=\"8\" y=\"2\" width=\"8\" height=\"4\" rx=\"1\" />\n"))
 }
 func ClipboardPlus(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <rect width=\"8\" height=\"4\" x=\"8\" y=\"2\" rx=\"1\" ry=\"1\" />\n  <path d=\"M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\" />\n  <path d=\"M9 14h6\" />\n  <path d=\"M12 17v-6\" />\n"))
@@ -1114,6 +1318,9 @@ func CloudCheck(extraContent ...html.HTML) html.HTML {
 func CloudCog(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"m10.852 19.772-.383.924\" />\n  <path d=\"m13.148 14.228.383-.923\" />\n  <path d=\"M13.148 19.772a3 3 0 1 0-2.296-5.544l-.383-.923\" />\n  <path d=\"m13.53 20.696-.382-.924a3 3 0 1 1-2.296-5.544\" />\n  <path d=\"m14.772 15.852.923-.383\" />\n  <path d=\"m14.772 18.148.923.383\" />\n  <path d=\"M4.2 15.1a7 7 0 1 1 9.93-9.858A7 7 0 0 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.2\" />\n  <path d=\"m9.228 15.852-.923-.383\" />\n  <path d=\"m9.228 18.148-.923.383\" />\n"))
 }
+func CloudDownload(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M12 13v8l-4-4\" />\n  <path d=\"m12 21 4-4\" />\n  <path d=\"M4.393 15.269A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.436 8.284\" />\n"))
+}
 func CloudDrizzle(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242\" />\n  <path d=\"M8 19v1\" />\n  <path d=\"M8 14v1\" />\n  <path d=\"M16 19v1\" />\n  <path d=\"M16 14v1\" />\n  <path d=\"M12 21v1\" />\n  <path d=\"M12 16v1\" />\n"))
 }
@@ -1153,6 +1360,9 @@ func CloudSun(extraContent ...html.HTML) html.HTML {
 func CloudSync(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"m17 18-1.535 1.605a5 5 0 0 1-8-1.5\" />\n  <path d=\"M17 22v-4h-4\" />\n  <path d=\"M20.996 15.251A4.5 4.5 0 0 0 17.495 8h-1.79a7 7 0 1 0-12.709 5.607\" />\n  <path d=\"M7 10v4h4\" />\n  <path d=\"m7 14 1.535-1.605a5 5 0 0 1 8 1.5\" />\n"))
 }
+func CloudUpload(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M12 13v8\" />\n  <path d=\"M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242\" />\n  <path d=\"m8 17 4-4 4 4\" />\n"))
+}
 func Cloud(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z\" />\n"))
 }
@@ -1164,6 +1374,9 @@ func Clover(extraContent ...html.HTML) html.HTML {
 }
 func Club(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M17.28 9.05a5.5 5.5 0 1 0-10.56 0A5.5 5.5 0 1 0 12 17.66a5.5 5.5 0 1 0 5.28-8.6Z\" />\n  <path d=\"M12 17.66L12 22\" />\n"))
+}
+func CodeXml(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"m18 16 4-4-4-4\" />\n  <path d=\"m6 8-4 4 4 4\" />\n  <path d=\"m14.5 4-5 16\" />\n"))
 }
 func Code(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"m16 18 6-6-6-6\" />\n  <path d=\"m8 6-6 6 6 6\" />\n"))
@@ -1182,6 +1395,15 @@ func Cog(extraContent ...html.HTML) html.HTML {
 }
 func Coins(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M13.744 17.736a6 6 0 1 1-7.48-7.48\" />\n  <path d=\"M15 6h1v4\" />\n  <path d=\"m6.134 14.768.866-.5 2 3.464\" />\n  <circle cx=\"16\" cy=\"8\" r=\"6\" />\n"))
+}
+func Columns2(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M12 3v18\" />\n"))
+}
+func Columns3Cog(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M10.5 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5.5\" />\n  <path d=\"m14.3 19.6 1-.4\" />\n  <path d=\"M15 3v7.5\" />\n  <path d=\"m15.2 16.9-.9-.3\" />\n  <path d=\"m16.6 21.7.3-.9\" />\n  <path d=\"m16.8 15.3-.4-1\" />\n  <path d=\"m19.1 15.2.3-.9\" />\n  <path d=\"m19.6 21.7-.4-1\" />\n  <path d=\"m20.7 16.8 1-.4\" />\n  <path d=\"m21.7 19.4-.9-.3\" />\n  <path d=\"M9 3v18\" />\n  <circle cx=\"18\" cy=\"18\" r=\"3\" />\n"))
+}
+func Columns3(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M9 3v18\" />\n  <path d=\"M15 3v18\" />\n"))
 }
 func Columns4(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M7.5 3v18\" />\n  <path d=\"M12 3v18\" />\n  <path d=\"M16.5 3v18\" />\n"))
@@ -1209,6 +1431,9 @@ func Cone(extraContent ...html.HTML) html.HTML {
 }
 func Construction(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <rect x=\"2\" y=\"6\" width=\"20\" height=\"8\" rx=\"1\" />\n  <path d=\"M17 14v7\" />\n  <path d=\"M7 14v7\" />\n  <path d=\"M17 3v3\" />\n  <path d=\"M7 3v3\" />\n  <path d=\"M10 14 2.3 6.3\" />\n  <path d=\"m14 6 7.7 7.7\" />\n  <path d=\"m8 6 8 8\" />\n"))
+}
+func ContactRound(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M16 2v2\" />\n  <path d=\"M17.915 22a6 6 0 0 0-12 0\" />\n  <path d=\"M8 2v2\" />\n  <circle cx=\"12\" cy=\"12\" r=\"4\" />\n  <rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\" />\n"))
 }
 func Contact(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M16 2v2\" />\n  <path d=\"M7 22v-2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2\" />\n  <path d=\"M8 2v2\" />\n  <circle cx=\"12\" cy=\"11\" r=\"3\" />\n  <rect x=\"3\" y=\"4\" width=\"18\" height=\"18\" rx=\"2\" />\n"))
@@ -1342,6 +1567,9 @@ func Diameter(extraContent ...html.HTML) html.HTML {
 func DiamondMinus(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7.59 7.59a2.41 2.41 0 0 0 3.41 0l7.59-7.59a2.41 2.41 0 0 0 0-3.41L13.7 2.71a2.41 2.41 0 0 0-3.41 0z\" />\n  <path d=\"M8 12h8\" />\n"))
 }
+func DiamondPercent(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7.59 7.59a2.41 2.41 0 0 0 3.41 0l7.59-7.59a2.41 2.41 0 0 0 0-3.41L13.7 2.71a2.41 2.41 0 0 0-3.41 0Z\" />\n  <path d=\"M9.2 9.2h.01\" />\n  <path d=\"m14.5 9.5-5 5\" />\n  <path d=\"M14.7 14.8h.01\" />\n"))
+}
 func DiamondPlus(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M12 8v8\" />\n  <path d=\"M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7.59 7.59a2.41 2.41 0 0 0 3.41 0l7.59-7.59a2.41 2.41 0 0 0 0-3.41L13.7 2.71a2.41 2.41 0 0 0-3.41 0z\" />\n  <path d=\"M8 12h8\" />\n"))
 }
@@ -1462,6 +1690,9 @@ func Ear(extraContent ...html.HTML) html.HTML {
 func EarthLock(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M7 3.34V5a3 3 0 0 0 3 3\" />\n  <path d=\"M11 21.95V18a2 2 0 0 0-2-2 2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05\" />\n  <path d=\"M21.54 15H17a2 2 0 0 0-2 2v4.54\" />\n  <path d=\"M12 2a10 10 0 1 0 9.54 13\" />\n  <path d=\"M20 6V4a2 2 0 1 0-4 0v2\" />\n  <rect width=\"8\" height=\"5\" x=\"14\" y=\"6\" rx=\"1\" />\n"))
 }
+func Earth(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M21.54 15H17a2 2 0 0 0-2 2v4.54\" />\n  <path d=\"M7 3.34V5a3 3 0 0 0 3 3a2 2 0 0 1 2 2c0 1.1.9 2 2 2a2 2 0 0 0 2-2c0-1.1.9-2 2-2h3.17\" />\n  <path d=\"M11 21.95V18a2 2 0 0 0-2-2a2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05\" />\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n"))
+}
 func Eclipse(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n  <path d=\"M12 2a7 7 0 1 0 10 10\" />\n"))
 }
@@ -1473,6 +1704,12 @@ func EggOff(extraContent ...html.HTML) html.HTML {
 }
 func Egg(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M12 2C8 2 4 8 4 14a8 8 0 0 0 16 0c0-6-4-12-8-12\" />\n"))
+}
+func EllipsisVertical(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"12\" r=\"1\" />\n  <circle cx=\"12\" cy=\"5\" r=\"1\" />\n  <circle cx=\"12\" cy=\"19\" r=\"1\" />\n"))
+}
+func Ellipsis(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"12\" r=\"1\" />\n  <circle cx=\"19\" cy=\"12\" r=\"1\" />\n  <circle cx=\"5\" cy=\"12\" r=\"1\" />\n"))
 }
 func EqualApproximately(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M5 15a6.5 6.5 0 0 1 7 0 6.5 6.5 0 0 0 7 0\" />\n  <path d=\"M5 9a6.5 6.5 0 0 1 7 0 6.5 6.5 0 0 0 7 0\" />\n"))
@@ -1537,8 +1774,35 @@ func Figma(extraContent ...html.HTML) html.HTML {
 func FileArchive(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M13.659 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v11.5\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"M8 12v-1\" />\n  <path d=\"M8 18v-2\" />\n  <path d=\"M8 7V6\" />\n  <circle cx=\"8\" cy=\"20\" r=\"2\" />\n"))
 }
+func FileAxis3d(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"m8 18 4-4\" />\n  <path d=\"M8 10v8h8\" />\n"))
+}
+func FileBadge(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M13 22h5a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v3.3\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"m7.69 16.479 1.29 4.88a.5.5 0 0 1-.698.591l-1.843-.849a1 1 0 0 0-.879.001l-1.846.85a.5.5 0 0 1-.692-.593l1.29-4.88\" />\n  <circle cx=\"6\" cy=\"14\" r=\"3\" />\n"))
+}
 func FileBox(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M14.5 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v3.8\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"M11.7 14.2 7 17l-4.7-2.8\" />\n  <path d=\"M3 13.1a2 2 0 0 0-.999 1.76v3.24a2 2 0 0 0 .969 1.78L6 21.7a2 2 0 0 0 2.03.01L11 19.9a2 2 0 0 0 1-1.76V14.9a2 2 0 0 0-.97-1.78L8 11.3a2 2 0 0 0-2.03-.01z\" />\n  <path d=\"M7 17v5\" />\n"))
+}
+func FileBracesCorner(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M14 22h4a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v6\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"M5 14a1 1 0 0 0-1 1v2a1 1 0 0 1-1 1 1 1 0 0 1 1 1v2a1 1 0 0 0 1 1\" />\n  <path d=\"M9 22a1 1 0 0 0 1-1v-2a1 1 0 0 1 1-1 1 1 0 0 1-1-1v-2a1 1 0 0 0-1-1\" />\n"))
+}
+func FileBraces(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"M10 12a1 1 0 0 0-1 1v1a1 1 0 0 1-1 1 1 1 0 0 1 1 1v1a1 1 0 0 0 1 1\" />\n  <path d=\"M14 18a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1 1 1 0 0 1-1-1v-1a1 1 0 0 0-1-1\" />\n"))
+}
+func FileChartColumnIncreasing(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"M8 18v-2\" />\n  <path d=\"M12 18v-4\" />\n  <path d=\"M16 18v-6\" />\n"))
+}
+func FileChartColumn(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"M8 18v-1\" />\n  <path d=\"M12 18v-6\" />\n  <path d=\"M16 18v-3\" />\n"))
+}
+func FileChartLine(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"m16 13-3.5 3.5-2-2L8 17\" />\n"))
+}
+func FileChartPie(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M15.941 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.704l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v3.512\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"M4.017 11.512a6 6 0 1 0 8.466 8.475\" />\n  <path d=\"M9 16a1 1 0 0 1-1-1v-4c0-.552.45-1.008.995-.917a6 6 0 0 1 4.922 4.922c.091.544-.365.995-.917.995z\" />\n"))
+}
+func FileCheckCorner(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M10.5 22H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v6\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"m14 20 2 2 4-4\" />\n"))
 }
 func FileCheck(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"m9 15 2 2 4-4\" />\n"))
@@ -1546,8 +1810,14 @@ func FileCheck(extraContent ...html.HTML) html.HTML {
 func FileClock(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M16 22h2a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v2.85\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"M8 14v2.2l1.6 1\" />\n  <circle cx=\"8\" cy=\"16\" r=\"6\" />\n"))
 }
+func FileCodeCorner(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M4 12.15V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2h-3.35\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"m5 16-3 3 3 3\" />\n  <path d=\"m9 22 3-3-3-3\" />\n"))
+}
 func FileCode(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"M10 12.5 8 15l2 2.5\" />\n  <path d=\"m14 12.5 2 2.5-2 2.5\" />\n"))
+}
+func FileCog(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M15 8a1 1 0 0 1-1-1V2a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8z\" />\n  <path d=\"M20 8v12a2 2 0 0 1-2 2h-4.182\" />\n  <path d=\"m3.305 19.53.923-.382\" />\n  <path d=\"M4 10.592V4a2 2 0 0 1 2-2h8\" />\n  <path d=\"m4.228 16.852-.924-.383\" />\n  <path d=\"m5.852 15.228-.383-.923\" />\n  <path d=\"m5.852 20.772-.383.924\" />\n  <path d=\"m8.148 15.228.383-.923\" />\n  <path d=\"m8.53 21.696-.382-.924\" />\n  <path d=\"m9.773 16.852.922-.383\" />\n  <path d=\"m9.773 19.148.922.383\" />\n  <circle cx=\"7\" cy=\"18\" r=\"3\" />\n"))
 }
 func FileDiff(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\" />\n  <path d=\"M9 10h6\" />\n  <path d=\"M12 13V7\" />\n  <path d=\"M9 17h6\" />\n"))
@@ -1558,6 +1828,12 @@ func FileDigit(extraContent ...html.HTML) html.HTML {
 func FileDown(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"M12 18v-6\" />\n  <path d=\"m9 15 3 3 3-3\" />\n"))
 }
+func FileExclamationPoint(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\" />\n  <path d=\"M12 9v4\" />\n  <path d=\"M12 17h.01\" />\n"))
+}
+func FileHeadphone(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M4 6.835V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2h-.343\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"M2 19a2 2 0 0 1 4 0v1a2 2 0 0 1-4 0v-4a6 6 0 0 1 12 0v4a2 2 0 0 1-4 0v-1a2 2 0 0 1 4 0\" />\n"))
+}
 func FileHeart(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M13 22h5a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v7\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"M3.62 18.8A2.25 2.25 0 1 1 7 15.836a2.25 2.25 0 1 1 3.38 2.966l-2.626 2.856a1 1 0 0 1-1.507 0z\" />\n"))
 }
@@ -1566,6 +1842,15 @@ func FileImage(extraContent ...html.HTML) html.HTML {
 }
 func FileInput(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M4 11V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-1\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"M2 15h10\" />\n  <path d=\"m9 18 3-3-3-3\" />\n"))
+}
+func FileKey(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"M4 12v6\" />\n  <path d=\"M4 14h2\" />\n  <path d=\"M9.65 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v4\" />\n  <circle cx=\"4\" cy=\"20\" r=\"2\" />\n"))
+}
+func FileLock(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M4 9.8V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2h-3\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"M9 17v-2a2 2 0 0 0-4 0v2\" />\n  <rect width=\"8\" height=\"5\" x=\"3\" y=\"17\" rx=\"1\" />\n"))
+}
+func FileMinusCorner(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M20 14V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"M14 18h6\" />\n"))
 }
 func FileMinus(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"M9 15h6\" />\n"))
@@ -1576,14 +1861,35 @@ func FileMusic(extraContent ...html.HTML) html.HTML {
 func FileOutput(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M4.226 20.925A2 2 0 0 0 6 22h12a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v3.127\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"m5 11-3 3\" />\n  <path d=\"m5 17-3-3h10\" />\n"))
 }
+func FilePenLine(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M14.364 13.634a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506l4.013-4.009a1 1 0 0 0-3.004-3.004z\" />\n  <path d=\"M14.487 7.858A1 1 0 0 1 14 7V2\" />\n  <path d=\"M20 19.645V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l2.516 2.516\" />\n  <path d=\"M8 18h1\" />\n"))
+}
+func FilePen(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M12.659 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v9.34\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"M10.378 12.622a1 1 0 0 1 3 3.003L8.36 20.637a2 2 0 0 1-.854.506l-2.867.837a.5.5 0 0 1-.62-.62l.836-2.869a2 2 0 0 1 .506-.853z\" />\n"))
+}
+func FilePlay(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"M15.033 13.44a.647.647 0 0 1 0 1.12l-4.065 2.352a.645.645 0 0 1-.968-.56v-4.704a.645.645 0 0 1 .967-.56z\" />\n"))
+}
+func FilePlusCorner(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M11.35 22H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v5.35\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"M14 19h6\" />\n  <path d=\"M17 16v6\" />\n"))
+}
 func FilePlus(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"M9 15h6\" />\n  <path d=\"M12 18v-6\" />\n"))
+}
+func FileQuestionMark(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\" />\n  <path d=\"M12 17h.01\" />\n  <path d=\"M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3\" />\n"))
 }
 func FileScan(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M20 10V8a2.4 2.4 0 0 0-.706-1.704l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.35\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"M16 14a2 2 0 0 0-2 2\" />\n  <path d=\"M16 22a2 2 0 0 1-2-2\" />\n  <path d=\"M20 14a2 2 0 0 1 2 2\" />\n  <path d=\"M20 22a2 2 0 0 0 2-2\" />\n"))
 }
+func FileSearchCorner(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M11.1 22H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.589 3.588A2.4 2.4 0 0 1 20 8v3.25\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"m21 22-2.88-2.88\" />\n  <circle cx=\"16\" cy=\"17\" r=\"3\" />\n"))
+}
 func FileSearch(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <circle cx=\"11.5\" cy=\"14.5\" r=\"2.5\" />\n  <path d=\"M13.3 16.3 15 18\" />\n"))
+}
+func FileSignal(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"M8 15h.01\" />\n  <path d=\"M11.5 13.5a2.5 2.5 0 0 1 0 3\" />\n  <path d=\"M15 12a5 5 0 0 1 0 6\" />\n"))
 }
 func FileSliders(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"M8 12h8\" />\n  <path d=\"M10 11v2\" />\n  <path d=\"M8 17h8\" />\n  <path d=\"M14 16v2\" />\n"))
@@ -1603,6 +1909,9 @@ func FileTerminal(extraContent ...html.HTML) html.HTML {
 func FileText(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"M10 9H8\" />\n  <path d=\"M16 13H8\" />\n  <path d=\"M16 17H8\" />\n"))
 }
+func FileTypeCorner(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M12 22h6a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v6\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"M3 16v-1.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5V16\" />\n  <path d=\"M6 22h2\" />\n  <path d=\"M7 14v8\" />\n"))
+}
 func FileType(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"M11 18h2\" />\n  <path d=\"M12 12v6\" />\n  <path d=\"M9 13v-.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v.5\" />\n"))
 }
@@ -1612,8 +1921,14 @@ func FileUp(extraContent ...html.HTML) html.HTML {
 func FileUser(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"M16 22a4 4 0 0 0-8 0\" />\n  <circle cx=\"12\" cy=\"15\" r=\"3\" />\n"))
 }
+func FileVideoCamera(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M4 12V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"m10 17.843 3.033-1.755a.64.64 0 0 1 .967.56v4.704a.65.65 0 0 1-.967.56L10 20.157\" />\n  <rect width=\"7\" height=\"6\" x=\"3\" y=\"16\" rx=\"1\" />\n"))
+}
 func FileVolume(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M4 11.55V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2h-1.95\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"M12 15a5 5 0 0 1 0 6\" />\n  <path d=\"M8 14.502a.5.5 0 0 0-.826-.381l-1.893 1.631a1 1 0 0 1-.651.243H3.5a.5.5 0 0 0-.5.501v3.006a.5.5 0 0 0 .5.501h1.129a1 1 0 0 1 .652.243l1.893 1.633a.5.5 0 0 0 .826-.38z\" />\n"))
+}
+func FileXCorner(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M11 22H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v5\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"m15 17 5 5\" />\n  <path d=\"m20 17-5 5\" />\n"))
 }
 func FileX(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z\" />\n  <path d=\"M14 2v5a1 1 0 0 0 1 1h5\" />\n  <path d=\"m14.5 12.5-5 5\" />\n  <path d=\"m9.5 12.5 5 5\" />\n"))
@@ -1626,6 +1941,9 @@ func Files(extraContent ...html.HTML) html.HTML {
 }
 func Film(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M7 3v18\" />\n  <path d=\"M3 7.5h4\" />\n  <path d=\"M3 12h18\" />\n  <path d=\"M3 16.5h4\" />\n  <path d=\"M17 3v18\" />\n  <path d=\"M17 7.5h4\" />\n  <path d=\"M17 16.5h4\" />\n"))
+}
+func FingerprintPattern(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4\" />\n  <path d=\"M14 13.12c0 2.38 0 6.38-1 8.88\" />\n  <path d=\"M17.29 21.02c.12-.6.43-2.3.5-3.02\" />\n  <path d=\"M2 12a10 10 0 0 1 18-6\" />\n  <path d=\"M2 16h.01\" />\n  <path d=\"M21.8 16c.2-2 .131-5.354 0-6\" />\n  <path d=\"M5 19.5C5.5 18 6 15 6 12a6 6 0 0 1 .34-2\" />\n  <path d=\"M8.65 22c.21-.66.45-1.32.57-2\" />\n  <path d=\"M9 6.8a6 6 0 0 1 9 5.2v2\" />\n"))
 }
 func FireExtinguisher(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M15 6.5V3a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v3.5\" />\n  <path d=\"M9 18h8\" />\n  <path d=\"M18 3h-3\" />\n  <path d=\"M11 3a6 6 0 0 0-6 6v11\" />\n  <path d=\"M5 13h4\" />\n  <path d=\"M17 10a4 4 0 0 0-8 0v10a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2Z\" />\n"))
@@ -1714,6 +2032,9 @@ func FolderClosed(extraContent ...html.HTML) html.HTML {
 func FolderCode(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M10 10.5 8 13l2 2.5\" />\n  <path d=\"m14 10.5 2 2.5-2 2.5\" />\n  <path d=\"M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2z\" />\n"))
 }
+func FolderCog(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M10.3 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.98a2 2 0 0 1 1.69.9l.66 1.2A2 2 0 0 0 12 6h8a2 2 0 0 1 2 2v3.3\" />\n  <path d=\"m14.305 19.53.923-.382\" />\n  <path d=\"m15.228 16.852-.923-.383\" />\n  <path d=\"m16.852 15.228-.383-.923\" />\n  <path d=\"m16.852 20.772-.383.924\" />\n  <path d=\"m19.148 15.228.383-.923\" />\n  <path d=\"m19.53 21.696-.382-.924\" />\n  <path d=\"m20.772 16.852.924-.383\" />\n  <path d=\"m20.772 19.148.924.383\" />\n  <circle cx=\"18\" cy=\"18\" r=\"3\" />\n"))
+}
 func FolderDot(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z\" />\n  <circle cx=\"12\" cy=\"13\" r=\"1\" />\n"))
 }
@@ -1752,6 +2073,9 @@ func FolderOpen(extraContent ...html.HTML) html.HTML {
 }
 func FolderOutput(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M2 7.5V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-1.5\" />\n  <path d=\"M2 13h10\" />\n  <path d=\"m5 10-3 3 3 3\" />\n"))
+}
+func FolderPen(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M2 11.5V5a2 2 0 0 1 2-2h3.9c.7 0 1.3.3 1.7.9l.8 1.2c.4.6 1 .9 1.7.9H20a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-9.5\" />\n  <path d=\"M11.378 13.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z\" />\n"))
 }
 func FolderPlus(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M12 10v6\" />\n  <path d=\"M9 13h6\" />\n  <path d=\"M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z\" />\n"))
@@ -1816,6 +2140,12 @@ func Fullscreen(extraContent ...html.HTML) html.HTML {
 func FunnelPlus(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M13.354 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14v6a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341l1.218-1.348\" />\n  <path d=\"M16 6h6\" />\n  <path d=\"M19 3v6\" />\n"))
 }
+func FunnelX(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M12.531 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14v6a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341l.427-.473\" />\n  <path d=\"m16.5 3.5 5 5\" />\n  <path d=\"m21.5 3.5-5 5\" />\n"))
+}
+func Funnel(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M10 20a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z\" />\n"))
+}
 func GalleryHorizontalEnd(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M2 7v10\" />\n  <path d=\"M6 5v14\" />\n  <rect width=\"12\" height=\"18\" x=\"10\" y=\"3\" rx=\"2\" />\n"))
 }
@@ -1866,6 +2196,9 @@ func GitBranchPlus(extraContent ...html.HTML) html.HTML {
 }
 func GitBranch(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M15 6a9 9 0 0 0-9 9V3\" />\n  <circle cx=\"18\" cy=\"6\" r=\"3\" />\n  <circle cx=\"6\" cy=\"18\" r=\"3\" />\n"))
+}
+func GitCommitHorizontal(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"12\" r=\"3\" />\n  <line x1=\"3\" x2=\"9\" y1=\"12\" y2=\"12\" />\n  <line x1=\"15\" x2=\"21\" y1=\"12\" y2=\"12\" />\n"))
 }
 func GitCommitVertical(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M12 3v6\" />\n  <circle cx=\"12\" cy=\"12\" r=\"3\" />\n  <path d=\"M12 15v6\" />\n"))
@@ -1942,8 +2275,23 @@ func GraduationCap(extraContent ...html.HTML) html.HTML {
 func Grape(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M22 5V2l-5.89 5.89\" />\n  <circle cx=\"16.6\" cy=\"15.89\" r=\"3\" />\n  <circle cx=\"8.11\" cy=\"7.4\" r=\"3\" />\n  <circle cx=\"12.35\" cy=\"11.65\" r=\"3\" />\n  <circle cx=\"13.91\" cy=\"5.85\" r=\"3\" />\n  <circle cx=\"18.15\" cy=\"10.09\" r=\"3\" />\n  <circle cx=\"6.56\" cy=\"13.2\" r=\"3\" />\n  <circle cx=\"10.8\" cy=\"17.44\" r=\"3\" />\n  <circle cx=\"5\" cy=\"19\" r=\"3\" />\n"))
 }
+func Grid2x2Check(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M12 3v17a1 1 0 0 1-1 1H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6a1 1 0 0 1-1 1H3\" />\n  <path d=\"m16 19 2 2 4-4\" />\n"))
+}
+func Grid2x2Plus(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M12 3v17a1 1 0 0 1-1 1H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6a1 1 0 0 1-1 1H3\" />\n  <path d=\"M16 19h6\" />\n  <path d=\"M19 22v-6\" />\n"))
+}
+func Grid2x2X(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M12 3v17a1 1 0 0 1-1 1H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6a1 1 0 0 1-1 1H3\" />\n  <path d=\"m16 16 5 5\" />\n  <path d=\"m16 21 5-5\" />\n"))
+}
+func Grid2x2(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M12 3v18\" />\n  <path d=\"M3 12h18\" />\n  <rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\" />\n"))
+}
 func Grid3x2(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M15 3v18\" />\n  <path d=\"M3 12h18\" />\n  <path d=\"M9 3v18\" />\n  <rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\" />\n"))
+}
+func Grid3x3(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M3 9h18\" />\n  <path d=\"M3 15h18\" />\n  <path d=\"M9 3v18\" />\n  <path d=\"M15 3v18\" />\n"))
 }
 func GripHorizontal(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"9\" r=\"1\" />\n  <circle cx=\"19\" cy=\"9\" r=\"1\" />\n  <circle cx=\"5\" cy=\"9\" r=\"1\" />\n  <circle cx=\"12\" cy=\"15\" r=\"1\" />\n  <circle cx=\"19\" cy=\"15\" r=\"1\" />\n  <circle cx=\"5\" cy=\"15\" r=\"1\" />\n"))
@@ -1975,8 +2323,14 @@ func HandCoins(extraContent ...html.HTML) html.HTML {
 func HandFist(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M12.035 17.012a3 3 0 0 0-3-3l-.311-.002a.72.72 0 0 1-.505-1.229l1.195-1.195A2 2 0 0 1 10.828 11H12a2 2 0 0 0 0-4H9.243a3 3 0 0 0-2.122.879l-2.707 2.707A4.83 4.83 0 0 0 3 14a8 8 0 0 0 8 8h2a8 8 0 0 0 8-8V7a2 2 0 1 0-4 0v2a2 2 0 1 0 4 0\" />\n  <path d=\"M13.888 9.662A2 2 0 0 0 17 8V5A2 2 0 1 0 13 5\" />\n  <path d=\"M9 5A2 2 0 1 0 5 5V10\" />\n  <path d=\"M9 7V4A2 2 0 1 1 13 4V7.268\" />\n"))
 }
+func HandGrab(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M18 11.5V9a2 2 0 0 0-2-2a2 2 0 0 0-2 2v1.4\" />\n  <path d=\"M14 10V8a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2\" />\n  <path d=\"M10 9.9V9a2 2 0 0 0-2-2a2 2 0 0 0-2 2v5\" />\n  <path d=\"M6 14a2 2 0 0 0-2-2a2 2 0 0 0-2 2\" />\n  <path d=\"M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-4a8 8 0 0 1-8-8 2 2 0 1 1 4 0\" />\n"))
+}
 func HandHeart(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M11 14h2a2 2 0 0 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 16\" />\n  <path d=\"m14.45 13.39 5.05-4.694C20.196 8 21 6.85 21 5.75a2.75 2.75 0 0 0-4.797-1.837.276.276 0 0 1-.406 0A2.75 2.75 0 0 0 11 5.75c0 1.2.802 2.248 1.5 2.946L16 11.95\" />\n  <path d=\"m2 15 6 6\" />\n  <path d=\"m7 20 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a1 1 0 0 0-2.75-2.91\" />\n"))
+}
+func HandHelping(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M11 12h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 14\" />\n  <path d=\"m7 18 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9\" />\n  <path d=\"m2 13 6 6\" />\n"))
 }
 func HandMetal(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M18 12.5V10a2 2 0 0 0-2-2a2 2 0 0 0-2 2v1.4\" />\n  <path d=\"M14 11V9a2 2 0 1 0-4 0v2\" />\n  <path d=\"M10 10.5V5a2 2 0 1 0-4 0v9\" />\n  <path d=\"m7 15-1.76-1.76a2 2 0 0 0-2.83 2.82l3.6 3.6C7.5 21.14 9.2 22 12 22h2a8 8 0 0 0 8-8V7a2 2 0 1 0-4 0v5\" />\n"))
@@ -2113,6 +2467,15 @@ func HousePlus(extraContent ...html.HTML) html.HTML {
 func HouseWifi(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M9.5 13.866a4 4 0 0 1 5 .01\" />\n  <path d=\"M12 17h.01\" />\n  <path d=\"M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\" />\n  <path d=\"M7 10.754a8 8 0 0 1 10 0\" />\n"))
 }
+func House(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8\" />\n  <path d=\"M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\" />\n"))
+}
+func IceCreamBowl(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M12 17c5 0 8-2.69 8-6H4c0 3.31 3 6 8 6m-4 4h8m-4-3v3M5.14 11a3.5 3.5 0 1 1 6.71 0\" />\n  <path d=\"M12.14 11a3.5 3.5 0 1 1 6.71 0\" />\n  <path d=\"M15.5 6.5a3.5 3.5 0 1 0-7 0\" />\n"))
+}
+func IceCreamCone(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"m7 11 4.08 10.35a1 1 0 0 0 1.84 0L17 11\" />\n  <path d=\"M17 7A5 5 0 0 0 7 7\" />\n  <path d=\"M17 7a2 2 0 0 1 0 4H7a2 2 0 0 1 0-4\" />\n"))
+}
 func IdCardLanyard(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M13.5 8h-3\" />\n  <path d=\"m15 2-1 2h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h3\" />\n  <path d=\"M16.899 22A5 5 0 0 0 7.1 22\" />\n  <path d=\"m9 2 3 6\" />\n  <circle cx=\"12\" cy=\"15\" r=\"3\" />\n"))
 }
@@ -2236,6 +2599,9 @@ func Languages(extraContent ...html.HTML) html.HTML {
 func LaptopMinimalCheck(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M2 20h20\" />\n  <path d=\"m9 10 2 2 4-4\" />\n  <rect x=\"3\" y=\"4\" width=\"18\" height=\"12\" rx=\"2\" />\n"))
 }
+func LaptopMinimal(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"12\" x=\"3\" y=\"4\" rx=\"2\" ry=\"2\" />\n  <line x1=\"2\" x2=\"22\" y1=\"20\" y2=\"20\" />\n"))
+}
 func Laptop(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M18 5a2 2 0 0 1 2 2v8.526a2 2 0 0 0 .212.897l1.068 2.127a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45l1.068-2.127A2 2 0 0 0 4 15.526V7a2 2 0 0 1 2-2z\" />\n  <path d=\"M20.054 15.987H3.946\" />\n"))
 }
@@ -2253,6 +2619,9 @@ func Layers2(extraContent ...html.HTML) html.HTML {
 }
 func LayersPlus(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 .83.18 2 2 0 0 0 .83-.18l8.58-3.9a1 1 0 0 0 0-1.831z\" />\n  <path d=\"M16 17h6\" />\n  <path d=\"M19 14v6\" />\n  <path d=\"M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 .825.178\" />\n  <path d=\"M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l2.116-.962\" />\n"))
+}
+func Layers(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z\" />\n  <path d=\"M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12\" />\n  <path d=\"M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17\" />\n"))
 }
 func LayoutDashboard(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <rect width=\"7\" height=\"9\" x=\"3\" y=\"3\" rx=\"1\" />\n  <rect width=\"7\" height=\"5\" x=\"14\" y=\"3\" rx=\"1\" />\n  <rect width=\"7\" height=\"9\" x=\"14\" y=\"12\" rx=\"1\" />\n  <rect width=\"7\" height=\"5\" x=\"3\" y=\"16\" rx=\"1\" />\n"))
@@ -2347,6 +2716,12 @@ func ListFilterPlus(extraContent ...html.HTML) html.HTML {
 func ListFilter(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M2 5h20\" />\n  <path d=\"M6 12h12\" />\n  <path d=\"M9 19h6\" />\n"))
 }
+func ListIndentDecrease(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M21 5H11\" />\n  <path d=\"M21 12H11\" />\n  <path d=\"M21 19H11\" />\n  <path d=\"m7 8-4 4 4 4\" />\n"))
+}
+func ListIndentIncrease(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M21 5H11\" />\n  <path d=\"M21 12H11\" />\n  <path d=\"M21 19H11\" />\n  <path d=\"m3 8 4 4-4 4\" />\n"))
+}
 func ListMinus(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M16 5H3\" />\n  <path d=\"M11 12H3\" />\n  <path d=\"M16 19H3\" />\n  <path d=\"M21 12h-6\" />\n"))
 }
@@ -2380,6 +2755,9 @@ func ListX(extraContent ...html.HTML) html.HTML {
 func List(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M3 5h.01\" />\n  <path d=\"M3 12h.01\" />\n  <path d=\"M3 19h.01\" />\n  <path d=\"M8 5h13\" />\n  <path d=\"M8 12h13\" />\n  <path d=\"M8 19h13\" />\n"))
 }
+func LoaderCircle(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M21 12a9 9 0 1 1-6.219-8.56\" />\n"))
+}
 func LoaderPinwheel(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M22 12a1 1 0 0 1-10 0 1 1 0 0 0-10 0\" />\n  <path d=\"M7 20.7a1 1 0 1 1 5-8.7 1 1 0 1 0 5-8.6\" />\n  <path d=\"M7 3.3a1 1 0 1 1 5 8.6 1 1 0 1 0 5 8.6\" />\n  <circle cx=\"12\" cy=\"12\" r=\"10\" />\n"))
 }
@@ -2395,8 +2773,14 @@ func LocateOff(extraContent ...html.HTML) html.HTML {
 func Locate(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <line x1=\"2\" x2=\"5\" y1=\"12\" y2=\"12\" />\n  <line x1=\"19\" x2=\"22\" y1=\"12\" y2=\"12\" />\n  <line x1=\"12\" x2=\"12\" y1=\"2\" y2=\"5\" />\n  <line x1=\"12\" x2=\"12\" y1=\"19\" y2=\"22\" />\n  <circle cx=\"12\" cy=\"12\" r=\"7\" />\n"))
 }
+func LockKeyholeOpen(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"16\" r=\"1\" />\n  <rect width=\"18\" height=\"12\" x=\"3\" y=\"10\" rx=\"2\" />\n  <path d=\"M7 10V7a5 5 0 0 1 9.33-2.5\" />\n"))
+}
 func LockKeyhole(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"16\" r=\"1\" />\n  <rect x=\"3\" y=\"10\" width=\"18\" height=\"12\" rx=\"2\" />\n  <path d=\"M7 10V7a5 5 0 0 1 10 0v3\" />\n"))
+}
+func LockOpen(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"11\" x=\"3\" y=\"11\" rx=\"2\" ry=\"2\" />\n  <path d=\"M7 11V7a5 5 0 0 1 9.9-1\" />\n"))
 }
 func Lock(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"11\" x=\"3\" y=\"11\" rx=\"2\" ry=\"2\" />\n  <path d=\"M7 11V7a5 5 0 0 1 10 0v4\" />\n"))
@@ -2430,6 +2814,9 @@ func MailOpen(extraContent ...html.HTML) html.HTML {
 }
 func MailPlus(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M22 13V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h8\" />\n  <path d=\"m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7\" />\n  <path d=\"M19 16v6\" />\n  <path d=\"M16 19h6\" />\n"))
+}
+func MailQuestionMark(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M22 10.5V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h12.5\" />\n  <path d=\"m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7\" />\n  <path d=\"M18 15.28c.2-.4.5-.8.9-1a2.1 2.1 0 0 1 2.6.4c.3.4.5.8.5 1.3 0 1.3-2 2-2 2\" />\n  <path d=\"M20 22v.01\" />\n"))
 }
 func MailSearch(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M22 12.5V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h7.5\" />\n  <path d=\"m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7\" />\n  <path d=\"M18 21a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z\" />\n  <circle cx=\"18\" cy=\"18\" r=\"3\" />\n  <path d=\"m22 22-1.5-1.5\" />\n"))
@@ -2469,6 +2856,9 @@ func MapPinMinus(extraContent ...html.HTML) html.HTML {
 }
 func MapPinOff(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M12.75 7.09a3 3 0 0 1 2.16 2.16\" />\n  <path d=\"M17.072 17.072c-1.634 2.17-3.527 3.912-4.471 4.727a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 1.432-4.568\" />\n  <path d=\"m2 2 20 20\" />\n  <path d=\"M8.475 2.818A8 8 0 0 1 20 10c0 1.183-.31 2.377-.81 3.533\" />\n  <path d=\"M9.13 9.13a3 3 0 0 0 3.74 3.74\" />\n"))
+}
+func MapPinPen(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M17.97 9.304A8 8 0 0 0 2 10c0 4.69 4.887 9.562 7.022 11.468\" />\n  <path d=\"M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z\" />\n  <circle cx=\"10\" cy=\"10\" r=\"3\" />\n"))
 }
 func MapPinPlusInside(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0\" />\n  <path d=\"M12 7v6\" />\n  <path d=\"M9 10h6\" />\n"))
@@ -2551,6 +2941,9 @@ func MessageCircleOff(extraContent ...html.HTML) html.HTML {
 func MessageCirclePlus(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719\" />\n  <path d=\"M8 12h8\" />\n  <path d=\"M12 8v8\" />\n"))
 }
+func MessageCircleQuestionMark(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719\" />\n  <path d=\"M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3\" />\n  <path d=\"M12 17h.01\" />\n"))
+}
 func MessageCircleReply(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719\" />\n  <path d=\"m10 15-3-3 3-3\" />\n  <path d=\"M7 12h8a2 2 0 0 1 2 2v1\" />\n"))
 }
@@ -2622,6 +3015,9 @@ func Metronome(extraContent ...html.HTML) html.HTML {
 }
 func MicOff(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M12 19v3\" />\n  <path d=\"M15 9.34V5a3 3 0 0 0-5.68-1.33\" />\n  <path d=\"M16.95 16.95A7 7 0 0 1 5 12v-2\" />\n  <path d=\"M18.89 13.23A7 7 0 0 0 19 12v-2\" />\n  <path d=\"m2 2 20 20\" />\n  <path d=\"M9 9v3a3 3 0 0 0 5.12 2.12\" />\n"))
+}
+func MicVocal(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"m11 7.601-5.994 8.19a1 1 0 0 0 .1 1.298l.817.818a1 1 0 0 0 1.314.087L15.09 12\" />\n  <path d=\"M16.5 21.174C15.5 20.5 14.372 20 13 20c-2.058 0-3.928 2.356-6 2-2.072-.356-2.775-3.369-1.5-4.5\" />\n  <circle cx=\"16\" cy=\"7\" r=\"5\" />\n"))
 }
 func Mic(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M12 19v3\" />\n  <path d=\"M19 10v2a7 7 0 0 1-14 0v-2\" />\n  <rect x=\"9\" y=\"2\" width=\"6\" height=\"13\" rx=\"3\" />\n"))
@@ -2743,6 +3139,9 @@ func MouseRight(extraContent ...html.HTML) html.HTML {
 func Mouse(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <rect x=\"5\" y=\"2\" width=\"14\" height=\"20\" rx=\"7\" />\n  <path d=\"M12 6v4\" />\n"))
 }
+func Move3d(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M5 3v16h16\" />\n  <path d=\"m5 19 6-6\" />\n  <path d=\"m2 6 3-3 3 3\" />\n  <path d=\"m18 16 3 3-3 3\" />\n"))
+}
 func MoveDiagonal2(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M19 13v6h-6\" />\n  <path d=\"M5 11V5h6\" />\n  <path d=\"m5 5 14 14\" />\n"))
 }
@@ -2842,8 +3241,17 @@ func NutOff(extraContent ...html.HTML) html.HTML {
 func Nut(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M12 4V2\" />\n  <path d=\"M5 10v4a7.004 7.004 0 0 0 5.277 6.787c.412.104.802.292 1.102.592L12 22l.621-.621c.3-.3.69-.488 1.102-.592A7.003 7.003 0 0 0 19 14v-4\" />\n  <path d=\"M12 4C8 4 4.5 6 4 8c-.243.97-.919 1.952-2 3 1.31-.082 1.972-.29 3-1 .54.92.982 1.356 2 2 1.452-.647 1.954-1.098 2.5-2 .595.995 1.151 1.427 2.5 2 1.31-.621 1.862-1.058 2.5-2 .629.977 1.162 1.423 2.5 2 1.209-.548 1.68-.967 2-2 1.032.916 1.683 1.157 3 1-1.297-1.036-1.758-2.03-2-3-.5-2-4-4-8-4Z\" />\n"))
 }
+func OctagonAlert(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M12 16h.01\" />\n  <path d=\"M12 8v4\" />\n  <path d=\"M15.312 2a2 2 0 0 1 1.414.586l4.688 4.688A2 2 0 0 1 22 8.688v6.624a2 2 0 0 1-.586 1.414l-4.688 4.688a2 2 0 0 1-1.414.586H8.688a2 2 0 0 1-1.414-.586l-4.688-4.688A2 2 0 0 1 2 15.312V8.688a2 2 0 0 1 .586-1.414l4.688-4.688A2 2 0 0 1 8.688 2z\" />\n"))
+}
 func OctagonMinus(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M2.586 16.726A2 2 0 0 1 2 15.312V8.688a2 2 0 0 1 .586-1.414l4.688-4.688A2 2 0 0 1 8.688 2h6.624a2 2 0 0 1 1.414.586l4.688 4.688A2 2 0 0 1 22 8.688v6.624a2 2 0 0 1-.586 1.414l-4.688 4.688a2 2 0 0 1-1.414.586H8.688a2 2 0 0 1-1.414-.586z\" />\n  <path d=\"M8 12h8\" />\n"))
+}
+func OctagonPause(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M10 15V9\" />\n  <path d=\"M14 15V9\" />\n  <path d=\"M2.586 16.726A2 2 0 0 1 2 15.312V8.688a2 2 0 0 1 .586-1.414l4.688-4.688A2 2 0 0 1 8.688 2h6.624a2 2 0 0 1 1.414.586l4.688 4.688A2 2 0 0 1 22 8.688v6.624a2 2 0 0 1-.586 1.414l-4.688 4.688a2 2 0 0 1-1.414.586H8.688a2 2 0 0 1-1.414-.586z\" />\n"))
+}
+func OctagonX(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"m15 9-6 6\" />\n  <path d=\"M2.586 16.726A2 2 0 0 1 2 15.312V8.688a2 2 0 0 1 .586-1.414l4.688-4.688A2 2 0 0 1 8.688 2h6.624a2 2 0 0 1 1.414.586l4.688 4.688A2 2 0 0 1 22 8.688v6.624a2 2 0 0 1-.586 1.414l-4.688 4.688a2 2 0 0 1-1.414.586H8.688a2 2 0 0 1-1.414-.586z\" />\n  <path d=\"m9 9 6 6\" />\n"))
 }
 func Octagon(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M2.586 16.726A2 2 0 0 1 2 15.312V8.688a2 2 0 0 1 .586-1.414l4.688-4.688A2 2 0 0 1 8.688 2h6.624a2 2 0 0 1 1.414.586l4.688 4.688A2 2 0 0 1 22 8.688v6.624a2 2 0 0 1-.586 1.414l-4.688 4.688a2 2 0 0 1-1.414.586H8.688a2 2 0 0 1-1.414-.586z\" />\n"))
@@ -2890,6 +3298,9 @@ func PaintBucket(extraContent ...html.HTML) html.HTML {
 func PaintRoller(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <rect width=\"16\" height=\"6\" x=\"2\" y=\"2\" rx=\"2\" />\n  <path d=\"M10 16v-2a2 2 0 0 1 2-2h8a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2\" />\n  <rect width=\"4\" height=\"6\" x=\"8\" y=\"16\" rx=\"1\" />\n"))
 }
+func PaintbrushVertical(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M10 2v2\" />\n  <path d=\"M14 2v4\" />\n  <path d=\"M17 2a1 1 0 0 1 1 1v9H6V3a1 1 0 0 1 1-1z\" />\n  <path d=\"M6 12a1 1 0 0 0-1 1v1a2 2 0 0 0 2 2h2a1 1 0 0 1 1 1v2.9a2 2 0 1 0 4 0V17a1 1 0 0 1 1-1h2a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1\" />\n"))
+}
 func Paintbrush(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"m14.622 17.897-10.68-2.913\" />\n  <path d=\"M18.376 2.622a1 1 0 1 1 3.002 3.002L17.36 9.643a.5.5 0 0 0 0 .707l.944.944a2.41 2.41 0 0 1 0 3.408l-.944.944a.5.5 0 0 1-.707 0L8.354 7.348a.5.5 0 0 1 0-.707l.944-.944a2.41 2.41 0 0 1 3.408 0l.944.944a.5.5 0 0 0 .707 0z\" />\n  <path d=\"M9 8c-1.804 2.71-3.97 3.46-6.583 3.948a.507.507 0 0 0-.302.819l7.32 8.883a1 1 0 0 0 1.185.204C12.735 20.405 16 16.792 16 15\" />\n"))
 }
@@ -2902,17 +3313,35 @@ func Panda(extraContent ...html.HTML) html.HTML {
 func PanelBottomClose(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M3 15h18\" />\n  <path d=\"m15 8-3 3-3-3\" />\n"))
 }
+func PanelBottomDashed(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M14 15h1\" />\n  <path d=\"M19 15h2\" />\n  <path d=\"M3 15h2\" />\n  <path d=\"M9 15h1\" />\n"))
+}
 func PanelBottomOpen(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M3 15h18\" />\n  <path d=\"m9 10 3-3 3 3\" />\n"))
 }
 func PanelBottom(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M3 15h18\" />\n"))
 }
+func PanelLeftClose(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M9 3v18\" />\n  <path d=\"m16 15-3-3 3-3\" />\n"))
+}
+func PanelLeftDashed(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M9 14v1\" />\n  <path d=\"M9 19v2\" />\n  <path d=\"M9 3v2\" />\n  <path d=\"M9 9v1\" />\n"))
+}
+func PanelLeftOpen(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M9 3v18\" />\n  <path d=\"m14 9 3 3-3 3\" />\n"))
+}
 func PanelLeftRightDashed(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M15 10V9\" />\n  <path d=\"M15 15v-1\" />\n  <path d=\"M15 21v-2\" />\n  <path d=\"M15 5V3\" />\n  <path d=\"M9 10V9\" />\n  <path d=\"M9 15v-1\" />\n  <path d=\"M9 21v-2\" />\n  <path d=\"M9 5V3\" />\n  <rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\" />\n"))
 }
+func PanelLeft(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M9 3v18\" />\n"))
+}
 func PanelRightClose(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M15 3v18\" />\n  <path d=\"m8 9 3 3-3 3\" />\n"))
+}
+func PanelRightDashed(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M15 14v1\" />\n  <path d=\"M15 19v2\" />\n  <path d=\"M15 3v2\" />\n  <path d=\"M15 9v1\" />\n"))
 }
 func PanelRightOpen(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M15 3v18\" />\n  <path d=\"m10 15-3-3 3-3\" />\n"))
@@ -2926,6 +3355,9 @@ func PanelTopBottomDashed(extraContent ...html.HTML) html.HTML {
 func PanelTopClose(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M3 9h18\" />\n  <path d=\"m9 16 3-3 3 3\" />\n"))
 }
+func PanelTopDashed(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M14 9h1\" />\n  <path d=\"M19 9h2\" />\n  <path d=\"M3 9h2\" />\n  <path d=\"M9 9h1\" />\n"))
+}
 func PanelTopOpen(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M3 9h18\" />\n  <path d=\"m15 14-3 3-3-3\" />\n"))
 }
@@ -2937,6 +3369,9 @@ func PanelsLeftBottom(extraContent ...html.HTML) html.HTML {
 }
 func PanelsRightBottom(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M3 15h12\" />\n  <path d=\"M15 3v18\" />\n"))
+}
+func PanelsTopLeft(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M3 9h18\" />\n  <path d=\"M9 21V9\" />\n"))
 }
 func Paperclip(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"m16 6-8.414 8.586a2 2 0 0 0 2.829 2.829l8.414-8.586a4 4 0 1 0-5.657-5.657l-8.379 8.551a6 6 0 1 0 8.485 8.485l8.379-8.551\" />\n"))
@@ -2959,11 +3394,17 @@ func PawPrint(extraContent ...html.HTML) html.HTML {
 func PcCase(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <rect width=\"14\" height=\"20\" x=\"5\" y=\"2\" rx=\"2\" />\n  <path d=\"M15 14h.01\" />\n  <path d=\"M9 6h6\" />\n  <path d=\"M9 10h6\" />\n"))
 }
+func PenLine(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M13 21h8\" />\n  <path d=\"M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z\" />\n"))
+}
 func PenOff(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"m10 10-6.157 6.162a2 2 0 0 0-.5.833l-1.322 4.36a.5.5 0 0 0 .622.624l4.358-1.323a2 2 0 0 0 .83-.5L14 13.982\" />\n  <path d=\"m12.829 7.172 4.359-4.346a1 1 0 1 1 3.986 3.986l-4.353 4.353\" />\n  <path d=\"m2 2 20 20\" />\n"))
 }
 func PenTool(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M15.707 21.293a1 1 0 0 1-1.414 0l-1.586-1.586a1 1 0 0 1 0-1.414l5.586-5.586a1 1 0 0 1 1.414 0l1.586 1.586a1 1 0 0 1 0 1.414z\" />\n  <path d=\"m18 13-1.375-6.874a1 1 0 0 0-.746-.776L3.235 2.028a1 1 0 0 0-1.207 1.207L5.35 15.879a1 1 0 0 0 .776.746L13 18\" />\n  <path d=\"m2.3 2.3 7.286 7.286\" />\n  <circle cx=\"11\" cy=\"11\" r=\"2\" />\n"))
+}
+func Pen(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z\" />\n"))
 }
 func PencilLine(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M13 21h8\" />\n  <path d=\"m15 5 4 4\" />\n  <path d=\"M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z\" />\n"))
@@ -3069,6 +3510,9 @@ func Play(extraContent ...html.HTML) html.HTML {
 }
 func Plug2(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M9 2v6\" />\n  <path d=\"M15 2v6\" />\n  <path d=\"M12 17v5\" />\n  <path d=\"M5 8h14\" />\n  <path d=\"M6 11V8h12v3a6 6 0 1 1-12 0Z\" />\n"))
+}
+func PlugZap(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M6.3 20.3a2.4 2.4 0 0 0 3.4 0L12 18l-6-6-2.3 2.3a2.4 2.4 0 0 0 0 3.4Z\" />\n  <path d=\"m2 22 3-3\" />\n  <path d=\"M7.5 13.5 10 11\" />\n  <path d=\"M10.5 16.5 13 14\" />\n  <path d=\"m18 3-4 4h6l-4 4\" />\n"))
 }
 func Plug(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M12 22v-5\" />\n  <path d=\"M15 8V2\" />\n  <path d=\"M17 8a1 1 0 0 1 1 1v4a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1z\" />\n  <path d=\"M9 8V2\" />\n"))
@@ -3205,6 +3649,9 @@ func Receipt(extraContent ...html.HTML) html.HTML {
 func RectangleCircle(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M14 4v16H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z\" />\n  <circle cx=\"14\" cy=\"12\" r=\"8\" />\n"))
 }
+func RectangleEllipsis(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"20\" height=\"12\" x=\"2\" y=\"6\" rx=\"2\" />\n  <path d=\"M12 12h.01\" />\n  <path d=\"M17 12h.01\" />\n  <path d=\"M7 12h.01\" />\n"))
+}
 func RectangleGoggles(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M20 6a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-4a2 2 0 0 1-1.6-.8l-1.6-2.13a1 1 0 0 0-1.6 0L9.6 17.2A2 2 0 0 1 8 18H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z\" />\n"))
 }
@@ -3286,6 +3733,9 @@ func RollerCoaster(extraContent ...html.HTML) html.HTML {
 func Rose(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M17 10h-1a4 4 0 1 1 4-4v.534\" />\n  <path d=\"M17 6h1a4 4 0 0 1 1.42 7.74l-2.29.87a6 6 0 0 1-5.339-10.68l2.069-1.31\" />\n  <path d=\"M4.5 17c2.8-.5 4.4 0 5.5.8s1.8 2.2 2.3 3.7c-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2\" />\n  <path d=\"M9.77 12C4 15 2 22 2 22\" />\n  <circle cx=\"17\" cy=\"8\" r=\"2\" />\n"))
 }
+func Rotate3d(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M16.466 7.5C15.643 4.237 13.952 2 12 2 9.239 2 7 6.477 7 12s2.239 10 5 10c.342 0 .677-.069 1-.2\" />\n  <path d=\"m15.194 13.707 3.814 1.86-1.86 3.814\" />\n  <path d=\"M19 15.57c-1.804.885-4.274 1.43-7 1.43-5.523 0-10-2.239-10-5s4.477-5 10-5c4.838 0 8.873 1.718 9.8 4\" />\n"))
+}
 func RotateCcwKey(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M12 7v6\" />\n  <path d=\"M12 9h2\" />\n  <path d=\"M3 12a9 9 0 1 0 9-9 9.74 9.74 0 0 0-6.74 2.74L3 8\" />\n  <path d=\"M3 3v5h5\" />\n  <circle cx=\"12\" cy=\"15\" r=\"2\" />\n"))
 }
@@ -3309,6 +3759,12 @@ func Route(extraContent ...html.HTML) html.HTML {
 }
 func Router(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <rect width=\"20\" height=\"8\" x=\"2\" y=\"14\" rx=\"2\" />\n  <path d=\"M6.01 18H6\" />\n  <path d=\"M10.01 18H10\" />\n  <path d=\"M15 10v4\" />\n  <path d=\"M17.84 7.17a4 4 0 0 0-5.66 0\" />\n  <path d=\"M20.66 4.34a8 8 0 0 0-11.31 0\" />\n"))
+}
+func Rows2(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M3 12h18\" />\n"))
+}
+func Rows3(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M21 9H3\" />\n  <path d=\"M21 15H3\" />\n"))
 }
 func Rows4(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M21 7.5H3\" />\n  <path d=\"M21 12H3\" />\n  <path d=\"M21 16.5H3\" />\n"))
@@ -3351,6 +3807,9 @@ func SaveOff(extraContent ...html.HTML) html.HTML {
 }
 func Save(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z\" />\n  <path d=\"M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7\" />\n  <path d=\"M7 3v4a1 1 0 0 0 1 1h7\" />\n"))
+}
+func Scale3d(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M5 7v11a1 1 0 0 0 1 1h11\" />\n  <path d=\"M5.293 18.707 11 13\" />\n  <circle cx=\"19\" cy=\"19\" r=\"2\" />\n  <circle cx=\"5\" cy=\"5\" r=\"2\" />\n"))
 }
 func Scale(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M12 3v18\" />\n  <path d=\"m19 8 3 8a5 5 0 0 1-6 0zV7\" />\n  <path d=\"M3 7h1a17 17 0 0 0 8-2 17 17 0 0 0 8 2h1\" />\n  <path d=\"m5 8 3 8a5 5 0 0 1-6 0zV7\" />\n  <path d=\"M7 21h10\" />\n"))
@@ -3430,6 +3889,9 @@ func Search(extraContent ...html.HTML) html.HTML {
 func Section(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M16 5a4 3 0 0 0-8 0c0 4 8 3 8 7a4 3 0 0 1-8 0\" />\n  <path d=\"M8 19a4 3 0 0 0 8 0c0-4-8-3-8-7a4 3 0 0 1 8 0\" />\n"))
 }
+func SendHorizontal(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M3.714 3.048a.498.498 0 0 0-.683.627l2.843 7.627a2 2 0 0 1 0 1.396l-2.842 7.627a.498.498 0 0 0 .682.627l18-8.5a.5.5 0 0 0 0-.904z\" />\n  <path d=\"M6 12h16\" />\n"))
+}
 func SendToBack(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <rect x=\"14\" y=\"14\" width=\"8\" height=\"8\" rx=\"2\" />\n  <rect x=\"2\" y=\"2\" width=\"8\" height=\"8\" rx=\"2\" />\n  <path d=\"M7 14v1a2 2 0 0 0 2 2h1\" />\n  <path d=\"M14 7h1a2 2 0 0 1 2 2v1\" />\n"))
 }
@@ -3502,8 +3964,14 @@ func ShieldOff(extraContent ...html.HTML) html.HTML {
 func ShieldPlus(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\" />\n  <path d=\"M9 12h6\" />\n  <path d=\"M12 9v6\" />\n"))
 }
+func ShieldQuestionMark(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\" />\n  <path d=\"M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3\" />\n  <path d=\"M12 17h.01\" />\n"))
+}
 func ShieldUser(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\" />\n  <path d=\"M6.376 18.91a6 6 0 0 1 11.249.003\" />\n  <circle cx=\"12\" cy=\"11\" r=\"4\" />\n"))
+}
+func ShieldX(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\" />\n  <path d=\"m14.5 9.5-5 5\" />\n  <path d=\"m9.5 9.5 5 5\" />\n"))
 }
 func Shield(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\" />\n"))
@@ -3598,6 +4066,9 @@ func Slice(extraContent ...html.HTML) html.HTML {
 func SlidersHorizontal(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M10 5H3\" />\n  <path d=\"M12 19H3\" />\n  <path d=\"M14 3v4\" />\n  <path d=\"M16 17v4\" />\n  <path d=\"M21 12h-9\" />\n  <path d=\"M21 19h-5\" />\n  <path d=\"M21 5h-7\" />\n  <path d=\"M8 10v4\" />\n  <path d=\"M8 12H3\" />\n"))
 }
+func SlidersVertical(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M10 8h4\" />\n  <path d=\"M12 21v-9\" />\n  <path d=\"M12 8V3\" />\n  <path d=\"M17 16h4\" />\n  <path d=\"M19 12V3\" />\n  <path d=\"M19 21v-5\" />\n  <path d=\"M3 14h4\" />\n  <path d=\"M5 10V3\" />\n  <path d=\"M5 21v-7\" />\n"))
+}
 func SmartphoneCharging(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <rect width=\"14\" height=\"20\" x=\"5\" y=\"2\" rx=\"2\" ry=\"2\" />\n  <path d=\"M12.667 8 10 12h4l-2.667 4\" />\n"))
 }
@@ -3640,6 +4111,9 @@ func Spade(extraContent ...html.HTML) html.HTML {
 func Sparkle(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z\" />\n"))
 }
+func Sparkles(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z\" />\n  <path d=\"M20 2v4\" />\n  <path d=\"M22 4h-4\" />\n  <circle cx=\"4\" cy=\"20\" r=\"2\" />\n"))
+}
 func Speaker(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <rect width=\"16\" height=\"20\" x=\"4\" y=\"2\" rx=\"2\" />\n  <path d=\"M12 6h.01\" />\n  <circle cx=\"12\" cy=\"14\" r=\"4\" />\n  <path d=\"M12 14h.01\" />\n"))
 }
@@ -3673,11 +4147,86 @@ func SprayCan(extraContent ...html.HTML) html.HTML {
 func Sprout(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M14 9.536V7a4 4 0 0 1 4-4h1.5a.5.5 0 0 1 .5.5V5a4 4 0 0 1-4 4 4 4 0 0 0-4 4c0 2 1 3 1 5a5 5 0 0 1-1 3\" />\n  <path d=\"M4 9a5 5 0 0 1 8 4 5 5 0 0 1-8-4\" />\n  <path d=\"M5 21h14\" />\n"))
 }
+func SquareActivity(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M17 12h-2l-2 5-2-10-2 5H7\" />\n"))
+}
+func SquareArrowDownLeft(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"m16 8-8 8\" />\n  <path d=\"M16 16H8V8\" />\n"))
+}
+func SquareArrowDownRight(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"m8 8 8 8\" />\n  <path d=\"M16 8v8H8\" />\n"))
+}
+func SquareArrowDown(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M12 8v8\" />\n  <path d=\"m8 12 4 4 4-4\" />\n"))
+}
+func SquareArrowLeft(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"m12 8-4 4 4 4\" />\n  <path d=\"M16 12H8\" />\n"))
+}
+func SquareArrowOutDownLeft(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M13 21h6a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v6\" />\n  <path d=\"m3 21 9-9\" />\n  <path d=\"M9 21H3v-6\" />\n"))
+}
+func SquareArrowOutDownRight(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M21 11V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6\" />\n  <path d=\"m21 21-9-9\" />\n  <path d=\"M21 15v6h-6\" />\n"))
+}
+func SquareArrowOutUpLeft(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M13 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-6\" />\n  <path d=\"m3 3 9 9\" />\n  <path d=\"M3 9V3h6\" />\n"))
+}
+func SquareArrowOutUpRight(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6\" />\n  <path d=\"m21 3-9 9\" />\n  <path d=\"M15 3h6v6\" />\n"))
+}
 func SquareArrowRightEnter(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"m10 16 4-4-4-4\" />\n  <path d=\"M3 12h11\" />\n  <path d=\"M3 8V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3\" />\n"))
 }
 func SquareArrowRightExit(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M10 12h11\" />\n  <path d=\"m17 16 4-4-4-4\" />\n  <path d=\"M21 6.344V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-1.344\" />\n"))
+}
+func SquareArrowRight(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M8 12h8\" />\n  <path d=\"m12 16 4-4-4-4\" />\n"))
+}
+func SquareArrowUpLeft(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M8 16V8h8\" />\n  <path d=\"M16 16 8 8\" />\n"))
+}
+func SquareArrowUpRight(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M8 8h8v8\" />\n  <path d=\"m8 16 8-8\" />\n"))
+}
+func SquareArrowUp(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"m16 12-4-4-4 4\" />\n  <path d=\"M12 16V8\" />\n"))
+}
+func SquareAsterisk(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M12 8v8\" />\n  <path d=\"m8.5 14 7-4\" />\n  <path d=\"m8.5 10 7 4\" />\n"))
+}
+func SquareBottomDashedScissors(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <line x1=\"5\" y1=\"3\" x2=\"19\" y2=\"3\" />\n  <line x1=\"3\" y1=\"5\" x2=\"3\" y2=\"19\" />\n  <line x1=\"21\" y1=\"5\" x2=\"21\" y2=\"19\" />\n  <line x1=\"9\" y1=\"21\" x2=\"10\" y2=\"21\" />\n  <line x1=\"14\" y1=\"21\" x2=\"15\" y2=\"21\" />\n  <path d=\"M 3 5 A2 2 0 0 1 5 3\" />\n  <path d=\"M 19 3 A2 2 0 0 1 21 5\" />\n  <path d=\"M 5 21 A2 2 0 0 1 3 19\" />\n  <path d=\"M 21 19 A2 2 0 0 1 19 21\" />\n  <circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\" />\n  <line x1=\"9.56066\" y1=\"9.56066\" x2=\"12\" y2=\"12\" />\n  <line x1=\"17\" y1=\"17\" x2=\"14.82\" y2=\"14.82\" />\n  <circle cx=\"8.5\" cy=\"15.5\" r=\"1.5\" />\n  <line x1=\"9.56066\" y1=\"14.43934\" x2=\"17\" y2=\"7\" />\n"))
+}
+func SquareCenterlineDashedHorizontal(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M8 3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h3\" />\n  <path d=\"M16 3h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-3\" />\n  <path d=\"M12 20v2\" />\n  <path d=\"M12 14v2\" />\n  <path d=\"M12 8v2\" />\n  <path d=\"M12 2v2\" />\n"))
+}
+func SquareCenterlineDashedVertical(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M21 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v3\" />\n  <path d=\"M21 16v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3\" />\n  <path d=\"M4 12H2\" />\n  <path d=\"M10 12H8\" />\n  <path d=\"M16 12h-2\" />\n  <path d=\"M22 12h-2\" />\n"))
+}
+func SquareChartGantt(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M9 8h7\" />\n  <path d=\"M8 12h6\" />\n  <path d=\"M11 16h5\" />\n"))
+}
+func SquareCheckBig(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M21 10.656V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h12.344\" />\n  <path d=\"m9 11 3 3L22 4\" />\n"))
+}
+func SquareCheck(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"m9 12 2 2 4-4\" />\n"))
+}
+func SquareChevronDown(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"m16 10-4 4-4-4\" />\n"))
+}
+func SquareChevronLeft(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"m14 16-4-4 4-4\" />\n"))
+}
+func SquareChevronRight(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"m10 8 4 4-4 4\" />\n"))
+}
+func SquareChevronUp(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"m8 14 4-4 4 4\" />\n"))
+}
+func SquareCode(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"m10 9-3 3 3 3\" />\n  <path d=\"m14 15 3-3-3-3\" />\n  <rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\" />\n"))
 }
 func SquareDashedBottomCode(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M10 9.5 8 12l2 2.5\" />\n  <path d=\"M14 21h1\" />\n  <path d=\"m14 9.5 2 2.5-2 2.5\" />\n  <path d=\"M5 21a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2\" />\n  <path d=\"M9 21h1\" />\n"))
@@ -3685,17 +4234,98 @@ func SquareDashedBottomCode(extraContent ...html.HTML) html.HTML {
 func SquareDashedBottom(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M5 21a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2\" />\n  <path d=\"M9 21h1\" />\n  <path d=\"M14 21h1\" />\n"))
 }
+func SquareDashedKanban(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M8 7v7\" />\n  <path d=\"M12 7v4\" />\n  <path d=\"M16 7v9\" />\n  <path d=\"M5 3a2 2 0 0 0-2 2\" />\n  <path d=\"M9 3h1\" />\n  <path d=\"M14 3h1\" />\n  <path d=\"M19 3a2 2 0 0 1 2 2\" />\n  <path d=\"M21 9v1\" />\n  <path d=\"M21 14v1\" />\n  <path d=\"M21 19a2 2 0 0 1-2 2\" />\n  <path d=\"M14 21h1\" />\n  <path d=\"M9 21h1\" />\n  <path d=\"M5 21a2 2 0 0 1-2-2\" />\n  <path d=\"M3 14v1\" />\n  <path d=\"M3 9v1\" />\n"))
+}
+func SquareDashedMousePointer(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M12.034 12.681a.498.498 0 0 1 .647-.647l9 3.5a.5.5 0 0 1-.033.943l-3.444 1.068a1 1 0 0 0-.66.66l-1.067 3.443a.5.5 0 0 1-.943.033z\" />\n  <path d=\"M5 3a2 2 0 0 0-2 2\" />\n  <path d=\"M19 3a2 2 0 0 1 2 2\" />\n  <path d=\"M5 21a2 2 0 0 1-2-2\" />\n  <path d=\"M9 3h1\" />\n  <path d=\"M9 21h2\" />\n  <path d=\"M14 3h1\" />\n  <path d=\"M3 9v1\" />\n  <path d=\"M21 9v2\" />\n  <path d=\"M3 14v1\" />\n"))
+}
 func SquareDashedTopSolid(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M14 21h1\" />\n  <path d=\"M21 14v1\" />\n  <path d=\"M21 19a2 2 0 0 1-2 2\" />\n  <path d=\"M21 9v1\" />\n  <path d=\"M3 14v1\" />\n  <path d=\"M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2\" />\n  <path d=\"M3 9v1\" />\n  <path d=\"M5 21a2 2 0 0 1-2-2\" />\n  <path d=\"M9 21h1\" />\n"))
 }
+func SquareDashed(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M5 3a2 2 0 0 0-2 2\" />\n  <path d=\"M19 3a2 2 0 0 1 2 2\" />\n  <path d=\"M21 19a2 2 0 0 1-2 2\" />\n  <path d=\"M5 21a2 2 0 0 1-2-2\" />\n  <path d=\"M9 3h1\" />\n  <path d=\"M9 21h1\" />\n  <path d=\"M14 3h1\" />\n  <path d=\"M14 21h1\" />\n  <path d=\"M3 9v1\" />\n  <path d=\"M21 9v1\" />\n  <path d=\"M3 14v1\" />\n  <path d=\"M21 14v1\" />\n"))
+}
+func SquareDivide(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" ry=\"2\" />\n  <line x1=\"8\" x2=\"16\" y1=\"12\" y2=\"12\" />\n  <line x1=\"12\" x2=\"12\" y1=\"16\" y2=\"16\" />\n  <line x1=\"12\" x2=\"12\" y1=\"8\" y2=\"8\" />\n"))
+}
+func SquareDot(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <circle cx=\"12\" cy=\"12\" r=\"1\" />\n"))
+}
+func SquareEqual(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M7 10h10\" />\n  <path d=\"M7 14h10\" />\n"))
+}
+func SquareFunction(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" ry=\"2\" />\n  <path d=\"M9 17c2 0 2.8-1 2.8-2.8V10c0-2 1-3.3 3.2-3\" />\n  <path d=\"M9 11.2h5.7\" />\n"))
+}
+func SquareKanban(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M8 7v7\" />\n  <path d=\"M12 7v4\" />\n  <path d=\"M16 7v9\" />\n"))
+}
+func SquareLibrary(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M7 7v10\" />\n  <path d=\"M11 7v10\" />\n  <path d=\"m15 7 2 10\" />\n"))
+}
+func SquareM(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M8 16V8.5a.5.5 0 0 1 .9-.3l2.7 3.599a.5.5 0 0 0 .8 0l2.7-3.6a.5.5 0 0 1 .9.3V16\" />\n  <rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\" />\n"))
+}
+func SquareMenu(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M7 8h10\" />\n  <path d=\"M7 12h10\" />\n  <path d=\"M7 16h10\" />\n"))
+}
+func SquareMinus(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M8 12h8\" />\n"))
+}
+func SquareMousePointer(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M12.034 12.681a.498.498 0 0 1 .647-.647l9 3.5a.5.5 0 0 1-.033.943l-3.444 1.068a1 1 0 0 0-.66.66l-1.067 3.443a.5.5 0 0 1-.943.033z\" />\n  <path d=\"M21 11V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6\" />\n"))
+}
+func SquareParkingOff(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M3.6 3.6A2 2 0 0 1 5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-.59 1.41\" />\n  <path d=\"M3 8.7V19a2 2 0 0 0 2 2h10.3\" />\n  <path d=\"m2 2 20 20\" />\n  <path d=\"M13 13a3 3 0 1 0 0-6H9v2\" />\n  <path d=\"M9 17v-2.3\" />\n"))
+}
+func SquareParking(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M9 17V7h4a3 3 0 0 1 0 6H9\" />\n"))
+}
 func SquarePause(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <line x1=\"10\" x2=\"10\" y1=\"15\" y2=\"9\" />\n  <line x1=\"14\" x2=\"14\" y1=\"15\" y2=\"9\" />\n"))
+}
+func SquarePen(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7\" />\n  <path d=\"M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z\" />\n"))
+}
+func SquarePercent(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"m15 9-6 6\" />\n  <path d=\"M9 9h.01\" />\n  <path d=\"M15 15h.01\" />\n"))
+}
+func SquarePi(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M7 7h10\" />\n  <path d=\"M10 7v10\" />\n  <path d=\"M16 17a2 2 0 0 1-2-2V7\" />\n"))
+}
+func SquarePilcrow(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M12 12H9.5a2.5 2.5 0 0 1 0-5H17\" />\n  <path d=\"M12 7v10\" />\n  <path d=\"M16 7v10\" />\n"))
+}
+func SquarePlay(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\" />\n  <path d=\"M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z\" />\n"))
+}
+func SquarePlus(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M8 12h8\" />\n  <path d=\"M12 8v8\" />\n"))
+}
+func SquarePower(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M12 7v4\" />\n  <path d=\"M7.998 9.003a5 5 0 1 0 8-.005\" />\n  <rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\" />\n"))
 }
 func SquareRadical(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M7 12h2l2 5 2-10h4\" />\n  <rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\" />\n"))
 }
 func SquareRoundCorner(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M21 11a8 8 0 0 0-8-8\" />\n  <path d=\"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4\" />\n"))
+}
+func SquareScissors(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\" />\n  <line x1=\"9.56066\" y1=\"9.56066\" x2=\"12\" y2=\"12\" />\n  <line x1=\"17\" y1=\"17\" x2=\"14.82\" y2=\"14.82\" />\n  <circle cx=\"8.5\" cy=\"15.5\" r=\"1.5\" />\n  <line x1=\"9.56066\" y1=\"14.43934\" x2=\"17\" y2=\"7\" />\n"))
+}
+func SquareSigma(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M16 8.9V7H8l4 5-4 5h8v-1.9\" />\n"))
+}
+func SquareSlash(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <line x1=\"9\" x2=\"15\" y1=\"15\" y2=\"9\" />\n"))
+}
+func SquareSplitHorizontal(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M8 19H5c-1 0-2-1-2-2V7c0-1 1-2 2-2h3\" />\n  <path d=\"M16 5h3c1 0 2 1 2 2v10c0 1-1 2-2 2h-3\" />\n  <line x1=\"12\" x2=\"12\" y1=\"4\" y2=\"20\" />\n"))
+}
+func SquareSplitVertical(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M5 8V5c0-1 1-2 2-2h10c1 0 2 1 2 2v3\" />\n  <path d=\"M19 16v3c0 1-1 2-2 2H7c-1 0-2-1-2-2v-3\" />\n  <line x1=\"4\" x2=\"20\" y1=\"12\" y2=\"12\" />\n"))
 }
 func SquareSquare(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\" />\n  <rect x=\"8\" y=\"8\" width=\"8\" height=\"8\" rx=\"1\" />\n"))
@@ -3708,6 +4338,18 @@ func SquareStar(extraContent ...html.HTML) html.HTML {
 }
 func SquareStop(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <rect x=\"9\" y=\"9\" width=\"6\" height=\"6\" rx=\"1\" />\n"))
+}
+func SquareTerminal(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"m7 11 2-2-2-2\" />\n  <path d=\"M11 13h4\" />\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" ry=\"2\" />\n"))
+}
+func SquareUserRound(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M18 21a6 6 0 0 0-12 0\" />\n  <circle cx=\"12\" cy=\"11\" r=\"4\" />\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n"))
+}
+func SquareUser(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <circle cx=\"12\" cy=\"10\" r=\"3\" />\n  <path d=\"M7 21v-2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2\" />\n"))
+}
+func SquareX(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" ry=\"2\" />\n  <path d=\"m15 9-6 6\" />\n  <path d=\"m9 9 6 6\" />\n"))
 }
 func Square(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n"))
@@ -3892,11 +4534,26 @@ func Tent(extraContent ...html.HTML) html.HTML {
 func Terminal(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M12 19h8\" />\n  <path d=\"m4 17 6-6-6-6\" />\n"))
 }
+func TestTubeDiagonal(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M21 7 6.82 21.18a2.83 2.83 0 0 1-3.99-.01a2.83 2.83 0 0 1 0-4L17 3\" />\n  <path d=\"m16 2 6 6\" />\n  <path d=\"M12 16H4\" />\n"))
+}
 func TestTube(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M14.5 2v17.5c0 1.4-1.1 2.5-2.5 2.5c-1.4 0-2.5-1.1-2.5-2.5V2\" />\n  <path d=\"M8.5 2h7\" />\n  <path d=\"M14.5 16h-5\" />\n"))
 }
 func TestTubes(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M9 2v17.5A2.5 2.5 0 0 1 6.5 22A2.5 2.5 0 0 1 4 19.5V2\" />\n  <path d=\"M20 2v17.5a2.5 2.5 0 0 1-2.5 2.5a2.5 2.5 0 0 1-2.5-2.5V2\" />\n  <path d=\"M3 2h7\" />\n  <path d=\"M14 2h7\" />\n  <path d=\"M9 16H4\" />\n  <path d=\"M20 16h-5\" />\n"))
+}
+func TextAlignCenter(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M21 5H3\" />\n  <path d=\"M17 12H7\" />\n  <path d=\"M19 19H5\" />\n"))
+}
+func TextAlignEnd(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M21 5H3\" />\n  <path d=\"M21 12H9\" />\n  <path d=\"M21 19H7\" />\n"))
+}
+func TextAlignJustify(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M3 5h18\" />\n  <path d=\"M3 12h18\" />\n  <path d=\"M3 19h18\" />\n"))
+}
+func TextAlignStart(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M21 5H3\" />\n  <path d=\"M15 12H3\" />\n  <path d=\"M17 19H3\" />\n"))
 }
 func TextCursorInput(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M12 20h-1a2 2 0 0 1-2-2 2 2 0 0 1-2 2H6\" />\n  <path d=\"M13 8h7a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-7\" />\n  <path d=\"M5 16H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h1\" />\n  <path d=\"M6 4h1a2 2 0 0 1 2 2 2 2 0 0 1 2-2h1\" />\n  <path d=\"M9 6v12\" />\n"))
@@ -3904,11 +4561,20 @@ func TextCursorInput(extraContent ...html.HTML) html.HTML {
 func TextCursor(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M17 22h-1a4 4 0 0 1-4-4V6a4 4 0 0 1 4-4h1\" />\n  <path d=\"M7 22h1a4 4 0 0 0 4-4v-1\" />\n  <path d=\"M7 2h1a4 4 0 0 1 4 4v1\" />\n"))
 }
+func TextInitial(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M15 5h6\" />\n  <path d=\"M15 12h6\" />\n  <path d=\"M3 19h18\" />\n  <path d=\"m3 12 3.553-7.724a.5.5 0 0 1 .894 0L11 12\" />\n  <path d=\"M3.92 10h6.16\" />\n"))
+}
 func TextQuote(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M17 5H3\" />\n  <path d=\"M21 12H8\" />\n  <path d=\"M21 19H8\" />\n  <path d=\"M3 12v7\" />\n"))
 }
 func TextSearch(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M21 5H3\" />\n  <path d=\"M10 12H3\" />\n  <path d=\"M10 19H3\" />\n  <circle cx=\"17\" cy=\"15\" r=\"3\" />\n  <path d=\"m21 19-1.9-1.9\" />\n"))
+}
+func TextSelect(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M14 21h1\" />\n  <path d=\"M14 3h1\" />\n  <path d=\"M19 3a2 2 0 0 1 2 2\" />\n  <path d=\"M21 14v1\" />\n  <path d=\"M21 19a2 2 0 0 1-2 2\" />\n  <path d=\"M21 9v1\" />\n  <path d=\"M3 14v1\" />\n  <path d=\"M3 9v1\" />\n  <path d=\"M5 21a2 2 0 0 1-2-2\" />\n  <path d=\"M5 3a2 2 0 0 0-2 2\" />\n  <path d=\"M7 12h10\" />\n  <path d=\"M7 16h6\" />\n  <path d=\"M7 8h8\" />\n  <path d=\"M9 21h1\" />\n  <path d=\"M9 3h1\" />\n"))
+}
+func TextWrap(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"m16 16-3 3 3 3\" />\n  <path d=\"M3 12h14.5a1 1 0 0 1 0 7H13\" />\n  <path d=\"M3 19h6\" />\n  <path d=\"M3 5h18\" />\n"))
 }
 func Theater(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M2 10s3-3 3-8\" />\n  <path d=\"M22 10s-3-3-3-8\" />\n  <path d=\"M10 2c0 4.4-3.6 8-8 8\" />\n  <path d=\"M14 2c0 4.4 3.6 8 8 8\" />\n  <path d=\"M2 10s2 2 2 5\" />\n  <path d=\"M22 10s-2 2-2 5\" />\n  <path d=\"M8 15h8\" />\n  <path d=\"M2 22v-1a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1\" />\n  <path d=\"M14 22v-1a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1\" />\n"))
@@ -4015,6 +4681,9 @@ func TrainFront(extraContent ...html.HTML) html.HTML {
 func TrainTrack(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M2 17 17 2\" />\n  <path d=\"m2 14 8 8\" />\n  <path d=\"m5 11 8 8\" />\n  <path d=\"m8 8 8 8\" />\n  <path d=\"m11 5 8 8\" />\n  <path d=\"m14 2 8 8\" />\n  <path d=\"M7 22 22 7\" />\n"))
 }
+func TramFront(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <rect width=\"16\" height=\"16\" x=\"4\" y=\"3\" rx=\"2\" />\n  <path d=\"M4 11h16\" />\n  <path d=\"M12 3v8\" />\n  <path d=\"m8 19-2 3\" />\n  <path d=\"m18 22-2-3\" />\n  <path d=\"M8 15h.01\" />\n  <path d=\"M16 15h.01\" />\n"))
+}
 func Transgender(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M12 16v6\" />\n  <path d=\"M14 20h-4\" />\n  <path d=\"M18 2h4v4\" />\n  <path d=\"m2 2 7.17 7.17\" />\n  <path d=\"M2 5.355V2h3.357\" />\n  <path d=\"m22 2-7.17 7.17\" />\n  <path d=\"M8 5 5 8\" />\n  <circle cx=\"12\" cy=\"12\" r=\"4\" />\n"))
 }
@@ -4026,6 +4695,9 @@ func Trash(extraContent ...html.HTML) html.HTML {
 }
 func TreeDeciduous(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M8 19a4 4 0 0 1-2.24-7.32A3.5 3.5 0 0 1 9 6.03V6a3 3 0 1 1 6 0v.04a3.5 3.5 0 0 1 3.24 5.65A4 4 0 0 1 16 19Z\" />\n  <path d=\"M12 19v3\" />\n"))
+}
+func TreePalm(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M13 8c0-2.76-2.46-5-5.5-5S2 5.24 2 8h2l1-1 1 1h4\" />\n  <path d=\"M13 7.14A5.82 5.82 0 0 1 16.5 6c3.04 0 5.5 2.24 5.5 5h-3l-1-1-1 1h-3\" />\n  <path d=\"M5.89 9.71c-2.15 2.15-2.3 5.47-.35 7.43l4.24-4.25.7-.7.71-.71 2.12-2.12c-1.95-1.96-5.27-1.8-7.42.35\" />\n  <path d=\"M11 15.5c.5 2.5-.17 4.5-1 6.5h4c2-5.5-.5-12-1-14\" />\n"))
 }
 func TreePine(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"m17 14 3 3.3a1 1 0 0 1-.7 1.7H4.7a1 1 0 0 1-.7-1.7L7 14h-.3a1 1 0 0 1-.7-1.7L9 9h-.2A1 1 0 0 1 8 7.3L12 3l4 4.3a1 1 0 0 1-.8 1.7H15l3 3.3a1 1 0 0 1-.7 1.7H17Z\" />\n  <path d=\"M12 22v-3\" />\n"))
@@ -4044,6 +4716,9 @@ func TrendingUpDown(extraContent ...html.HTML) html.HTML {
 }
 func TrendingUp(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M16 7h6v6\" />\n  <path d=\"m22 7-8.5 8.5-5-5L2 17\" />\n"))
+}
+func TriangleAlert(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3\" />\n  <path d=\"M12 9v4\" />\n  <path d=\"M12 17h.01\" />\n"))
 }
 func TriangleDashed(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M10.17 4.193a2 2 0 0 1 3.666.013\" />\n  <path d=\"M14 21h2\" />\n  <path d=\"m15.874 7.743 1 1.732\" />\n  <path d=\"m18.849 12.952 1 1.732\" />\n  <path d=\"M21.824 18.18a2 2 0 0 1-1.835 2.824\" />\n  <path d=\"M4.024 21a2 2 0 0 1-1.839-2.839\" />\n  <path d=\"m5.136 12.952-1 1.732\" />\n  <path d=\"M8 21h2\" />\n  <path d=\"m8.102 7.743-1 1.732\" />\n"))
@@ -4074,6 +4749,9 @@ func Turtle(extraContent ...html.HTML) html.HTML {
 }
 func TvMinimalPlay(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M15.033 9.44a.647.647 0 0 1 0 1.12l-4.065 2.352a.645.645 0 0 1-.968-.56V7.648a.645.645 0 0 1 .967-.56z\" />\n  <path d=\"M7 21h10\" />\n  <rect width=\"20\" height=\"14\" x=\"2\" y=\"3\" rx=\"2\" />\n"))
+}
+func TvMinimal(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M7 21h10\" />\n  <rect width=\"20\" height=\"14\" x=\"2\" y=\"3\" rx=\"2\" />\n"))
 }
 func Tv(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"m17 2-5 5-5-5\" />\n  <rect width=\"20\" height=\"15\" x=\"2\" y=\"7\" rx=\"2\" />\n"))
@@ -4117,6 +4795,9 @@ func UnfoldVertical(extraContent ...html.HTML) html.HTML {
 func Ungroup(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <rect width=\"8\" height=\"6\" x=\"5\" y=\"4\" rx=\"1\" />\n  <rect width=\"8\" height=\"6\" x=\"11\" y=\"14\" rx=\"1\" />\n"))
 }
+func University(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M14 21v-3a2 2 0 0 0-4 0v3\" />\n  <path d=\"M18 12h.01\" />\n  <path d=\"M18 16h.01\" />\n  <path d=\"M22 7a1 1 0 0 0-1-1h-2a2 2 0 0 1-1.143-.359L13.143 2.36a2 2 0 0 0-2.286-.001L6.143 5.64A2 2 0 0 1 5 6H3a1 1 0 0 0-1 1v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2z\" />\n  <path d=\"M6 12h.01\" />\n  <path d=\"M6 16h.01\" />\n  <circle cx=\"12\" cy=\"10\" r=\"2\" />\n"))
+}
 func Unlink2(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M15 7h2a5 5 0 0 1 0 10h-2m-6 0H7A5 5 0 0 1 7 7h2\" />\n"))
 }
@@ -4153,14 +4834,32 @@ func UserPen(extraContent ...html.HTML) html.HTML {
 func UserPlus(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\" />\n  <circle cx=\"9\" cy=\"7\" r=\"4\" />\n  <line x1=\"19\" x2=\"19\" y1=\"8\" y2=\"14\" />\n  <line x1=\"22\" x2=\"16\" y1=\"11\" y2=\"11\" />\n"))
 }
+func UserRoundCheck(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M2 21a8 8 0 0 1 13.292-6\" />\n  <circle cx=\"10\" cy=\"8\" r=\"5\" />\n  <path d=\"m16 19 2 2 4-4\" />\n"))
+}
+func UserRoundCog(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"m14.305 19.53.923-.382\" />\n  <path d=\"m15.228 16.852-.923-.383\" />\n  <path d=\"m16.852 15.228-.383-.923\" />\n  <path d=\"m16.852 20.772-.383.924\" />\n  <path d=\"m19.148 15.228.383-.923\" />\n  <path d=\"m19.53 21.696-.382-.924\" />\n  <path d=\"M2 21a8 8 0 0 1 10.434-7.62\" />\n  <path d=\"m20.772 16.852.924-.383\" />\n  <path d=\"m20.772 19.148.924.383\" />\n  <circle cx=\"10\" cy=\"8\" r=\"5\" />\n  <circle cx=\"18\" cy=\"18\" r=\"3\" />\n"))
+}
 func UserRoundKey(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M19 11v6\" />\n  <path d=\"M19 13h2\" />\n  <path d=\"M2 21a8 8 0 0 1 12.868-6.349\" />\n  <circle cx=\"10\" cy=\"8\" r=\"5\" />\n  <circle cx=\"19\" cy=\"19\" r=\"2\" />\n"))
+}
+func UserRoundMinus(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M2 21a8 8 0 0 1 13.292-6\" />\n  <circle cx=\"10\" cy=\"8\" r=\"5\" />\n  <path d=\"M22 19h-6\" />\n"))
 }
 func UserRoundPen(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M2 21a8 8 0 0 1 10.821-7.487\" />\n  <path d=\"M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z\" />\n  <circle cx=\"10\" cy=\"8\" r=\"5\" />\n"))
 }
+func UserRoundPlus(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M2 21a8 8 0 0 1 13.292-6\" />\n  <circle cx=\"10\" cy=\"8\" r=\"5\" />\n  <path d=\"M19 16v6\" />\n  <path d=\"M22 19h-6\" />\n"))
+}
 func UserRoundSearch(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <circle cx=\"10\" cy=\"8\" r=\"5\" />\n  <path d=\"M2 21a8 8 0 0 1 10.434-7.62\" />\n  <circle cx=\"18\" cy=\"18\" r=\"3\" />\n  <path d=\"m22 22-1.9-1.9\" />\n"))
+}
+func UserRoundX(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M2 21a8 8 0 0 1 11.873-7\" />\n  <circle cx=\"10\" cy=\"8\" r=\"5\" />\n  <path d=\"m17 17 5 5\" />\n  <path d=\"m22 17-5 5\" />\n"))
+}
+func UserRound(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <circle cx=\"12\" cy=\"8\" r=\"5\" />\n  <path d=\"M20 21a8 8 0 0 0-16 0\" />\n"))
 }
 func UserSearch(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <circle cx=\"10\" cy=\"7\" r=\"4\" />\n  <path d=\"M10.3 15H7a4 4 0 0 0-4 4v2\" />\n  <circle cx=\"17\" cy=\"17\" r=\"3\" />\n  <path d=\"m21 21-1.9-1.9\" />\n"))
@@ -4174,8 +4873,17 @@ func UserX(extraContent ...html.HTML) html.HTML {
 func User(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2\" />\n  <circle cx=\"12\" cy=\"7\" r=\"4\" />\n"))
 }
+func UsersRound(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M18 21a8 8 0 0 0-16 0\" />\n  <circle cx=\"10\" cy=\"8\" r=\"5\" />\n  <path d=\"M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3\" />\n"))
+}
 func Users(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2\" />\n  <path d=\"M16 3.128a4 4 0 0 1 0 7.744\" />\n  <path d=\"M22 21v-2a4 4 0 0 0-3-3.87\" />\n  <circle cx=\"9\" cy=\"7\" r=\"4\" />\n"))
+}
+func UtensilsCrossed(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"m16 2-2.3 2.3a3 3 0 0 0 0 4.2l1.8 1.8a3 3 0 0 0 4.2 0L22 8\" />\n  <path d=\"M15 15 3.3 3.3a4.2 4.2 0 0 0 0 6l7.3 7.3c.7.7 2 .7 2.8 0L15 15Zm0 0 7 7\" />\n  <path d=\"m2.1 21.8 6.4-6.3\" />\n  <path d=\"m19 5-7 7\" />\n"))
+}
+func Utensils(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2\" />\n  <path d=\"M7 2v20\" />\n  <path d=\"M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7\" />\n"))
 }
 func UtilityPole(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M12 2v20\" />\n  <path d=\"M2 5h20\" />\n  <path d=\"M3 3v2\" />\n  <path d=\"M7 3v2\" />\n  <path d=\"M17 3v2\" />\n  <path d=\"M21 3v2\" />\n  <path d=\"m19 5-7 7-7-7\" />\n"))
@@ -4249,11 +4957,17 @@ func Vote(extraContent ...html.HTML) html.HTML {
 func WalletCards(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\" />\n  <path d=\"M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2\" />\n  <path d=\"M3 11h3c.8 0 1.6.3 2.1.9l1.1.9c1.6 1.6 4.1 1.6 5.7 0l1.1-.9c.5-.5 1.3-.9 2.1-.9H21\" />\n"))
 }
+func WalletMinimal(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"M17 14h.01\" />\n  <path d=\"M7 7h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14\" />\n"))
+}
 func Wallet(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1\" />\n  <path d=\"M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4\" />\n"))
 }
 func Wallpaper(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M12 17v4\" />\n  <path d=\"M8 21h8\" />\n  <path d=\"m9 17 6.1-6.1a2 2 0 0 1 2.81.01L22 15\" />\n  <circle cx=\"8\" cy=\"9\" r=\"2\" />\n  <rect x=\"2\" y=\"3\" width=\"20\" height=\"14\" rx=\"2\" />\n"))
+}
+func WandSparkles(extraContent ...html.HTML) html.HTML {
+	return svg(extraContent, html.Raw("\n  <path d=\"m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72\" />\n  <path d=\"m14 7 3 3\" />\n  <path d=\"M5 6v4\" />\n  <path d=\"M19 14v4\" />\n  <path d=\"M10 2v2\" />\n  <path d=\"M7 8H3\" />\n  <path d=\"M21 16h-4\" />\n  <path d=\"M11 3H9\" />\n"))
 }
 func Wand(extraContent ...html.HTML) html.HTML {
 	return svg(extraContent, html.Raw("\n  <path d=\"M15 4V2\" />\n  <path d=\"M15 16v-2\" />\n  <path d=\"M8 9h2\" />\n  <path d=\"M20 9h2\" />\n  <path d=\"M17.8 11.8 19 13\" />\n  <path d=\"M15 9h.01\" />\n  <path d=\"M17.8 6.2 19 5\" />\n  <path d=\"m3 21 9-9\" />\n  <path d=\"M12.2 6.2 11 5\" />\n"))
