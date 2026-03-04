@@ -1,4 +1,4 @@
 @import "tailwindcss" source(none);
-@plugin "@tailwindcss/typography";
+/* @plugin "@tailwindcss/typography"; */
 @source "./pkg/ui/**/*.{go}";
 

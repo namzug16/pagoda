@@ -96,11 +96,11 @@ func Home(ctx echo.Context, posts *models.Posts) error {
 		)
 	}
 
-	g := Fragment(
+	html := Fragment(
 		If(r.Htmx.Target != "posts", headerMsg()),
 		posts.Render(r.Path(routenames.Home)),
 		If(r.Htmx.Target != "posts", cards()),
 	)
 
-	return r.Render(layouts.Primary, g)
+	return r.Render(layouts.Primary, html)
 }

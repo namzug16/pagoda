@@ -23,6 +23,7 @@ func (h *Pages) Init(c *services.Container) error {
 
 func (h *Pages) Routes(g *echo.Group) {
 	g.GET("/", h.Home).Name = routenames.Home
+	g.GET("/kitchen-sink", h.KitchenSink).Name = routenames.KitchenSink
 	g.GET("/about", h.About).Name = routenames.About
 }
 
@@ -52,4 +53,8 @@ func (h *Pages) fetchPosts(pager *pager.Pager) []models.Post {
 
 func (h *Pages) About(ctx echo.Context) error {
 	return pages.About(ctx)
+}
+
+func (h *Pages) KitchenSink(ctx echo.Context) error {
+	return pages.KitchenSink(ctx)
 }
