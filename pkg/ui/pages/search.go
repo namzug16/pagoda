@@ -16,5 +16,5 @@ func SearchResults(ctx echo.Context, results []*models.SearchResult) error {
 		g[i] = result.Render()
 	}
 
-	return r.Render(layouts.Primary, Fragment(g...))
+	return r.Render(layouts.Primary, Fragment(g))
 }

@@ -60,7 +60,7 @@ type (
 func ControlGroup(controls ...HTML) HTML {
 	return Div(
 		X.Class("mt-2 flex gap-2"),
-		Fragment(controls...),
+		Fragment(controls),
 	)
 }
 
@@ -101,7 +101,7 @@ func Radios(el OptionsParams) HTML {
 
 	return FieldSetComponent(
 		el.Label,
-		Fragment(buttons...),
+		Fragment(buttons),
 		formFieldErrors(el.Form, el.FormField),
 	)
 }
@@ -162,10 +162,11 @@ func InputField(el InputFieldParams) HTML {
 }
 
 func HelpText(text string) HTML {
-	return If(len(text) > 0, Div(
-		X.Class("label"),
-		text,
-	))
+	return Fragment()
+	// return If(len(text) > 0, Div(
+	// 	X.Class("label"),
+	// 	text,
+	// ))
 }
 
 func FieldSetComponent(label string, els ...HTML) HTML {
@@ -175,7 +176,7 @@ func FieldSetComponent(label string, els ...HTML) HTML {
 			X.Class("fieldset-legend"),
 			label,
 		)),
-		Fragment(els...),
+		Fragment(els),
 	)
 }
 
@@ -222,7 +223,7 @@ func formFieldErrors(fm form.Form, field string) HTML {
 		)
 	}
 
-	return Fragment(g...)
+	return Fragment(g)
 }
 
 func CSRF(r *ui.Request) HTML {

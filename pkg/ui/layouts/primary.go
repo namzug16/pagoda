@@ -118,7 +118,7 @@ func sidebarMenu(r *ui.Request) HTML {
 					X.Target("_blank"),
 				),
 			),
-			Fragment(entityTypeLinks...),
+			entityTypeLinks,
 		)
 	}
 
@@ -132,7 +132,7 @@ func sidebarMenu(r *ui.Request) HTML {
 			),
 			Ul(
 				HxBoost(),
-				Fragment(items...),
+				items,
 			),
 		)
 	}

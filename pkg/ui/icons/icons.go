@@ -201,7 +201,7 @@ func icon(id string, els ...HTML) HTML {
 			X.Attr("stroke-width", "1.5"),
 			X.Attr("stroke", "currentColor"),
 			X.Class("w-5 h-5"),
-			Fragment(els...),
+			els,
 		)
 	})
 }

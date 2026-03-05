@@ -33,7 +33,7 @@ func FlashMessages(r *ui.Request) HTML {
 		}
 	}
 
-	return Fragment(g...)
+	return Fragment(g)
 }
 
 func Alert(color Color, text string) HTML {

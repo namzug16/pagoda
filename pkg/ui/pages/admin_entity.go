@@ -53,7 +53,7 @@ func AdminEntityList(
 			g = append(g, Th(h))
 		}
 		g = append(g, Th())
-		return Fragment(g...)
+		return Fragment(g)
 	}
 
 	genRow := func(row admin.EntityValues) HTML {
@@ -77,7 +77,7 @@ func AdminEntityList(
 				),
 			),
 		)
-		return Fragment(g...)
+		return Fragment(g)
 	}
 
 	genRows := func() HTML {
@@ -85,7 +85,7 @@ func AdminEntityList(
 		for _, row := range entityList.Entities {
 			g = append(g, Tr(genRow(row)))
 		}
-		return Fragment(g...)
+		return Fragment(g)
 	}
 
 	return r.Render(layouts.Primary, Fragment(

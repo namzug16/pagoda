@@ -15,11 +15,11 @@ type DialogParams struct {
 	Trigger             any // HTML or string
 	Title               string
 	Description         string
-	Body                *gt.FragmentComponent
-	Footer              *gt.FragmentComponent
-	DialogAttrs         []gt.AttributeComponent
-	TriggerAttrs        []gt.AttributeComponent
-	HeaderAttrs         []gt.AttributeComponent
+	Body                gt.HTML
+	Footer              gt.HTML
+	DialogAttrs         []gt.HTML
+	TriggerAttrs        []gt.HTML
+	HeaderAttrs         []gt.HTML
 	Open                bool
 	CloseButton         *bool
 	CloseOnOverlayClick *bool
@@ -43,15 +43,20 @@ func Dialog(params DialogParams) gt.HTML {
 		id = fmt.Sprintf("dialog-%d", rand.Int())
 	}
 
+	trigger := params.Trigger
+	fmt.Println("IS THIS SHIT NULL???? ", params.Trigger, params.Trigger == nil)
+
 	return gt.Fragment(
-		gt.If(
-			params.Trigger != nil,
-			gt.Button(
-				gt.X.Type("button"),
-				gt.X.Attr("onclick", fmt.Sprintf("document.getElementById('%s').showModal()", id)),
-				params.TriggerAttrs,
-				params.Trigger,
-			),
+		gt.IfLazy(
+			trigger != nil,
+			func() gt.HTML {
+				return gt.Button(
+					gt.X.Type("button"),
+					gt.X.Attr("onclick", fmt.Sprintf("document.getElementById('%s').showModal()", id)),
+					params.TriggerAttrs,
+					trigger,
+				)
+			},
 		),
 		gt.Dialog(
 			gt.X.Id(id),
@@ -77,9 +82,7 @@ func Dialog(params DialogParams) gt.HTML {
 				),
 				gt.If(
 					params.Body != nil,
-					gt.Section(
-						params.Body,
-					),
+					params.Body,
 				),
 				gt.If(
 					params.Footer != nil,

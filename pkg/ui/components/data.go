@@ -82,7 +82,7 @@ func Card(params CardParams) HTML {
 			params.Body,
 			If(len(params.Footer) > 0, Div(
 				X.Class("card-actions justify-end"),
-				Fragment(params.Footer...),
+				Fragment(params.Footer),
 			)),
 		),
 	)

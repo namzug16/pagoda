@@ -13,7 +13,7 @@ require (
 	github.com/mattn/go-sqlite3 v1.14.32
 	github.com/maypok86/otter v1.2.4
 	github.com/mikestefanello/backlite v0.6.0
-	github.com/namzug16/gotags v0.1.2
+	github.com/namzug16/gotags v0.2.1-0.20260305152914-76a2d5e276bf
 	github.com/spf13/afero v1.15.0
 	github.com/spf13/viper v1.21.0
 	github.com/stretchr/testify v1.11.1

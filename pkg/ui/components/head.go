@@ -11,7 +11,7 @@ func JS() []HTML {
 	return []HTML{
 		Script(X.Src("https://unpkg.com/htmx.org@2.0.0/dist/htmx.min.js"), X.Defer()),
 		Script(X.Src("https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"), X.Defer()),
-		Script(X.Src("js/basecoat.all.min.js"), X.Defer()),
+		Script(X.Src(ui.StaticFile("js/basecoat.all.min.js")), X.Defer()),
 	}
 }
 
