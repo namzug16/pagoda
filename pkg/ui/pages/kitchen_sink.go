@@ -50,6 +50,8 @@ var sections = []section{
 	section{name: "Alert Dialog", href: "/components/alert-dialog", content: _alertDialogSection()},
 	section{name: "Avatar", href: "/components/avatar", content: _avatarSection()},
 	section{name: "Badge", href: "/components/badge", content: _badgeSection()},
+	section{name: "Breadcrumb", href: "/components/breadcrumb", content: _breadcrumbSection()},
+	section{name: "Button", href: "/components/button", content: _buttonSection()},
 	section{name: "Dialog", href: "/components/dialog", content: _dialogSection()},
 }
 
@@ -446,6 +448,115 @@ func _badgeSection() HTML {
 					"Link",
 					lucide.ArrowRight(),
 				),
+			),
+		),
+	)
+}
+
+func _breadcrumbSection() HTML {
+	return Div(
+		X.Class("p-4"),
+		Ol(
+			X.Class("text-muted-foreground flex flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5"),
+			Li(
+				X.Class("inline-flex items-center gap-1.5"),
+				A(X.Href("#"), X.Class("hover:text-foreground transition-colors"), "Home"),
+			),
+			Li(lucide.ChevronRight(X.Class("size-3.5"))),
+			Li(
+				X.Class("inline-flex items-center gap-1.5"),
+				Div(
+					X.Id("demo-breadcrumb-menu"),
+					X.Class("dropdown-menu"),
+					X.Attr("data-dropdown-menu-initialized", "true"),
+					Button(
+						X.Type("button"),
+						X.Id("demo-breadcrumb-menu-trigger"),
+						X.Attr("aria-haspopup", "menu"),
+						X.Attr("aria-controls", "demo-breadcrumb-menu-menu"),
+						X.Attr("aria-expanded", "false"),
+						X.Class("flex size-9 items-center justify-center h-4 w-4 hover:text-foreground cursor-pointer"),
+						lucide.Ellipsis(),
+					),
+					Div(
+						X.Id("demo-breadcrumb-menu-popover"),
+						X.Attr("data-popover", ""),
+						X.Attr("aria-hidden", "true"),
+						X.Class("p-1"),
+						Div(
+							X.Attr("role", "menu"),
+							X.Id("demo-breadcrumb-menu-menu"),
+							X.Attr("aria-labelledby", "demo-breadcrumb-menu-trigger"),
+							Div(X.Id("demo-breadcrumb-menu-items-1"), X.Attr("role", "menuitem"), "Documentation"),
+							Div(X.Id("demo-breadcrumb-menu-items-2"), X.Attr("role", "menuitem"), "Themes"),
+							Div(X.Id("demo-breadcrumb-menu-items-3"), X.Attr("role", "menuitem"), "GitHub"),
+						),
+					),
+				),
+			),
+			Li(lucide.ChevronRight(X.Class("size-3.5"))),
+			Li(
+				X.Class("inline-flex items-center gap-1.5"),
+				A(X.Href("#"), X.Class("hover:text-foreground transition-colors"), "Components"),
+			),
+			Li(lucide.ChevronRight(X.Class("size-3.5"))),
+			Li(
+				X.Class("inline-flex items-center gap-1.5"),
+				Span(X.Class("text-foreground font-normal"), "Breadcrumb"),
+			),
+		),
+	)
+}
+
+func _buttonSection() HTML {
+	return Div(
+		X.Class("p-4"),
+		Div(
+			X.Class("flex flex-col gap-6"),
+			Div(
+				X.Class("flex flex-wrap items-center gap-2 md:flex-row"),
+				Button(X.Type("button"), X.Class("btn-primary"), "Primary"),
+				Button(X.Type("button"), X.Class("btn-outline"), "Outline"),
+				Button(X.Type("button"), X.Class("btn-ghost"), "Ghost"),
+				Button(X.Type("button"), X.Class("btn-destructive"), lucide.Send(), "Danger"),
+				Button(X.Type("button"), X.Class("btn-secondary"), "Secondary"),
+				Button(X.Type("button"), X.Class("btn-link"), "Link"),
+				Button(X.Type("button"), X.Class("btn-outline"), lucide.Send(), "Send"),
+				Button(X.Type("button"), X.Class("btn-outline"), "Learn more", lucide.ArrowRight()),
+				Button(X.Type("button"), X.Class("btn-outline"), X.Disabled(), lucide.Loader(X.Class("animate-spin")), "Loading"),
+			),
+			Div(
+				X.Class("flex flex-wrap items-center gap-2 md:flex-row"),
+				Button(X.Type("button"), X.Class("btn-sm-primary"), "Primary"),
+				Button(X.Type("button"), X.Class("btn-sm-outline"), "Outline"),
+				Button(X.Type("button"), X.Class("btn-sm-ghost"), "Ghost"),
+				Button(X.Type("button"), X.Class("btn-sm-destructive"), "Danger"),
+				Button(X.Type("button"), X.Class("btn-sm-secondary"), "Secondary"),
+				Button(X.Type("button"), X.Class("btn-sm-link"), "Link"),
+				Button(X.Type("button"), X.Class("btn-sm-outline"), lucide.Send(), "Send"),
+				Button(X.Type("button"), X.Class("btn-sm-outline"), "Learn more", lucide.ArrowRight()),
+				Button(X.Type("button"), X.Class("btn-sm-outline"), X.Disabled(), lucide.Loader(X.Class("animate-spin")), "Loading"),
+			),
+			Div(
+				X.Class("flex flex-wrap items-center gap-2 md:flex-row"),
+				Button(X.Type("button"), X.Class("btn-lg-primary"), "Primary"),
+				Button(X.Type("button"), X.Class("btn-lg-outline"), "Outline"),
+				Button(X.Type("button"), X.Class("btn-lg-ghost"), "Ghost"),
+				Button(X.Type("button"), X.Class("btn-lg-destructive"), lucide.Send(), "Danger"),
+				Button(X.Type("button"), X.Class("btn-lg-secondary"), "Secondary"),
+				Button(X.Type("button"), X.Class("btn-lg-link"), "Link"),
+				Button(X.Type("button"), X.Class("btn-lg-outline"), lucide.Send(), "Send"),
+				Button(X.Type("button"), X.Class("btn-lg-outline"), "Learn more", lucide.ArrowRight()),
+				Button(X.Type("button"), X.Class("btn-lg-outline"), X.Disabled(), lucide.Loader(X.Class("animate-spin")), "Loading"),
+			),
+			Div(
+				X.Class("flex flex-wrap items-center gap-2 md:flex-row"),
+				Button(X.Type("button"), X.Class("btn-icon-primary"), lucide.Download()),
+				Button(X.Type("button"), X.Class("btn-icon-secondary"), lucide.Upload()),
+				Button(X.Type("button"), X.Class("btn-icon-outline"), lucide.ArrowRight()),
+				Button(X.Type("button"), X.Class("btn-icon-ghost"), lucide.Ellipsis()),
+				Button(X.Type("button"), X.Class("btn-icon-destructive"), lucide.Trash2()),
+				Button(X.Type("button"), X.Class("btn-icon-outline"), X.Disabled(), lucide.Loader(X.Class("animate-spin"))),
 			),
 		),
 	)
