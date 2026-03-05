@@ -47,6 +47,7 @@ type section struct {
 var sections = []section{
 	section{name: "Accordion", href: "/components/accordion", content: _accordionSection()},
 	section{name: "Alert", href: "/components/alert", content: _alertSection()},
+	section{name: "Alert Dialog", href: "/components/alert-dialog", content: _alertDialogSection()},
 	section{name: "Dialog", href: "/components/dialog", content: _dialogSection()},
 }
 
@@ -343,5 +344,34 @@ func _dialogSection() HTML {
 				),
 			}),
 		),
+	)
+}
+
+func _alertDialogSection() HTML {
+	return Div(
+		X.Class("p-4"),
+		basecoat.Dialog(basecoat.DialogParams{
+			ID:          "alert-dialog-demo",
+			Title:       "Are you absolutely sure?",
+			Description: "This action cannot be undone. This will permanently delete your account and remove your data from our servers.",
+			Trigger:     "Open dialog",
+			TriggerAttrs: []HTML{
+				X.Class("btn-outline"),
+			},
+			Footer: Footer(
+				Button(
+					X.Type("button"),
+					X.Class("btn-outline"),
+					X.Attr("onclick", "document.getElementById('alert-dialog-demo').close()"),
+					"Cancel",
+				),
+				Button(
+					X.Type("button"),
+					X.Class("btn-primary"),
+					X.Attr("onclick", "document.getElementById('alert-dialog-demo').close()"),
+					"Continue",
+				),
+			),
+		}),
 	)
 }
