@@ -43,18 +43,15 @@ func Dialog(params DialogParams) gt.HTML {
 		id = fmt.Sprintf("dialog-%d", rand.Int())
 	}
 
-	trigger := params.Trigger
-	fmt.Println("IS THIS SHIT NULL???? ", params.Trigger, params.Trigger == nil)
-
 	return gt.Fragment(
 		gt.IfLazy(
-			trigger != nil,
+			params.Trigger != nil,
 			func() gt.HTML {
 				return gt.Button(
 					gt.X.Type("button"),
 					gt.X.Attr("onclick", fmt.Sprintf("document.getElementById('%s').showModal()", id)),
 					params.TriggerAttrs,
-					trigger,
+					params.Trigger,
 				)
 			},
 		),
