@@ -53,10 +53,25 @@ var sections = []section{
 	section{name: "Breadcrumb", href: "/components/breadcrumb", content: _breadcrumbSection()},
 	section{name: "Button", href: "/components/button", content: _buttonSection()},
 	section{name: "Card", href: "/components/card", content: _cardSection()},
+	section{name: "Checkbox", href: "/components/checkbox", content: _checkboxSection()},
 	section{name: "Combobox", href: "/components/combobox", content: _comboboxSection()},
 	section{name: "Dialog", href: "/components/dialog", content: _dialogSection()},
 	section{name: "Dropdown Menu", href: "/components/dropdown-menu", content: _dropdownMenuSection()},
 	section{name: "Form", href: "/components/form", content: _formSection()},
+	section{name: "Input", href: "/components/input", content: _inputSection()},
+	section{name: "Label", href: "/components/label", content: _labelSection()},
+	section{name: "Pagination", href: "/components/pagination", content: _paginationSection()},
+	section{name: "Popover", href: "/components/popover", content: _popoverSection()},
+	section{name: "Radio Group", href: "/components/radio-group", content: _radioGroupSection()},
+	section{name: "Select", href: "/components/select", content: _selectSection()},
+	section{name: "Skeleton", href: "/components/skeleton", content: _skeletonSection()},
+	section{name: "Slider", href: "/components/slider", content: _sliderSection()},
+	section{name: "Switch", href: "/components/switch", content: _switchSection()},
+	section{name: "Table", href: "/components/table", content: _tableSection()},
+	section{name: "Tabs", href: "/components/tabs", content: _tabsSection()},
+	section{name: "Textarea", href: "/components/textarea", content: _textareaSection()},
+	section{name: "Toast", href: "/components/toast", content: _toastSection()},
+	section{name: "Tooltip", href: "/components/tooltip", content: _tooltipSection()},
 }
 
 func _section(s section) HTML {
@@ -703,6 +718,518 @@ func _formSection() HTML {
 				),
 			),
 			Button(X.Type("submit"), X.Class("btn"), "Submit"),
+		),
+	)
+}
+
+func _checkboxSection() HTML {
+	return Div(
+		X.Class("p-4"),
+		Div(
+			X.Class("flex flex-col gap-6 max-w-lg"),
+			Label(
+				X.Class("label gap-3"),
+				Input(X.Type("checkbox"), X.Class("input")),
+				"Accept terms and conditions",
+			),
+			Div(
+				X.Class("flex items-start gap-3"),
+				Input(X.Type("checkbox"), X.Id("demo-checkbox-label-and-description"), X.Class("input")),
+				Div(
+					X.Class("grid gap-2"),
+					Label(X.For("demo-checkbox-label-and-description"), X.Class("label"), "Accept terms and conditions"),
+					P(X.Class("text-muted-foreground text-sm"), "By clicking this checkbox, you agree to the terms and conditions."),
+				),
+			),
+			Label(
+				X.Class("label gap-3"),
+				Input(X.Type("checkbox"), X.Class("input"), X.Disabled()),
+				"Enable notifications",
+			),
+			Label(
+				X.Class("flex items-start gap-3 border p-3 hover:bg-accent/50 rounded-lg has-[input[type='checkbox']:checked]:border-blue-600 has-[input[type='checkbox']:checked]:bg-blue-50 dark:has-[input[type='checkbox']:checked]:border-blue-900 dark:has-[input[type='checkbox']:checked]:bg-blue-950"),
+				Input(X.Type("checkbox"), X.Class("input checked:bg-blue-600 checked:border-blue-600 dark:checked:bg-blue-700 dark:checked:border-blue-700 checked:after:bg-white"), X.Checked()),
+				Div(
+					X.Class("grid gap-2"),
+					H2(X.Class("text-sm leading-none font-medium"), "Enable notifications"),
+					P(X.Class("text-muted-foreground text-sm"), "You can enable or disable notifications at any time."),
+				),
+			),
+		),
+	)
+}
+
+func _inputSection() HTML {
+	return Div(
+		X.Class("p-4"),
+		Div(
+			X.Class("flex flex-col gap-y-4"),
+			Input(X.Type("text"), X.Class("input"), X.Placeholder("Text")),
+			Input(X.Type("text"), X.Class("input"), X.Disabled(), X.Placeholder("Disabled")),
+			Input(X.Type("text"), X.Class("input"), X.Attr("aria-invalid", "true"), X.Placeholder("Error")),
+			Input(X.Type("email"), X.Class("input"), X.Placeholder("Email")),
+			Input(X.Type("password"), X.Class("input"), X.Placeholder("Password")),
+			Input(X.Type("number"), X.Class("input"), X.Placeholder("Number")),
+			Input(X.Type("file"), X.Class("input")),
+			Input(X.Type("tel"), X.Class("input"), X.Placeholder("Tel")),
+			Input(X.Type("url"), X.Class("input"), X.Placeholder("URL")),
+			Input(X.Type("search"), X.Class("input"), X.Placeholder("Search")),
+			Input(X.Type("date"), X.Class("input")),
+			Input(X.Type("datetime-local"), X.Class("input")),
+			Input(X.Type("month"), X.Class("input")),
+			Input(X.Type("week"), X.Class("input")),
+			Input(X.Type("time"), X.Class("input")),
+		),
+	)
+}
+
+func _labelSection() HTML {
+	return Div(
+		X.Class("p-4"),
+		Div(
+			X.Class("flex flex-col gap-y-4"),
+			Div(
+				X.Class("grid w-full max-w-sm gap-6"),
+				Div(
+					X.Class("flex items-center gap-3"),
+					Input(X.Type("checkbox"), X.Id("label-demo-terms"), X.Class("input")),
+					Label(X.For("label-demo-terms"), X.Class("label"), "Accept terms and conditions"),
+				),
+				Div(
+					X.Class("grid gap-3"),
+					Label(X.For("label-demo-text"), X.Class("label"), "Username"),
+					Input(X.Type("text"), X.Id("label-demo-text"), X.Class("input"), X.Placeholder("Username")),
+				),
+				Div(
+					X.Class("grid gap-3"),
+					Label(X.For("label-demo-disabled"), X.Class("label"), "Disabled"),
+					Input(X.Type("text"), X.Id("label-demo-disabled"), X.Class("peer input"), X.Placeholder("Disabled"), X.Disabled()),
+				),
+				Div(
+					X.Class("grid gap-3"),
+					Label(X.For("label-demo-textarea"), X.Class("label"), "Message"),
+					Textarea(X.Id("label-demo-textarea"), X.Class("textarea"), X.Placeholder("Message")),
+				),
+			),
+		),
+	)
+}
+
+func _paginationSection() HTML {
+	return Div(
+		X.Class("p-4"),
+		Div(
+			X.Class("inline-flex"),
+			Nav(
+				X.Attr("role", "navigation"),
+				X.Attr("aria-label", "pagination"),
+				X.Class("mx-auto flex w-full justify-center"),
+				Ul(
+					X.Class("flex flex-row items-center gap-1"),
+					Li(A(X.Href("#"), X.Class("btn-ghost"), lucide.ChevronLeft(), " Previous")),
+					Li(A(X.Href("#"), X.Class("btn-ghost size-9"), "1")),
+					Li(A(X.Href("#"), X.Class("btn-outline size-9"), "2")),
+					Li(A(X.Href("#"), X.Class("btn-ghost size-9"), "3")),
+					Li(A(X.Href("#"), X.Class("btn-icon-ghost"), lucide.Ellipsis())),
+					Li(A(X.Href("#"), X.Class("btn-ghost"), "Next ", lucide.ChevronRight())),
+				),
+			),
+		),
+	)
+}
+
+func _popoverSection() HTML {
+	return Div(
+		X.Class("p-4"),
+		basecoat.Popover(basecoat.PopoverParams{
+			ID:                  "demo-popover",
+			Trigger:             "Open popover",
+			TriggerExtraClasses: "btn-outline",
+			PopoverExtraClasses: "w-80",
+			Content: Div(
+				X.Class("grid gap-4"),
+				Header(
+					X.Class("grid gap-1.5"),
+					H4(X.Class("leading-none font-medium"), "Dimensions"),
+					P(X.Class("text-muted-foreground text-sm"), "Set the dimensions for the layer."),
+				),
+				Form(
+					X.Class("form grid gap-2"),
+					Div(
+						X.Class("grid grid-cols-3 items-center gap-4"),
+						Label(X.For("demo-popover-width"), "Width"),
+						Input(X.Type("text"), X.Id("demo-popover-width"), X.Value("100%"), X.Class("col-span-2 h-8")),
+					),
+					Div(
+						X.Class("grid grid-cols-3 items-center gap-4"),
+						Label(X.For("demo-popover-max-width"), "Max. width"),
+						Input(X.Type("text"), X.Id("demo-popover-max-width"), X.Value("300px"), X.Class("col-span-2 h-8")),
+					),
+					Div(
+						X.Class("grid grid-cols-3 items-center gap-4"),
+						Label(X.For("demo-popover-height"), "Height"),
+						Input(X.Type("text"), X.Id("demo-popover-height"), X.Value("25px"), X.Class("col-span-2 h-8")),
+					),
+					Div(
+						X.Class("grid grid-cols-3 items-center gap-4"),
+						Label(X.For("demo-popover-max-height"), "Max. height"),
+						Input(X.Type("text"), X.Id("demo-popover-max-height"), X.Value("none"), X.Class("col-span-2 h-8")),
+					),
+				),
+			),
+		}),
+	)
+}
+
+func _radioGroupSection() HTML {
+	return Div(
+		X.Class("p-4"),
+		Div(
+			X.Class("flex flex-col gap-y-6"),
+			Fieldset(
+				X.Class("grid gap-3"),
+				Label(X.Class("label"), Input(X.Type("radio"), X.Name("demo-radio-group"), X.Value("default"), X.Class("input")), "Default"),
+				Label(X.Class("label"), Input(X.Type("radio"), X.Name("demo-radio-group"), X.Value("comfortable"), X.Class("input")), "Comfortable"),
+				Label(X.Class("label"), Input(X.Type("radio"), X.Name("demo-radio-group"), X.Value("compact"), X.Class("input")), "Compact"),
+			),
+			Fieldset(
+				X.Class("grid gap-3 max-w-sm"),
+				Label(
+					X.Class("label gap-3 items-start hover:bg-accent/50 rounded-lg border p-4 has-[input[type='radio']:checked]:border-green-600 has-[input[type='radio']:checked]:bg-green-50 dark:has-[input[type='radio']:checked]:border-green-900 dark:has-[input[type='radio']:checked]:bg-green-950"),
+					Input(X.Type("radio"), X.Name("demo-radio-group-styled"), X.Value("starter"), X.Class("input checked:bg-green-600 checked:border-green-600 dark:checked:bg-input/30 checked:before:bg-background dark:checked:before:bg-primary")),
+					Div(
+						X.Class("grid gap-1 font-normal"),
+						H2(X.Class("font-medium"), "Starter Plan"),
+						P(X.Class("text-muted-foreground leading-snug"), "Perfect for small businesses getting started with our platform"),
+					),
+				),
+				Label(
+					X.Class("label gap-3 items-start hover:bg-accent/50 rounded-lg border p-4 has-[input[type='radio']:checked]:border-green-600 has-[input[type='radio']:checked]:bg-green-50 dark:has-[input[type='radio']:checked]:border-green-900 dark:has-[input[type='radio']:checked]:bg-green-950"),
+					Input(X.Type("radio"), X.Name("demo-radio-group-styled"), X.Value("pro"), X.Class("input checked:bg-green-600 checked:border-green-600 dark:checked:bg-input/30 checked:before:bg-background dark:checked:before:bg-primary")),
+					Div(
+						X.Class("grid gap-1 font-normal"),
+						H2(X.Class("font-medium"), "Pro Plan"),
+						P(X.Class("text-muted-foreground leading-snug"), "Advanced features for growing businesses with higher demands"),
+					),
+				),
+			),
+		),
+	)
+}
+
+func _selectSection() HTML {
+	return Div(
+		X.Class("p-4"),
+		Div(
+			X.Class("flex flex-col gap-4"),
+			Div(
+				X.Class("flex flex-wrap items-center gap-2 md:flex-row"),
+				Select(
+					X.Class("select w-[180px]"),
+					Optgroup(X.Attr("label", "Fruits"), Option("Apple"), Option("Banana"), Option("Blueberry")),
+					Optgroup(X.Attr("label", "Grapes"), Option("Pineapple")),
+				),
+				Select(X.Class("select w-[180px]"), X.Disabled(), Option("Disabled")),
+			),
+			Div(
+				X.Class("flex flex-wrap items-center gap-4"),
+				basecoat.Select(basecoat.SelectParams{
+					ID:                  "select-default",
+					Selected:            []string{"blueberry"},
+					TriggerExtraClasses: "w-[180px]",
+					Items: []basecoat.SelectItem{
+						{Type: "group", Label: "Fruits", Items: []basecoat.SelectItem{{Type: "item", Value: "apple", Label: "Apple"}, {Type: "item", Value: "banana", Label: "Banana"}, {Type: "item", Value: "blueberry", Label: "Blueberry"}}},
+						{Type: "group", Label: "Grapes", Items: []basecoat.SelectItem{{Type: "item", Value: "pineapple", Label: "Pineapple"}}},
+					},
+				}),
+				basecoat.Select(basecoat.SelectParams{
+					ID:                  "select-scrollbar",
+					Selected:            []string{"item-0"},
+					TriggerExtraClasses: "w-[180px]",
+					ListboxExtraClasses: "scrollbar overflow-y-auto max-h-64",
+					Items: []basecoat.SelectItem{
+						{Type: "item", Value: "item-0", Label: "Item 0"}, {Type: "item", Value: "item-1", Label: "Item 1"}, {Type: "item", Value: "item-2", Label: "Item 2"}, {Type: "item", Value: "item-3", Label: "Item 3"}, {Type: "item", Value: "item-4", Label: "Item 4"},
+						{Type: "item", Value: "item-5", Label: "Item 5"}, {Type: "item", Value: "item-6", Label: "Item 6"}, {Type: "item", Value: "item-7", Label: "Item 7"}, {Type: "item", Value: "item-8", Label: "Item 8"}, {Type: "item", Value: "item-9", Label: "Item 9"},
+						{Type: "item", Value: "item-10", Label: "Item 10"}, {Type: "item", Value: "item-11", Label: "Item 11"}, {Type: "item", Value: "item-12", Label: "Item 12"}, {Type: "item", Value: "item-13", Label: "Item 13"}, {Type: "item", Value: "item-14", Label: "Item 14"},
+						{Type: "item", Value: "item-15", Label: "Item 15"}, {Type: "item", Value: "item-16", Label: "Item 16"}, {Type: "item", Value: "item-17", Label: "Item 17"}, {Type: "item", Value: "item-18", Label: "Item 18"}, {Type: "item", Value: "item-19", Label: "Item 19"},
+					},
+				}),
+				basecoat.Select(basecoat.SelectParams{
+					ID:                  "select-disabled",
+					Selected:            []string{"disabled"},
+					TriggerExtraClasses: "w-[180px]",
+					TriggerAttrs:        []HTML{X.Attr("disabled", "disabled")},
+					Items:               []basecoat.SelectItem{{Type: "item", Value: "disabled", Label: "Disabled"}},
+				}),
+				basecoat.Select(basecoat.SelectParams{
+					ID:                  "select-with-icon",
+					Selected:            []string{"bar"},
+					Name:                "chart-type",
+					TriggerExtraClasses: "w-[180px]",
+					Items: []basecoat.SelectItem{
+						{Type: "item", Value: "bar", Label: Span(X.Class("flex items-center gap-2"), lucide.ChartColumn(X.Class("text-muted-foreground")), "Bar")},
+						{Type: "item", Value: "line", Label: Span(X.Class("flex items-center gap-2"), lucide.ChartLine(X.Class("text-muted-foreground")), "Line")},
+						{Type: "item", Value: "pie", Label: Span(X.Class("flex items-center gap-2"), lucide.ChartPie(X.Class("text-muted-foreground")), "Pie")},
+					},
+				}),
+			),
+		),
+	)
+}
+
+func _skeletonSection() HTML {
+	return Div(
+		X.Class("p-4"),
+		Div(
+			X.Class("flex flex-col gap-4"),
+			Div(
+				X.Class("flex items-center gap-4"),
+				Div(X.Class("bg-accent animate-pulse size-10 shrink-0 rounded-full")),
+				Div(
+					X.Class("grid gap-2"),
+					Div(X.Class("bg-accent animate-pulse rounded-md h-4 w-[150px]")),
+					Div(X.Class("bg-accent animate-pulse rounded-md h-4 w-[100px]")),
+				),
+			),
+			Div(
+				X.Class("flex max-sm:flex-col gap-4 w-full"),
+				Div(
+					X.Class("card w-full @md:w-auto @md:min-w-sm"),
+					Header(
+						Div(X.Class("bg-accent animate-pulse rounded-md h-4 w-2/3")),
+						Div(X.Class("bg-accent animate-pulse rounded-md h-4 w-1/2")),
+					),
+					Section(Div(X.Class("bg-accent animate-pulse rounded-md aspect-square w-full"))),
+				),
+				Div(
+					X.Class("card w-full @md:w-auto @md:min-w-sm"),
+					Header(
+						Div(X.Class("bg-accent animate-pulse rounded-md h-4 w-2/3")),
+						Div(X.Class("bg-accent animate-pulse rounded-md h-4 w-1/2")),
+					),
+					Section(Div(X.Class("bg-accent animate-pulse rounded-md aspect-square w-full"))),
+				),
+			),
+		),
+	)
+}
+
+func _sliderSection() HTML {
+	return Div(
+		X.Class("p-4"),
+		Div(
+			X.Class("max-w-sm"),
+			Input(
+				X.Type("range"),
+				X.Class("input w-full"),
+				X.Attr("min", "0"),
+				X.Attr("max", "27"),
+				X.Attr("value", "12"),
+				X.Attr("style", "--slider-value: 44.44444444444444%;"),
+			),
+		),
+		Raw(`
+		<script>
+		  (() => {
+		    const sliders = document.querySelectorAll('input[type="range"].input');
+		    if (!sliders) return;
+
+		    const updateSlider = (el) => {
+		      const min = parseFloat(el.min || 0);
+		      const max = parseFloat(el.max || 100);
+		      const value = parseFloat(el.value);
+		      const percent = (max === min) ? 0 : ((value - min) / (max - min)) * 100;
+		      el.style.setProperty('--slider-value', percent + '%');
+		    };
+
+		    sliders.forEach(slider => {
+		      updateSlider(slider);
+		      slider.addEventListener('input', (event) => updateSlider(event.target));
+		    });
+		  })();
+		</script>
+		`),
+	)
+}
+
+func _switchSection() HTML {
+	return Div(
+		X.Class("p-4"),
+		Div(
+			X.Class("inline-flex flex-col gap-y-6"),
+			Label(
+				X.Class("label"),
+				Input(X.Type("checkbox"), X.Name("switch"), X.Attr("role", "switch"), X.Class("input")),
+				"Airplane Mode",
+			),
+			Label(
+				X.Class("label"),
+				Input(X.Type("checkbox"), X.Name("switch"), X.Attr("role", "switch"), X.Class("input checked:bg-blue-500 dark:checked:bg-blue-600"), X.Checked()),
+				"Bluetooth",
+			),
+			Label(
+				X.Class("label gap-6 leading-none border rounded-lg p-4 has-[input[type='checkbox']:checked]:border-blue-600"),
+				Div(
+					X.Class("grid gap-1"),
+					H2(X.Class("font-medium text-sm"), "Share across devices"),
+					P(X.Class("text-muted-foreground text-sm"), "Focus is shared across devices, and turns off when you leave the app."),
+				),
+				Input(X.Type("checkbox"), X.Name("switch"), X.Attr("role", "switch"), X.Class("input checked:bg-blue-500 dark:checked:bg-blue-600")),
+			),
+		),
+	)
+}
+
+func _tableSection() HTML {
+	return Div(
+		X.Class("p-4"),
+		Div(
+			X.Class("relative w-full overflow-x-auto"),
+			Table(
+				X.Class("table"),
+				Caption("A list of your recent invoices."),
+				Thead(
+					Tr(Th("Invoice"), Th("Status"), Th("Method"), Th("Amount")),
+				),
+				Tbody(
+					Tr(Td(X.Class("font-medium"), "INV001"), Td("Paid"), Td("Credit Card"), Td(X.Class("text-right"), "$250.00")),
+					Tr(Td(X.Class("font-medium"), "INV002"), Td("Pending"), Td("PayPal"), Td(X.Class("text-right"), "$150.00")),
+					Tr(Td(X.Class("font-medium"), "INV003"), Td("Unpaid"), Td("Bank Transfer"), Td(X.Class("text-right"), "$350.00")),
+					Tr(Td(X.Class("font-medium"), "INV004"), Td("Paid"), Td("Paypal"), Td(X.Class("text-right"), "$450.00")),
+					Tr(Td(X.Class("font-medium"), "INV005"), Td("Paid"), Td("Credit Card"), Td(X.Class("text-right"), "$550.00")),
+					Tr(Td(X.Class("font-medium"), "INV006"), Td("Pending"), Td("Bank Transfer"), Td(X.Class("text-right"), "$200.00")),
+					Tr(Td(X.Class("font-medium"), "INV007"), Td("Unpaid"), Td("Credit Card"), Td(X.Class("text-right"), "$300.00")),
+				),
+				Tfoot(
+					Tr(
+						Td(X.Attr("colspan", "3"), "Total"),
+						Td(X.Class("text-right"), "$2,500.00"),
+					),
+				),
+			),
+		),
+	)
+}
+
+func _tabsSection() HTML {
+	return Div(
+		X.Class("p-4"),
+		Div(
+			X.Class("flex flex-col gap-6"),
+			basecoat.Tabs(basecoat.TabsParams{
+				ID:                  "demo-tabs-with-panels",
+				MainExtraClasses:    "max-w-[300px]",
+				TablistExtraClasses: "w-full",
+				Tabsets: []basecoat.TabsTabset{
+					{
+						Tab: "Account",
+						Panel: Div(
+							X.Class("card"),
+							Header(
+								H2("Account"),
+								P("Make changes to your account here. Click save when you're done."),
+							),
+							Section(
+								Form(
+									X.Class("form grid gap-6"),
+									Div(X.Class("grid gap-3"), Label(X.For("demo-tabs-account-name"), "Name"), Input(X.Type("text"), X.Id("demo-tabs-account-name"), X.Value("Pedro Duarte"))),
+									Div(X.Class("grid gap-3"), Label(X.For("demo-tabs-account-username"), "Username"), Input(X.Type("text"), X.Id("demo-tabs-account-username"), X.Value("@peduarte"))),
+								),
+							),
+							Footer(Button(X.Type("button"), X.Class("btn"), "Save changes")),
+						),
+					},
+					{
+						Tab: "Password",
+						Panel: Div(
+							X.Class("card"),
+							Header(
+								H2("Password"),
+								P("Change your password here. After saving, you'll be logged out."),
+							),
+							Section(
+								Form(
+									X.Class("form grid gap-6"),
+									Div(X.Class("grid gap-3"), Label(X.For("demo-tabs-password-current"), "Current password"), Input(X.Type("password"), X.Id("demo-tabs-password-current"))),
+									Div(X.Class("grid gap-3"), Label(X.For("demo-tabs-password-new"), "New password"), Input(X.Type("password"), X.Id("demo-tabs-password-new"))),
+								),
+							),
+							Footer(Button(X.Type("button"), X.Class("btn"), "Save Password")),
+						),
+					},
+				},
+			}),
+			basecoat.Tabs(basecoat.TabsParams{
+				ID:      "demo-tabs-without-panels",
+				Tabsets: []basecoat.TabsTabset{{Tab: "Home"}, {Tab: "Settings"}},
+			}),
+			basecoat.Tabs(basecoat.TabsParams{
+				ID: "demo-tabs-disabled",
+				Tabsets: []basecoat.TabsTabset{
+					{Tab: "Home"},
+					{Tab: "Disabled", TabAttrs: []HTML{X.Attr("disabled", "disabled")}},
+				},
+			}),
+			basecoat.Tabs(basecoat.TabsParams{
+				ID: "demo-tabs-with-icons",
+				Tabsets: []basecoat.TabsTabset{
+					{Tab: Fragment(lucide.Newspaper(), Span("Preview"))},
+					{Tab: Fragment(lucide.Code(), Span("Code"))},
+				},
+			}),
+		),
+	)
+}
+
+func _textareaSection() HTML {
+	return Div(
+		X.Class("p-4"),
+		Div(
+			X.Class("flex flex-col gap-y-10"),
+			Textarea(X.Class("textarea"), X.Placeholder("Type your message here")),
+			Textarea(X.Class("textarea"), X.Placeholder("Type your message here"), X.Attr("aria-invalid", "true")),
+			Div(
+				X.Class("grid gap-3"),
+				Label(X.For("textarea-demo-label"), X.Class("label"), "Label"),
+				Textarea(X.Id("textarea-demo-label"), X.Class("textarea"), X.Placeholder("Type your message here")),
+			),
+			Div(
+				X.Class("grid gap-3"),
+				Label(X.For("textarea-demo-label-and-description"), X.Class("label"), "With label and description"),
+				Textarea(X.Id("textarea-demo-label-and-description"), X.Class("textarea"), X.Placeholder("Type your message here")),
+				P(X.Class("text-muted-foreground text-sm"), "Type your message and press enter to send."),
+			),
+			Div(
+				X.Class("grid gap-3"),
+				Label(X.For("textarea-demo-disabled"), X.Class("label"), "Disabled"),
+				Textarea(X.Id("textarea-demo-disabled"), X.Class("textarea"), X.Placeholder("Type your message here"), X.Disabled()),
+			),
+		),
+	)
+}
+
+func _toastSection() HTML {
+	return Div(
+		X.Class("p-4"),
+		Div(
+			X.Class("flex flex-wrap items-center gap-2"),
+			Button(X.Class("btn-outline"), X.Attr("hx-trigger", "click"), X.Attr("hx-get", "/fragments/toast/success"), X.Attr("hx-target", "#toaster"), X.Attr("hx-swap", "beforeend"), "Success"),
+			Button(X.Class("btn-outline"), X.Attr("hx-trigger", "click"), X.Attr("hx-get", "/fragments/toast/error"), X.Attr("hx-target", "#toaster"), X.Attr("hx-swap", "beforeend"), "Error"),
+			Button(X.Class("btn-outline"), X.Attr("hx-trigger", "click"), X.Attr("hx-get", "/fragments/toast/info"), X.Attr("hx-target", "#toaster"), X.Attr("hx-swap", "beforeend"), "Info"),
+			Button(X.Class("btn-outline"), X.Attr("hx-trigger", "click"), X.Attr("hx-get", "/fragments/toast/warning"), X.Attr("hx-target", "#toaster"), X.Attr("hx-swap", "beforeend"), "Warning"),
+		),
+	)
+}
+
+func _tooltipSection() HTML {
+	return Div(
+		X.Class("p-4"),
+		Div(
+			X.Class("flex flex-wrap items-center gap-4"),
+			Button(X.Type("button"), X.Class("btn-outline"), X.Attr("data-tooltip", "Top tooltip"), "Top"),
+			Button(X.Type("button"), X.Class("btn-outline"), X.Attr("data-tooltip", "Right tooltip"), X.Attr("data-side", "right"), "Right"),
+			Button(X.Type("button"), X.Class("btn-outline"), X.Attr("data-tooltip", "Bottom tooltip"), X.Attr("data-side", "bottom"), "Bottom"),
+			Button(X.Type("button"), X.Class("btn-outline"), X.Attr("data-tooltip", "Left tooltip"), X.Attr("data-side", "left"), "Left"),
 		),
 	)
 }

@@ -4,6 +4,7 @@ import (
 	"github.com/mikestefanello/pagoda/ent/admin"
 	"github.com/mikestefanello/pagoda/pkg/routenames"
 	"github.com/mikestefanello/pagoda/pkg/ui"
+	"github.com/mikestefanello/pagoda/pkg/ui/basecoat"
 	"github.com/mikestefanello/pagoda/pkg/ui/cache"
 	. "github.com/mikestefanello/pagoda/pkg/ui/components"
 	"github.com/mikestefanello/pagoda/pkg/ui/icons"
@@ -28,6 +29,7 @@ func Primary(r *ui.Request, content HTML) HTML {
 				FlashMessages(r),
 				content,
 			),
+			basecoat.Toaster(basecoat.ToasterParams{ID: "toaster"}),
 			searchModal(r),
 			HtmxListeners(r),
 		),
