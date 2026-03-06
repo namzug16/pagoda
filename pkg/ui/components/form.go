@@ -68,13 +68,13 @@ func TextareaField(el TextareaFieldParams) HTML {
 	return FieldSetComponent(
 		el.Label,
 		Textarea(
-			X.Class("textarea h-24 w-2/3 "+formFieldStatusClass(el.Form, el.FormField)),
+			X.Class("textarea h-24 w-2/3 "+FormFieldStatusClass(el.Form, el.FormField)),
 			X.Id(el.Name),
 			X.Name(el.Name),
 			el.Value,
 		),
 		HelpText(el.Help),
-		formFieldErrors(el.Form, el.FormField),
+		FormFieldErrors(el.Form, el.FormField),
 	)
 }
 
@@ -89,7 +89,7 @@ func Radios(el OptionsParams) HTML {
 				X.Type("radio"),
 				X.Name(el.Name),
 				X.Value(opt.Value),
-				X.Class("radio mr-1 "+formFieldStatusClass(el.Form, el.FormField)),
+				X.Class("radio mr-1 "+FormFieldStatusClass(el.Form, el.FormField)),
 				If(el.Value == opt.Value, X.Checked()),
 			),
 			Label(
@@ -102,7 +102,7 @@ func Radios(el OptionsParams) HTML {
 	return FieldSetComponent(
 		el.Label,
 		Fragment(buttons),
-		formFieldErrors(el.Form, el.FormField),
+		FormFieldErrors(el.Form, el.FormField),
 	)
 }
 
@@ -119,12 +119,12 @@ func SelectList(el OptionsParams) HTML {
 	return FieldSetComponent(
 		el.Label,
 		Select(
-			X.Class("select "+formFieldStatusClass(el.Form, el.FormField)),
+			X.Class("select "+FormFieldStatusClass(el.Form, el.FormField)),
 			X.Name(el.Name),
 			buttons,
 		),
 		HelpText(el.Help),
-		formFieldErrors(el.Form, el.FormField),
+		FormFieldErrors(el.Form, el.FormField),
 	)
 }
 
@@ -141,7 +141,7 @@ func Checkbox(el CheckboxParams) HTML {
 			),
 			" "+el.Label,
 		),
-		formFieldErrors(el.Form, el.FormField),
+		FormFieldErrors(el.Form, el.FormField),
 	)
 }
 
@@ -152,12 +152,12 @@ func InputField(el InputFieldParams) HTML {
 			X.Id(el.Name),
 			X.Name(el.Name),
 			X.Type(el.InputType),
-			X.Class("input "+formFieldStatusClass(el.Form, el.FormField)),
+			X.Class("input "+FormFieldStatusClass(el.Form, el.FormField)),
 			X.Value(el.Value),
 			If(el.Placeholder != "", X.Placeholder(el.Placeholder)),
 		),
 		HelpText(el.Help),
-		formFieldErrors(el.Form, el.FormField),
+		FormFieldErrors(el.Form, el.FormField),
 	)
 }
 
@@ -192,7 +192,7 @@ func FileField(el FileFieldParams) HTML {
 	)
 }
 
-func formFieldStatusClass(fm form.Form, formField string) string {
+func FormFieldStatusClass(fm form.Form, formField string) string {
 	switch {
 	case fm == nil:
 		return ""
@@ -205,7 +205,20 @@ func formFieldStatusClass(fm form.Form, formField string) string {
 	}
 }
 
-func formFieldErrors(fm form.Form, field string) HTML {
+func FormFieldHasError(fm form.Form, field string) bool {
+	if fm == nil {
+		return false
+	}
+
+	errs := fm.GetFieldErrors(field)
+	if len(errs) == 0 {
+		return false
+	}
+
+	return true
+}
+
+func FormFieldErrors(fm form.Form, field string) HTML {
 	if fm == nil {
 		return Fragment()
 	}
@@ -217,8 +230,8 @@ func formFieldErrors(fm form.Form, field string) HTML {
 
 	g := make([]HTML, len(errs))
 	for i, err := range errs {
-		g[i] = Div(
-			X.Class("text-error"),
+		g[i] = P(
+			X.Role("alert"),
 			err,
 		)
 	}

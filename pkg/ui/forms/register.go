@@ -19,54 +19,75 @@ type Register struct {
 }
 
 func (f *Register) Render(r *ui.Request) HTML {
-	return Form(
-		X.Id("register"),
-		X.Method(http.MethodPost),
-		HxBoost(),
-		X.Action(r.Path(routenames.RegisterSubmit)),
-		InputField(InputFieldParams{
-			Form:      f,
-			FormField: "Name",
-			Name:      "name",
-			InputType: "text",
-			Label:     "Name",
-			Value:     f.Name,
-		}),
-		InputField(InputFieldParams{
-			Form:      f,
-			FormField: "Email",
-			Name:      "email",
-			InputType: "email",
-			Label:     "Email address",
-			Value:     f.Email,
-		}),
-		InputField(InputFieldParams{
-			Form:        f,
-			FormField:   "Password",
-			Name:        "password",
-			InputType:   "password",
-			Label:       "Password",
-			Placeholder: "******",
-		}),
-		InputField(InputFieldParams{
-			Form:        f,
-			FormField:   "ConfirmPassword",
-			Name:        "password-confirm",
-			InputType:   "password",
-			Label:       "Confirm password",
-			Placeholder: "******",
-		}),
-		ControlGroup(
-			FormButton(ColorPrimary, "Register"),
-			ButtonLink(ColorLink, r.Path(routenames.Home), "Cancel"),
+	return Div(
+		X.Class("card w-full max-w-sm"),
+		Header(
+			If(len(r.Title) > 0, H2(r.Title)),
+		),
+		Section(
+			Form(
+				X.Class("form grid gap-6"),
+				X.Id("register"),
+				X.Method(http.MethodPost),
+				X.Action(r.Path(routenames.RegisterSubmit)),
+				HxBoost(),
+				Div(
+					X.Class("field"),
+					X.Role("group"),
+					Label("Name"),
+					Input(
+						X.Name("name"),
+						X.Type("text"),
+						If(FormFieldHasError(f, "Name"), X.Attr("aria-invalid", "true")),
+						X.Value(f.Name),
+					),
+					FormFieldErrors(f, "Name"),
+				),
+				Div(
+					X.Class("field"),
+					X.Role("group"),
+					Label("Email"),
+					Input(
+						X.Name("email"),
+						X.Type("email"),
+						If(FormFieldHasError(f, "Email"), X.Attr("aria-invalid", "true")),
+						X.Value(f.Email),
+					),
+				),
+				Div(
+					X.Class("field"),
+					X.Role("group"),
+					Label("Password"),
+					Input(
+						X.Type("password"),
+						X.Name("password"),
+						X.Placeholder("******"),
+						If(FormFieldHasError(f, "Email"), X.Attr("aria-invalid", "true")),
+					),
+				),
+				Div(
+					X.Class("field"),
+					X.Role("group"),
+					Label("Confirm Password"),
+					Input(
+						X.Type("password"),
+						X.Name("password-confirm"),
+						X.Placeholder("******"),
+					),
+				),
+				Div(
+					X.Class("flex flex-col items-center gap-2"),
+					Button(X.Class("btn w-full"), "Register"),
+					A(X.Href(r.Path(routenames.Home)), X.Class("btn-outline btn-error w-full"), "Cancel"),
+				),
+			),
 		),
 		CSRF(r),
-		Div(
-			X.Class("text-center text-base-content/50 mt-4"),
-			"Already have an account? ",
-			A(
-				X.Href(r.Path(routenames.Login)),
-				"Login",
+		Footer(
+			P(
+				X.Class("mt-4 text-center text-sm"),
+				"Already have an account? ",
+				A(X.Href(r.Path(routenames.Login)), X.Class("underline-offset-4 hover:underline"), "Sign up"),
 			),
 		),
 	)
