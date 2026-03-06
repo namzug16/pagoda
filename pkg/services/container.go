@@ -148,7 +148,7 @@ func (c *Container) initDatabase() {
 
 	switch c.Config.App.Environment {
 	case config.EnvTest:
-		// TODO: Drop/recreate the DB, if this isn't in memory?
+		// TODO:(pagoda) Drop/recreate the DB, if this isn't in memory?
 		connection = c.Config.Database.TestConnection
 	default:
 		connection = c.Config.Database.Connection

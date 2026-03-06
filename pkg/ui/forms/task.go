@@ -19,29 +19,40 @@ type Task struct {
 
 func (f *Task) Render(r *ui.Request) HTML {
 	return Form(
+		X.Class("form grid gap-6"),
 		X.Id("task"),
 		X.Method(http.MethodPost),
 		X.Attr("hx-post", r.Path(routenames.TaskSubmit)),
 		FlashMessages(r),
-		InputField(InputFieldParams{
-			Form:      f,
-			FormField: "Delay",
-			Name:      "delay",
-			InputType: "number",
-			Label:     "Delay (in seconds)",
-			Help:      "How long to wait until the task is executed",
-			Value:     fmt.Sprint(f.Delay),
-		}),
-		TextareaField(TextareaFieldParams{
-			Form:      f,
-			FormField: "Message",
-			Name:      "message",
-			Label:     "Message",
-			Value:     f.Message,
-			Help:      "The message the task will output to the log",
-		}),
-		ControlGroup(
-			FormButton(ColorPrimary, "Add task to queue"),
+		Div(
+			X.Class("field"),
+			X.Role("group"),
+			Label("Delay (in seconds)"),
+			Input(
+				X.Name("delay"),
+				X.Type("number"),
+				X.Value(fmt.Sprint(f.Delay)),
+				If(FormFieldHasError(f, "Delay"), X.Attr("aria-invalid", "true")),
+			),
+			P(X.Class("text-sm opacity-70"), "How long to wait until the task is executed"),
+			FormFieldErrors(f, "Delay"),
+		),
+		Div(
+			X.Class("field"),
+			X.Role("group"),
+			Label("Message"),
+			Textarea(
+				X.Name("message"),
+				X.Class("min-h-24"),
+				If(FormFieldHasError(f, "Message"), X.Attr("aria-invalid", "true")),
+				f.Message,
+			),
+			P(X.Class("text-sm opacity-70"), "The message the task will output to the log"),
+			FormFieldErrors(f, "Message"),
+		),
+		Div(
+			X.Class("flex flex-col items-center gap-2"),
+			Button(X.Class("btn w-full"), "Add task to queue"),
 		),
 		CSRF(r),
 	)

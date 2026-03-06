@@ -21,7 +21,7 @@ func SetLogger() echo.MiddlewareFunc {
 			rID := ctx.Response().Header().Get(echo.HeaderXRequestID)
 			logger := log.Ctx(ctx).With("request_id", rID)
 
-			// TODO include other fields you may want in all logs for this request
+			// TODO:(pagoda) include other fields you may want in all logs for this request
 			log.Set(ctx, logger)
 			return next(ctx)
 		}

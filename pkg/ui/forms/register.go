@@ -78,7 +78,7 @@ func (f *Register) Render(r *ui.Request) HTML {
 				Div(
 					X.Class("flex flex-col items-center gap-2"),
 					Button(X.Class("btn w-full"), "Register"),
-					A(X.Href(r.Path(routenames.Home)), X.Class("btn-outline btn-error w-full"), "Cancel"),
+					A(X.Href(r.Path(routenames.Home)), X.Class("btn-outline btn-destructive w-full"), "Cancel"),
 				),
 			),
 		),

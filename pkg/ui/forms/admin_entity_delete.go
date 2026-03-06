@@ -13,15 +13,17 @@ import (
 
 func AdminEntityDelete(r *ui.Request, entityType admin.EntityType) HTML {
 	return Form(
+		X.Class("form grid gap-6"),
 		X.Method(http.MethodPost),
 		P(
 			fmt.Sprintf("Are you sure you want to delete this %s?", entityType.GetName()),
 		),
-		ControlGroup(
-			FormButton(ColorError, "Delete"),
-			ButtonLink(
-				ColorNone,
-				r.Path(routenames.AdminEntityList(entityType.GetName())),
+		Div(
+			X.Class("flex flex-col items-center gap-2"),
+			Button(X.Class("btn btn-destructive w-full"), "Delete"),
+			A(
+				X.Href(r.Path(routenames.AdminEntityList(entityType.GetName()))),
+				X.Class("btn-outline w-full"),
 				"Cancel",
 			),
 		),

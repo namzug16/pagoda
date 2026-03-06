@@ -14,7 +14,7 @@ import (
 )
 
 func AdminEntity(r *ui.Request, entityType admin.EntityType, values url.Values) HTML {
-	// TODO inline validation?
+	// TODO:(pagoda) inline validation?
 	isNew := values == nil
 	nodes := make([]HTML, 0)
 
@@ -34,74 +34,106 @@ func AdminEntity(r *ui.Request, entityType admin.EntityType, values url.Values) 
 
 	// Attempt to add form elements for all editable entity fields.
 	for _, f := range entityType.GetSchema() {
-		// TODO cardinality?
+		// TODO:(pagoda) cardinality?
 		if !isNew && f.Immutable {
 			continue
 		}
 
 		switch f.Type {
 		case field.TypeString:
-			p := InputFieldParams{
-				Name:      f.Name,
-				InputType: "text",
-				Label:     admin.FieldLabel(f.Name),
-				Value:     getValue(f.Name),
-			}
+			inputType := "text"
+			placeholder := ""
+			help := ""
 
 			if f.Sensitive {
-				p.InputType = "password"
+				inputType = "password"
 				if !isNew {
-					p.Placeholder = "*****"
-					p.Help = "SENSITIVE: This field will only be updated if a value is provided."
+					placeholder = "*****"
+					help = "SENSITIVE: This field will only be updated if a value is provided."
 				}
 			}
-			nodes = append(nodes, InputField(p))
+
+			nodes = append(nodes, Div(
+				X.Class("field"),
+				X.Role("group"),
+				Label(admin.FieldLabel(f.Name)),
+				Input(
+					X.Name(f.Name),
+					X.Type(inputType),
+					X.Value(getValue(f.Name)),
+					If(placeholder != "", X.Placeholder(placeholder)),
+				),
+				If(help != "", P(X.Class("text-sm opacity-70"), help)),
+			))
 
 		case field.TypeTime:
-			nodes = append(nodes, InputField(InputFieldParams{
-				Name:      f.Name,
-				InputType: "datetime-local",
-				Label:     admin.FieldLabel(f.Name),
-				Value:     getValue(f.Name),
-			}))
+			nodes = append(nodes, Div(
+				X.Class("field"),
+				X.Role("group"),
+				Label(admin.FieldLabel(f.Name)),
+				Input(
+					X.Name(f.Name),
+					X.Type("datetime-local"),
+					X.Value(getValue(f.Name)),
+				),
+			))
 
 		case field.TypeInt, field.TypeInt8, field.TypeInt16, field.TypeInt32, field.TypeInt64,
 			field.TypeUint, field.TypeUint8, field.TypeUint16, field.TypeUint32, field.TypeUint64,
 			field.TypeFloat32, field.TypeFloat64:
-			nodes = append(nodes, InputField(InputFieldParams{
-				Name:      f.Name,
-				InputType: "number",
-				Label:     admin.FieldLabel(f.Name),
-				Value:     getValue(f.Name),
-			}))
+			nodes = append(nodes, Div(
+				X.Class("field"),
+				X.Role("group"),
+				Label(admin.FieldLabel(f.Name)),
+				Input(
+					X.Name(f.Name),
+					X.Type("number"),
+					X.Value(getValue(f.Name)),
+				),
+			))
 
 		case field.TypeBool:
-			nodes = append(nodes, Checkbox(CheckboxParams{
-				Name:    f.Name,
-				Label:   admin.FieldLabel(f.Name),
-				Checked: getValue(f.Name) == "true",
-			}))
+			nodes = append(nodes, Div(
+				X.Class("field"),
+				Label(
+					X.Class("inline-flex items-center gap-2"),
+					Input(
+						X.Type("checkbox"),
+						X.Name(f.Name),
+						X.Value("true"),
+						If(getValue(f.Name) == "true", X.Attr("checked")),
+					),
+					admin.FieldLabel(f.Name),
+				),
+			))
 
 		case field.TypeEnum:
-			options := make([]Choice, 0, len(f.Enums)+1)
+			options := make([]HTML, 0, len(f.Enums)+1)
 			if f.Optional {
-				options = append(options, Choice{
-					Label: "-",
-					Value: "",
-				})
+				options = append(options, Option(
+					"-",
+					X.Value(""),
+					If(getValue(f.Name) == "", X.Attr("selected")),
+				))
 			}
+
 			for _, enum := range f.Enums {
-				options = append(options, Choice{
-					Label: enum,
-					Value: enum,
-				})
+				options = append(options, Option(
+					enum,
+					X.Value(enum),
+					If(getValue(f.Name) == enum, X.Attr("selected")),
+				))
 			}
-			nodes = append(nodes, SelectList(OptionsParams{
-				Name:    f.Name,
-				Label:   admin.FieldLabel(f.Name),
-				Value:   getValue(f.Name),
-				Options: options,
-			}))
+
+			nodes = append(nodes, Div(
+				X.Class("field"),
+				X.Role("group"),
+				Label(admin.FieldLabel(f.Name)),
+				Select(
+					X.Name(f.Name),
+					options,
+				),
+			))
 
 		default:
 			nodes = append(nodes, P(fmt.Sprintf("%s not supported", f.Name)))
@@ -109,13 +141,15 @@ func AdminEntity(r *ui.Request, entityType admin.EntityType, values url.Values) 
 	}
 
 	return Form(
+		X.Class("form grid gap-6"),
 		X.Method(http.MethodPost),
 		nodes,
-		ControlGroup(
-			FormButton(ColorPrimary, "Submit"),
-			ButtonLink(
-				ColorNone,
-				r.Path(routenames.AdminEntityList(entityType.GetName())),
+		Div(
+			X.Class("flex flex-col items-center gap-2"),
+			Button(X.Class("btn w-full"), "Submit"),
+			A(
+				X.Href(r.Path(routenames.AdminEntityList(entityType.GetName()))),
+				X.Class("btn-outline btn-destructive w-full"),
 				"Cancel",
 			),
 		),

@@ -74,7 +74,7 @@ func (m *MailClient) send(email *mail, ctx echo.Context) error {
 		return nil
 	}
 
-	// TODO: Finish based on your mail sender of choice or stop logging below!
+	// TODO:(pagoda) Finish based on your mail sender of choice or stop logging below!
 	log.Ctx(ctx).Info("sending email",
 		"to", email.to,
 		"subject", email.subject,
