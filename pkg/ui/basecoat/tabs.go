@@ -56,7 +56,7 @@ func Tabs(params TabsParams) gt.HTML {
 			gt.X.Attr("aria-selected", strconv.FormatBool(isActive)),
 			gt.X.Attr("tabindex", "0"),
 			tabset.TabAttrs,
-			tabset.Tab,
+			normalizeAnyComponent(tabset.Tab),
 		))
 
 		if tabset.Panel == nil {
@@ -71,7 +71,7 @@ func Tabs(params TabsParams) gt.HTML {
 			gt.X.Attr("aria-selected", strconv.FormatBool(isActive)),
 			gt.If(!isActive, gt.X.Attr("hidden", "")),
 			tabset.PanelAttrs,
-			tabset.Panel,
+			normalizeAnyComponent(tabset.Panel),
 		))
 	}
 

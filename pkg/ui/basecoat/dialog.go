@@ -51,7 +51,7 @@ func Dialog(params DialogParams) gt.HTML {
 					gt.X.Type("button"),
 					gt.X.Attr("onclick", fmt.Sprintf("document.getElementById('%s').showModal()", id)),
 					params.TriggerAttrs,
-					params.Trigger,
+					normalizeAnyComponent(params.Trigger),
 				)
 			},
 		),

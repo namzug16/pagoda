@@ -11,7 +11,7 @@ type SidebarItem struct {
 	Type    string
 	ID      string
 	Label   any
-	Icon    any
+	Icon    gt.HTML
 	URL     string
 	Current bool
 	Open    bool
@@ -79,7 +79,7 @@ func Sidebar(params SidebarParams) gt.HTML {
 				gt.Header(
 					gt.X.Class(params.HeaderExtraClasses),
 					params.HeaderAttrs,
-					params.Header,
+					normalizeAnyComponent(params.Header),
 				),
 			),
 			gt.Section(
@@ -92,7 +92,7 @@ func Sidebar(params SidebarParams) gt.HTML {
 				gt.Footer(
 					gt.X.Class(params.FooterExtraClasses),
 					params.FooterAttrs,
-					params.Footer,
+					normalizeAnyComponent(params.Footer),
 				),
 			),
 		),
@@ -125,7 +125,7 @@ func renderSidebarContent(items []SidebarItem, parentIDPrefix string) gt.HTML {
 					hasSidebarLabel(item.Label),
 					gt.H3(
 						gt.X.Id(groupLabelID),
-						item.Label,
+						normalizeAnyComponent(item.Label),
 					),
 				),
 				gt.Ul(groupItems),
@@ -148,8 +148,8 @@ func renderSidebarContent(items []SidebarItem, parentIDPrefix string) gt.HTML {
 					item.Attrs,
 					gt.Summary(
 						gt.X.Attr("aria-controls", submenuContentID),
-						item.Icon,
-						item.Label,
+						normalizeAnyComponent(item.Icon),
+						normalizeAnyComponent(item.Label),
 					),
 					gt.Ul(
 						gt.X.Id(submenuContentID),
@@ -163,8 +163,8 @@ func renderSidebarContent(items []SidebarItem, parentIDPrefix string) gt.HTML {
 					gt.If(item.URL != "", gt.X.Href(item.URL)),
 					gt.If(item.Current, gt.X.Attr("aria-current", "page")),
 					item.Attrs,
-					item.Icon,
-					gt.Span(item.Label),
+					normalizeAnyComponent(item.Icon),
+					gt.Span(normalizeAnyComponent(item.Label)),
 				),
 			))
 		}

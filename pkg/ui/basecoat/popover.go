@@ -38,7 +38,7 @@ func Popover(params PopoverParams) gt.HTML {
 			gt.X.Attr("aria-controls", id+"-popover"),
 			gt.X.Class(params.TriggerExtraClasses),
 			params.TriggerAttrs,
-			params.Trigger,
+			normalizeAnyComponent(params.Trigger),
 		),
 		gt.Div(
 			gt.X.Id(id+"-popover"),

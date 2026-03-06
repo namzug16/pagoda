@@ -14,7 +14,7 @@ type CommandItem struct {
 	Type     string
 	ID       string
 	Label    any
-	Icon     any
+	Icon     gt.HTML
 	URL      string
 	Keywords string
 	Disabled bool
@@ -217,7 +217,7 @@ func renderCommandItems(items []CommandItem, parentIDPrefix string) gt.HTML {
 				gt.Span(
 					gt.X.Attr("role", "heading"),
 					gt.X.Id(groupLabelID),
-					item.Label,
+					normalizeAnyComponent(item.Label),
 				),
 				groupItems,
 			))
@@ -232,8 +232,8 @@ func renderCommandItems(items []CommandItem, parentIDPrefix string) gt.HTML {
 					gt.If(item.Keywords != "", gt.X.Attr("data-keywords", item.Keywords)),
 					gt.If(item.Disabled, gt.X.Attr("aria-disabled", "true")),
 					item.Attrs,
-					item.Icon,
-					item.Label,
+					normalizeAnyComponent(item.Icon),
+					normalizeAnyComponent(item.Label),
 				))
 				continue
 			}
@@ -244,8 +244,8 @@ func renderCommandItems(items []CommandItem, parentIDPrefix string) gt.HTML {
 				gt.If(item.Keywords != "", gt.X.Attr("data-keywords", item.Keywords)),
 				gt.If(item.Disabled, gt.X.Attr("aria-disabled", "true")),
 				item.Attrs,
-				item.Icon,
-				item.Label,
+				normalizeAnyComponent(item.Icon),
+				normalizeAnyComponent(item.Label),
 			))
 		}
 	}

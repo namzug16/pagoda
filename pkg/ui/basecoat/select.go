@@ -227,7 +227,7 @@ func renderSelectItems(items []SelectItem, selectedSet map[string]struct{}, pare
 				gt.Div(
 					gt.X.Attr("role", "heading"),
 					gt.X.Id(groupLabelID),
-					item.Label,
+					normalizeAnyComponent(item.Label),
 				),
 				groupItems,
 			))
@@ -240,7 +240,7 @@ func renderSelectItems(items []SelectItem, selectedSet map[string]struct{}, pare
 				gt.If(item.Value != "", gt.X.Attr("data-value", item.Value)),
 				gt.If(isSelected(selectedSet, item.Value), gt.X.Attr("aria-selected", "true")),
 				item.Attrs,
-				item.Label,
+				normalizeAnyComponent(item.Label),
 			))
 		}
 	}
