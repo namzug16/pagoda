@@ -34,7 +34,18 @@ func html() HTML {
 				}),
 			),
 		),
-		//FIX: we missing: on this page...
+		Div(
+			X.Class("text-sm w-full max-w-[200px] shrink-0"),
+			Nav(
+				X.Class("sticky top-22 max-h-[calc(100vh-6rem)] overflow-y-auto scrollbar pr-2 space-y-2 [&_ul]:m-0 [&_ul]:list-none [&_ul_ul]:pl-4 [&_li]:mt-0 [&_li]:pt-2 [&_a]:inline-block [&_a]:no-underline [&_a]:transition-colors [&_a]:hover:text-foreground [&_a]:text-muted-foreground"),
+				H4(X.Class("font-medium"), "On This Page"),
+				Ul(
+					Range(sections, func(i int, s section) HTML {
+						return Li(A(X.Href("#"+sectionID(s.name)), s.name))
+					}),
+				),
+			),
+		),
 	)
 }
 
@@ -76,7 +87,7 @@ var sections = []section{
 
 func _section(s section) HTML {
 	return Section(
-		X.Id(strings.ToLower(s.name)),
+		X.Id(sectionID(s.name)),
 		X.Class("w-full rounded-lg border scroll-mt-14"),
 		Header(
 			X.Class("border-b px-4 py-3 flex items-center justify-between"),
@@ -91,6 +102,10 @@ func _section(s section) HTML {
 		),
 		s.content,
 	)
+}
+
+func sectionID(name string) string {
+	return strings.ReplaceAll(strings.ToLower(name), " ", "-")
 }
 
 func _accordionSection() HTML {

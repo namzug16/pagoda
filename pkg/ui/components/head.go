@@ -12,6 +12,31 @@ func JS() []HTML {
 		Script(X.Src("https://unpkg.com/htmx.org@2.0.0/dist/htmx.min.js"), X.Defer()),
 		Script(X.Src("https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"), X.Defer()),
 		Script(X.Src(ui.StaticFile("js/basecoat.all.min.js")), X.Defer()),
+		Script(
+			Raw(`
+    (() => {
+      try {
+        const stored = localStorage.getItem('themeMode');
+        if (stored ? stored === 'dark'
+                   : matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (_) {}
+
+      const apply = dark => {
+        document.documentElement.classList.toggle('dark', dark);
+        try { localStorage.setItem('themeMode', dark ? 'dark' : 'light'); } catch (_) {}
+      };
+
+      document.addEventListener('basecoat:theme', (event) => {
+        const mode = event.detail?.mode;
+        apply(mode === 'dark' ? true
+             : mode === 'light' ? false
+             : !document.documentElement.classList.contains('dark'));
+      });
+    })();
+		`),
+		),
 	}
 }
 

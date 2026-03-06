@@ -14,6 +14,7 @@ import (
 
 func Primary(r *ui.Request, content HTML) HTML {
 	return Doc(
+		X.Class("dark"),
 		Head(
 			Metatags(r),
 			CSS(),
@@ -24,10 +25,49 @@ func Primary(r *ui.Request, content HTML) HTML {
 			sidebarMenu(r),
 			Main(
 				X.Id("content"),
-				X.Class("flex flex-col p-7 prose-base"),
-				If(len(r.Title) > 0, H1(r.Title)),
-				FlashMessages(r),
-				content,
+				X.Class("flex flex-col"),
+				Header(
+					X.Class("bg-background sticky inset-x-0 top-0 isolate flex shrink-0 items-center gap-2 border-b z-10"),
+					Div(
+						X.Class("flex h-14 w-full items-center gap-2 px-4"),
+						Button(
+							X.Type("button"),
+							X.Attr("onclick", "document.dispatchEvent(new CustomEvent('basecoat:sidebar'))"),
+							X.Attr("aria-label", "Toggle sidebar"),
+							X.Attr("data-tooltip", "Toggle sidebar"),
+							X.Attr("data-side", "bottom"),
+							X.Attr("data-align", "start"),
+							X.Class("btn-sm-icon-ghost mr-auto size-7 -ml-1.5"),
+							lucide.PanelLeft(),
+						),
+						Button(
+							X.Type("button"),
+							X.Attr("aria-label", "Toggle dark mode"),
+							X.Attr("data-tooltip", "Toggle dark mode"),
+							X.Attr("data-side", "bottom"),
+							X.Attr("onclick", "document.dispatchEvent(new CustomEvent('basecoat:theme'))"),
+							X.Class("btn-icon-outline size-8"),
+							Span(X.Class("hidden dark:block"), lucide.Sun()),
+							Span(X.Class("block dark:hidden"), lucide.Moon()),
+						),
+						A(
+							X.Href("https://github.com/hunvreus/basecoat"),
+							X.Class("btn-icon size-8"),
+							X.Target("_blank"),
+							X.Rel("noopener noreferrer"),
+							X.Attr("data-tooltip", "GitHub repository"),
+							X.Attr("data-side", "bottom"),
+							X.Attr("data-align", "end"),
+							lucide.Github(),
+						),
+					),
+				),
+				Div(
+					X.Class("p-7 prose-base"),
+					If(len(r.Title) > 0, H1(r.Title)),
+					FlashMessages(r),
+					content,
+				),
 			),
 			basecoat.Toaster(basecoat.ToasterParams{ID: "toaster"}),
 			searchModal(r),
@@ -111,7 +151,7 @@ func sidebarMenu(r *ui.Request) HTML {
 			)
 		}
 
-		return Fragment(
+		entries := []HTML{
 			Li(
 				A(
 					X.Href(r.Path(routenames.AdminTasks)),
@@ -120,8 +160,10 @@ func sidebarMenu(r *ui.Request) HTML {
 					X.Target("_blank"),
 				),
 			),
-			entityTypeLinks,
-		)
+		}
+		entries = append(entries, entityTypeLinks...)
+
+		return Fragment(entries)
 	}
 
 	group := func(id, title string, items []HTML) HTML {
@@ -243,7 +285,7 @@ func sidebarMenu(r *ui.Request) HTML {
 					),
 					Div(
 						X.Class("grid flex-1 text-left text-sm leading-tight"),
-						Span(X.Class("truncate font-medium"), Text("Pagoda")),
+						Span(X.Class("truncate font-medium"), Text("Pagoda+")),
 						Span(X.Class("truncate text-xs"), Text("v0.3.11")),
 					),
 				),
