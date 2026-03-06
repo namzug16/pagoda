@@ -12,7 +12,7 @@ type DropdownMenuItem struct {
 	Type  string
 	ID    string
 	Label any
-	Icon  any
+	Icon  gt.HTML
 	URL   string
 	Items []DropdownMenuItem
 	Attrs []gt.HTML
@@ -58,7 +58,7 @@ func DropdownMenu(params DropdownMenuParams) gt.HTML {
 			gt.X.Attr("aria-expanded", "false"),
 			gt.X.Class(params.TriggerExtraClasses),
 			params.TriggerAttrs,
-			params.Trigger,
+			normalizeAnyComponent(params.Trigger),
 		),
 		gt.Div(
 			gt.X.Id(id+"-popover"),
@@ -103,7 +103,7 @@ func renderDropdownMenuItems(items []DropdownMenuItem, parentIDPrefix string) gt
 				gt.Div(
 					gt.X.Attr("role", "heading"),
 					gt.X.Id(groupLabelID),
-					item.Label,
+					normalizeAnyComponent(item.Label),
 				),
 				groupItems,
 			))
@@ -116,8 +116,8 @@ func renderDropdownMenuItems(items []DropdownMenuItem, parentIDPrefix string) gt
 					gt.X.Attr("role", "menuitem"),
 					gt.X.Href(item.URL),
 					item.Attrs,
-					item.Icon,
-					item.Label,
+					normalizeAnyComponent(item.Icon),
+					normalizeAnyComponent(item.Label),
 				))
 				continue
 			}
@@ -126,8 +126,8 @@ func renderDropdownMenuItems(items []DropdownMenuItem, parentIDPrefix string) gt
 				gt.X.Id(itemID),
 				gt.X.Attr("role", "menuitem"),
 				item.Attrs,
-				item.Icon,
-				item.Label,
+				normalizeAnyComponent(item.Icon),
+				normalizeAnyComponent(item.Label),
 			))
 		}
 	}
