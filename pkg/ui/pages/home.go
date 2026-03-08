@@ -4,9 +4,8 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/mikestefanello/pagoda/pkg/routenames"
 	"github.com/mikestefanello/pagoda/pkg/ui"
-	. "github.com/mikestefanello/pagoda/pkg/ui/components"
-	"github.com/mikestefanello/pagoda/pkg/ui/icons"
 	"github.com/mikestefanello/pagoda/pkg/ui/layouts"
+	"github.com/mikestefanello/pagoda/pkg/ui/lucide"
 	"github.com/mikestefanello/pagoda/pkg/ui/models"
 	. "github.com/namzug16/gotags"
 )
@@ -33,73 +32,121 @@ func Home(ctx echo.Context, posts *models.Posts) error {
 	//    You could have a separate route that is only for fetching posts while paging, and that would render only
 	//    that partial HTML, which HTMX would then use to inject in to this page.
 
-	headerMsg := func() HTML {
-		return Fragment(
-			Stats(
-				Stat{
-					Title: "User name",
-					Value: func() string {
-						if r.IsAuth {
-							return r.AuthUser.Name
-						}
-						return "(not logged in)"
-					}(),
-					Description: "The logged in user's name",
-					Icon:        icons.UserCircle(),
-				},
-				Stat{
-					Title: "Admin status",
-					Value: func() string {
-						if r.IsAdmin {
-							return "Administrator"
-						}
-						return "Non-administrator"
-					}(),
-					Description: "Use `make admin` to create an admin account",
-					Icon:        icons.LockClosed(),
-				},
-				Stat{
-					Title:       "GitHub Stars",
-					Value:       "2,500+",
-					Description: "Star if you like Pagoda",
-					Icon:        icons.Star(),
-				},
+	html := Div(
+		X.Class("flex flex-col gap-4 w-full"),
+		If(
+			r.Htmx.Target != "posts",
+			Div(
+				X.Class("grid grid-cols-1 md:grid-cols-3 gap-4"),
+				Div(
+					X.Class("card w-full"),
+					Header(
+						P("User name"),
+						Div(
+							X.Class("flex flex-row items-center justify-between"),
+							H2(
+								X.Class("text-2xl font-semibold tabular-nums @[250px]/card:text-3xl"),
+								func() string {
+									if r.IsAuth {
+										return r.AuthUser.Name
+									}
+									return "(not logged in)"
+								}(),
+							),
+							lucide.CircleUser(),
+						),
+					),
+					Footer(
+						X.Class("text-sm"),
+						P(
+							X.Class("text-muted-foreground"),
+							"Trending up this month",
+						),
+					),
+				),
+				Div(
+					X.Class("card w-full"),
+					Header(
+						P("Admin status"),
+						Div(
+							X.Class("flex flex-row gap-0.5 items-center justify-between"),
+							H2(
+								X.Class("text-2xl font-semibold tabular-nums @[250px]/card:text-3xl"),
+								func() string {
+									if r.IsAdmin {
+										return "Administrator"
+									}
+									return "Non-administrator"
+								}(),
+							),
+							lucide.Lock(),
+						),
+					),
+					Footer(
+						X.Class("text-sm"),
+						P(
+							X.Class("text-muted-foreground"),
+							"Use `make admin` to create an admin account",
+						),
+					),
+				),
+				Div(
+					X.Class("card w-full"),
+					Header(
+						P("Github Stars"),
+						Div(
+							X.Class("flex flex-row gap-0.5 items-center justify-between"),
+							H2(
+								X.Class("text-2xl font-semibold tabular-nums @[250px]/card:text-3xl"),
+								"2,500+",
+							),
+							lucide.Star(),
+						),
+					),
+					Footer(
+						X.Class("text-sm"),
+						P(
+							X.Class("text-muted-foreground"),
+							"Star if you like Pagoda",
+						),
+					),
+				),
 			),
-			H2("Recent posts"),
-			Text("Below is an example of both paging and AJAX fetching using HTMX"),
-		)
-	}
-
-	cards := func() HTML {
-		return Div(
-			X.Class("flex w-full gap-2 mt-5"),
-			Card(CardParams{
-				Title: "Serving files",
-				Body: []HTML{
-					Text("In the example posts above, check how the file URL contains a cache-buster query parameter which changes only when the app is restarted. "),
-					Text("Static files also contain cache-control headers which are configured via middleware."),
-				},
-				Color: ColorWarning,
-				Size:  SizeSmall,
-			}),
-			Card(CardParams{
-				Title: "Documentation",
-				Body: []HTML{
-					Text("Have you read through the entire documentation? If not, you may be missing functionality or have questions. "),
-				},
-				Footer: []HTML{
-					ButtonLink(ColorNeutral, "https://github.com/mikestefanello/pagoda?tab=readme-ov-file#table-of-contents", "Learn more"),
-				},
-				Color: ColorNeutral,
-				Size:  SizeSmall,
-			}),
-		)
-	}
-
-	html := Fragment(
-		If(r.Htmx.Target != "posts", headerMsg()),
+			Div(
+				H2(X.Class("text-xl mb-2"), "Recent posts"),
+				P("Below is an example of both paging and AJAX fetching using HTMX"),
+			),
+		),
 		posts.Render(r.Path(routenames.Home)),
-		If(r.Htmx.Target != "posts", cards()),
+		If(
+			r.Htmx.Target != "posts",
+			Div(
+				X.Class("grid grid-cols-1 md:grid-cols-3 gap-4"),
+				Div(
+					X.Class("col-span-2 card"),
+					Header(
+						H2("Serving files"),
+						P("In the example posts above, check how the file URL contains a cache-buster query parameter which changes only when the app is restarted. "),
+						P("Static files also contain cache-control headers which are configured via middleware."),
+					),
+				),
+				Div(
+					X.Class("card"),
+					Header(
+						H2("Documentation"),
+						P("Have you read through the entire documentation? If not, you may be missing functionality or have questions. "),
+					),
+					Footer(
+						X.Class("flex justify-end"),
+						A(
+							X.Href("https://github.com/mikestefanello/pagoda?tab=readme-ov-file#table-of-contents"),
+							X.Class("btn-link"),
+							"Learn more",
+						),
+					),
+				),
+			),
+		),
 	)
 
 	return r.Render(layouts.Primary, html)

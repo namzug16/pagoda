@@ -5,6 +5,7 @@ import (
 
 	"github.com/mikestefanello/pagoda/pkg/pager"
 	"github.com/mikestefanello/pagoda/pkg/ui"
+	"github.com/mikestefanello/pagoda/pkg/ui/lucide"
 	. "github.com/namzug16/gotags"
 )
 
@@ -35,9 +36,9 @@ func Pager(page int, path string, hasNext bool, hxTarget string) HTML {
 	}
 
 	return Div(
-		X.Class("join"),
+		X.Class("w-full flex flex-row justify-center gap-1"),
 		A(
-			X.Class("join-item btn"),
+			X.Class("btn-ghost"),
 			If(page <= 1, X.Disabled()),
 			X.Href(href(page-1)),
 			If(
@@ -46,22 +47,22 @@ func Pager(page int, path string, hasNext bool, hxTarget string) HTML {
 				X.Attr("hx-swap", "outerHTML"),
 				X.Attr("hx-target", hxTarget),
 			),
-			"«",
+			lucide.ChevronLeft(),
 		),
 		Button(
-			X.Class("join-item btn"),
+			X.Class("btn-outline"),
 			fmt.Sprintf("Page %d", page),
 		),
 		A(
-			X.Class("join-item btn"),
-			"»",
-			If(!hasNext, X.Disabled()),
 			X.Href(href(page+1)),
+			X.Class("btn-ghost"),
+			If(!hasNext, X.Disabled()),
 			If(len(hxTarget) > 0,
 				X.Attr("hx-get", href(page+1)),
 				X.Attr("hx-swap", "outerHTML"),
 				X.Attr("hx-target", hxTarget),
 			),
+			lucide.ChevronRight(),
 		),
 	)
 }

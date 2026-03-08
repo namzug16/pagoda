@@ -22,30 +22,38 @@ type (
 )
 
 func (p *Posts) Render(path string) HTML {
-	g := make([]HTML, len(p.Posts))
+	g := make([]HTML, 0)
 	for i, post := range p.Posts {
-		g[i] = post.Render()
+		g = append(g, post.Render())
+		if i < len(p.Posts)-1 {
+			g = append(g, Separator())
+		}
 	}
 
 	return Div(
 		X.Id("posts"),
+		X.Class("grid gap-4"),
 		Ul(
-			X.Class("list bg-base-100 rounded-box shadow-md not-prose"),
+			X.Class("flex flex-col gap-3"),
 			g,
 		),
-		Div(X.Class("mb-4")),
 		Pager(p.Pager.Page, path, !p.Pager.IsEnd(), "#posts"),
 	)
 }
 
+func Separator() HTML {
+	return Div(X.Class("h-px w-full bg-border"))
+}
+
 func (p *Post) Render() HTML {
 	return Li(
-		X.Class("list-row"),
+		X.Class("flex flex-row gap-2 items-center"),
 		Div(
 			X.Class("text-4xl font-thin opacity-30 tabular-nums"),
 			fmt.Sprintf("%02d", p.ID),
 		),
 		Div(
+			X.Class("min-w-10 min-h-10"),
 			Img(
 				X.Class("size-10 rounded-box"),
 				X.Src(ui.StaticFile("gopher.png")),
